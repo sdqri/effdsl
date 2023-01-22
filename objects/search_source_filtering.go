@@ -1,0 +1,43 @@
+package objects
+
+import "encoding/json"
+
+type SourceFilterS struct {
+	Includes []string `json:"includes,ommitempty"`
+	Excludes []string `json:"excludes,ommitempty"`
+}
+
+func (sf SourceFilterS) MarshalJSON() ([]byte, error) {
+	type SourceFilterAlias SourceFilterS
+	return json.Marshal((SourceFilterAlias)(sf))
+}
+
+type SourceFitlerOption func(*SourceFilterS)
+
+func (f DefineType) WithIncludes(fields ...string) SourceFitlerOption {
+	return func(sf *SourceFilterS) {
+		if sf.Includes == nil {
+			sf.Includes = fields
+		} else {
+			sf.Includes = append(sf.Includes, fields...)
+		}
+	}
+}
+
+func (f DefineType) WithExcludes(fields ...string) SourceFitlerOption {
+	return func(sf *SourceFilterS) {
+		if sf.Excludes == nil {
+			sf.Excludes = fields
+		} else {
+			sf.Excludes = append(sf.Excludes, fields...)
+		}
+	}
+}
+
+func SourceFilter(opts ...SourceFitlerOption) SourceFilterS {
+	sourceFilter := SourceFilterS{}
+	for _, opt := range opts {
+		opt(&sourceFilter)
+	}
+	return sourceFilter
+}
