@@ -37,7 +37,7 @@
 - [ ] Highlighting
 - [ ] Long-running searches
 - [ ] Near real-time search
-- [ ] Paginate search results
+- [x] Paginate search results (Supported methods: Simple paginatino)
 - [ ] Retrieve inner hits
 - [x] Retrieve selected fields (Supported methods: Source filtering)
 - [ ] Search across clusters

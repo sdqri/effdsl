@@ -55,6 +55,7 @@ func TestDefindeQ1(t *testing.T) {
 			  "field4"
 		   ]
 		},
+		"size":10,
 		"query":{
 		   "bool":{
 			  "must":[
@@ -165,6 +166,7 @@ func TestDefindeQ1(t *testing.T) {
 			objs.D.WithIncludes("field1", "field2"),
 			objs.D.WithExcludes("field2", "field4"),
 		),
+		objs.D.WithPaginate(0, 10),
 		objs.D.WithQuery(
 			objs.D.BoolQuery(
 				objs.D.Must(

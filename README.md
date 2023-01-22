@@ -38,6 +38,7 @@ body, err := effdsl.Define(
 		effdsl.D.WithIncludes("field1", "field2"),
 		effdsl.D.WithExcludes("field3", "field4"),
 	),
+	effdsl.D.WithPaginate(2, 100),
 	effdsl.D.WithQuery(
 		effdsl.D.BoolQuery(
 			effdsl.D.Must(
@@ -78,6 +79,8 @@ The code above constructs the query below :
          "field4"
       ]
    },
+   "from":2,
+   "size":100,
    "query":{
       "bool":{
          "must":[

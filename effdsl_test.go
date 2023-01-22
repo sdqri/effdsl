@@ -23,6 +23,8 @@ func TestDefindeQ1(t *testing.T) {
 			  "field4"
 		   ]
 		},
+		"from":2,
+		"size":100,
 		"query":{
 		   "bool":{
 			  "must":[
@@ -100,6 +102,7 @@ func TestDefindeQ1(t *testing.T) {
 			effdsl.D.WithIncludes("field1", "field2"),
 			effdsl.D.WithExcludes("field3", "field4"),
 		),
+		effdsl.D.WithPaginate(2, 100),
 		effdsl.D.WithQuery(
 			effdsl.D.BoolQuery(
 				effdsl.D.Must(
