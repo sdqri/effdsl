@@ -13,88 +13,84 @@ import (
 func TestDefindeQ1(t *testing.T) {
 	expectedBody := `
 	{
-		{
-			"_source":{
-			   "includes":[
-				  "field1",
-				  "field2"
-			   ],
-			   "excludes":[
-				  "field3",
-				  "field4"
-			   ]
-			},
-			"query":{
-			   "bool":{
-				  "must":[
-					 {
-						"query_string":{
-						   "query":"value1",
-						   "fields":[
-							  "title",
-							  "description",
-							  "content"
-						   ]
-						}
-					 }
-				  ],
-				  "filter":[
-					 {
-						"range":{
-						   "published_at":{
-							  "gt":"now-24h"
-						   }
-						}
-					 },
-					 {
-						"term":{
-						   "field5.keyword":{
-							  "value":"value2"
-						   }
-						}
-					 },
-					 {
-						"exists":{
-						   "field":"field6"
-						}
-					 }
-				  ],
-				  "must_not":[
-					 {
-						"query_string":{
-						   "query":"value3",
-						   "fields":[
-							  "title",
-							  "description",
-							  "content"
-						   ]
-						}
-					 }
-				  ],
-				  "should":[
-					 {
-						"query_string":{
-						   "query":"value4",
-						   "fields":[
-							  "title",
-							  "description",
-							  "content"
-						   ]
-						}
-					 }
-				  ]
-			   }
-			},
-			"sort":[
-			   {
-				  "field1":"desc"
-			   },
-			   "_score"
-			],
-			"collapse":{
-			   "field":"field7"
-			}
-		 }
+		"_source":{
+		   "includes":[
+			  "field1",
+			  "field2"
+		   ],
+		   "excludes":[
+			  "field3",
+			  "field4"
+		   ]
+		},
+		"query":{
+		   "bool":{
+			  "must":[
+				 {
+					"query_string":{
+					   "query":"value1",
+					   "fields":[
+						  "title",
+						  "content"
+					   ]
+					}
+				 }
+			  ],
+			  "filter":[
+				 {
+					"range":{
+					   "published_at":{
+						  "gt":"now-24h"
+					   }
+					}
+				 },
+				 {
+					"term":{
+					   "field5.keyword":{
+						  "value":"value2"
+					   }
+					}
+				 },
+				 {
+					"exists":{
+					   "field":"field6"
+					}
+				 }
+			  ],
+			  "must_not":[
+				 {
+					"query_string":{
+					   "query":"value3",
+					   "fields":[
+						  "title",
+						  "content"
+					   ]
+					}
+				 }
+			  ],
+			  "should":[
+				 {
+					"query_string":{
+					   "query":"value4",
+					   "fields":[
+						  "title",
+						  "content"
+					   ]
+					}
+				 }
+			  ]
+		   }
+		},
+		"sort":[
+		   {
+			  "field1":"desc"
+		   },
+		   "_score"
+		],
+		"collapse":{
+		   "field":"field7"
+		}
+	 }
 	`
 	expectedBody = strings.ReplaceAll(expectedBody, " ", "")
 	expectedBody = strings.ReplaceAll(expectedBody, "\t", "")
@@ -107,7 +103,7 @@ func TestDefindeQ1(t *testing.T) {
 		effdsl.D.WithQuery(
 			effdsl.D.BoolQuery(
 				effdsl.D.Must(
-					effdsl.D.QueryString("value1", effdsl.D.WithFields("title", "description", "content")),
+					effdsl.D.QueryString("value1", effdsl.D.WithFields("title", "content")),
 				),
 				effdsl.D.Filter(
 					effdsl.D.RangeQuery("published_at", effdsl.D.WithGT("now-24h")),
@@ -115,10 +111,10 @@ func TestDefindeQ1(t *testing.T) {
 					effdsl.D.ExistsQuery("field6"),
 				),
 				effdsl.D.MustNot(
-					effdsl.D.QueryString("value3", effdsl.D.WithFields("title", "description", "content")),
+					effdsl.D.QueryString("value3", effdsl.D.WithFields("title", "content")),
 				),
 				effdsl.D.Should(
-					effdsl.D.QueryString("value4", effdsl.D.WithFields("title", "description", "content")),
+					effdsl.D.QueryString("value4", effdsl.D.WithFields("title", "content")),
 				),
 			),
 		),
