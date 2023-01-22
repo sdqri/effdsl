@@ -76,6 +76,8 @@ type SortClauseResult struct {
 	Err error
 }
 
+// Allows you to add one or more sorts on specific fields. Each sort can be reversed as well. The sort is defined on a per field level, with special field name for _score to sort by score, and _doc to sort by index order.
+// [Sort search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#sort-search-results
 func (f DefineType) WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 	sortClauses := make([]SortClauseType, 0)
 	for _, scr := range sortClauseResults {
@@ -100,6 +102,8 @@ func (f DefineType) WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 //                                       Collapse                                       //
 //--------------------------------------------------------------------------------------//
 
+// You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key.
+// [Collapse search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
 func (f DefineType) WithCollpse(field string) BodyOption {
 	searchCollapse := Collapse(field)
 	return func(sb *SearchBody) error {
@@ -112,6 +116,9 @@ func (f DefineType) WithCollpse(field string) BodyOption {
 //                                   Source filtering                                   //
 //--------------------------------------------------------------------------------------//
 
+// You can use the _source parameter to select what fields of the source are returned. This is called source filtering.
+//The following search API request sets the _source request body parameter to false. The document source is not included in the response.
+// [Source filtering]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html#source-filtering
 func (f DefineType) WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
 	sourceFilter := SourceFilter(opts...)
 	return func(sb *SearchBody) error {

@@ -33,6 +33,8 @@ func (f DefineType) WithBoost(boost float64) TermQueryOption {
 	}
 }
 
+// Returns documents that contain an exact term in a provided field.
+// [Term query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
 func (f DefineType) TermQuery(field string, value string, opts ...TermQueryOption) QueryResult {
 	termQuery := TermQueryS{
 		Field: field,

@@ -33,7 +33,7 @@ An example query :
 ```go
 import "github.com/sdqri/effdsl"
 
-body, err := effdsl.D(
+body, err := effdsl.Define(
 	effdsl.D.WithSourceFilter(
 		effdsl.D.WithIncludes("field1", "field2"),
 		effdsl.D.WithExcludes("field3", "field4"),

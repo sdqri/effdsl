@@ -28,6 +28,8 @@ func (f DefineType) WithFields(fields ...string) QueryStringOption {
 	}
 }
 
+// Returns documents based on a provided query string, using a parser with a strict syntax
+// [Query string query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
 func (f DefineType) QueryString(query string, opts ...QueryStringOption) QueryResult {
 	queryString := QueryStringS{
 		Query: query,

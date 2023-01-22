@@ -61,6 +61,8 @@ func (f DefineType) WithFormat(format string) RangeQueryOption {
 	}
 }
 
+// Returns documents that contain terms within a provided range.
+// [Range query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html
 func (f DefineType) RangeQuery(field string, opts ...RangeQueryOption) QueryResult {
 	rangeQuery := RangeQueryS{
 		Field: field,
