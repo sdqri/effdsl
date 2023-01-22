@@ -1,5 +1,7 @@
 # effdsl
 
+[![GoDoc](https://pkg.go.dev/badge/github.com/sdqri/effdsl?status.svg)](https://pkg.go.dev/github.com/sdqri/effdsl?tab=doc)
+
 Functional Elasticsearch DSL for Golang!
 
 Check supported features [here](FEATURES.md).
