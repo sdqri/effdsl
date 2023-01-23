@@ -37,7 +37,7 @@
 - [ ] Highlighting
 - [ ] Long-running searches
 - [ ] Near real-time search
-- [x] Paginate search results (Supported methods: Simple paginatino)
+- [x] Paginate search results (Supported methods: Simple paginating, Search after)
 - [ ] Retrieve inner hits
 - [x] Retrieve selected fields (Supported methods: Source filtering)
 - [ ] Search across clusters
@@ -46,3 +46,7 @@
 - [ ] Search templates
 - [x] Sort search results (Suppoerted Parameters : value, order)
 - [ ] kNN search
+
+### Search APIs:
+
+- [x] Point in time

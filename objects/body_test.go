@@ -42,6 +42,26 @@ func TestWithCollapse(t *testing.T) {
 	assert.Equal(t, expectedBody, string(jsonBody))
 }
 
+func TestWithSearchAfter(t *testing.T) {
+	expectedBody := `{"search_after":["2021-05-20T05:30:04.832Z",4294967298]}`
+	f := objs.D.WithSearchAfter("2021-05-20T05:30:04.832Z", 4294967298)
+	body := objs.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithPIT(t *testing.T) {
+	expectedBody := `{"pit":{"id":"test_id","keep_alive":"1m"}}`
+	f := objs.D.WithPIT("test_id", "1m")
+	body := objs.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
 func TestDefindeQ1(t *testing.T) {
 	expectedBody := `
 	{

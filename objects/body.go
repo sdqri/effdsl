@@ -12,15 +12,31 @@ func (m M) MarshalJSON() ([]byte, error) {
 }
 
 type SearchBody struct {
-	Source   json.Marshaler   `json:"_source,omitempty"`
-	From     uint64           `json:"from,omitempty"`
-	Size     uint64           `json:"size,omitempty"`
-	Query    Query            `json:"query,omitempty"`
-	Sort     []SortClauseType `json:"sort,omitempty"`
-	Collapse json.Marshaler   `json:"collapse,omitempty"`
+	Source      json.Marshaler   `json:"_source,omitempty"`
+	From        uint64           `json:"from,omitempty"`
+	Size        uint64           `json:"size,omitempty"`
+	Query       Query            `json:"query,omitempty"`
+	Sort        []SortClauseType `json:"sort,omitempty"`
+	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
+	Collapse    json.Marshaler   `json:"collapse,omitempty"`
+	PIT         json.Marshaler   `json:"pit,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
+
+//--------------------------------------------------------------------------------------//
+//                                    Point in time                                     //
+//--------------------------------------------------------------------------------------//
+
+// A search request by default executes against the most recent visible data of the target indices, which is called point in time. Elasticsearch pit (point in time) is a lightweight view into the state of the data as it existed when initiated. In some cases, it’s preferred to perform multiple search requests using the same point in time. For example, if refreshes happen between search_after requests, then the results of those requests might not be consistent as changes happening between searches are only visible to the more recent point in time.
+// [Point in time]: https://www.elastic.co/guide/en/elasticsearch/reference/current/point-in-time-api.html
+func (f DefineType) WithPIT(id string, keepAlive string) BodyOption {
+	pit := PIT(id, keepAlive)
+	return func(sb *SearchBody) error {
+		sb.PIT = pit
+		return nil
+	}
+}
 
 //--------------------------------------------------------------------------------------//
 //                                       Paginate                                       //
@@ -33,6 +49,29 @@ func (f DefineType) WithPaginate(from uint64, size uint64) BodyOption {
 		sb.From = from
 		sb.Size = size
 		return nil
+	}
+}
+
+type SearchAfterType interface {
+	SearchAfterInfo() string
+	json.Marshaler
+}
+
+type SearchAfterResult struct {
+	Ok  SearchAfterType
+	Err error
+}
+
+// By default, you cannot use from and size to page through more than 10,000 hits. This limit is a safeguard set by the index.max_result_window index setting. If you need to page through more than 10,000 hits, use the search_after parameter instead.
+// You can use the search_after parameter to retrieve the next page of hits using a set of sort values from the previous page.
+// [Search after]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
+func (f DefineType) WithSearchAfter(sortValues ...any) BodyOption {
+	SearchAfterResult := SearchAfter(sortValues...)
+	searchAfter := SearchAfterResult.Ok
+	err := SearchAfterResult.Err
+	return func(sb *SearchBody) error {
+		sb.SearchAfter = searchAfter
+		return err
 	}
 }
 
