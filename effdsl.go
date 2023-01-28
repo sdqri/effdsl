@@ -5,23 +5,26 @@ import (
 )
 
 //--------------------------------------------------------------------------------------//
-//                                      functions                                       //
+//                                    Type aliasing                                     //
 //--------------------------------------------------------------------------------------//
 
-type BodyOption func(*objs.SearchBody) error
+type (
+	M                  = objs.M
+	SearchBody         = objs.SearchBody
+	BodyOption         = objs.BodyOption
+	QueryResult        = objs.QueryResult
+	SortClauseResult   = objs.SortClauseResult
+	SourceFitlerOption = objs.SourceFitlerOption
+	D                  = objs.DefineType
+)
 
-func Define(opts ...BodyOption) (body *objs.SearchBody, err error) {
-	body = new(objs.SearchBody)
-	for _, opt := range opts {
-		err = opt(body)
-		if err != nil {
-			return nil, err
-		}
-	}
-	return body, nil
-}
+//--------------------------------------------------------------------------------------//
+//                                        Define                                        //
+//--------------------------------------------------------------------------------------//
 
-var D objs.DefineType = objs.Define
+var (
+	Define = objs.Define
+)
 
 //--------------------------------------------------------------------------------------//
 //                                      constants                                       //
