@@ -8,7 +8,9 @@ import (
 //                                      functions                                       //
 //--------------------------------------------------------------------------------------//
 
-func Define(opts ...objs.BodyOption) (body *objs.SearchBody, err error) {
+type BodyOption func(*objs.SearchBody) error
+
+func Define(opts ...BodyOption) (body *objs.SearchBody, err error) {
 	body = new(objs.SearchBody)
 	for _, opt := range opts {
 		err = opt(body)
