@@ -8,7 +8,17 @@ import (
 //                                      functions                                       //
 //--------------------------------------------------------------------------------------//
 
-var Define objs.DefineType = objs.Define
+func Define(opts ...objs.BodyOption) (body *objs.SearchBody, err error) {
+	body = new(objs.SearchBody)
+	for _, opt := range opts {
+		err = opt(body)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return body, nil
+}
+
 var D objs.DefineType = objs.Define
 
 //--------------------------------------------------------------------------------------//
