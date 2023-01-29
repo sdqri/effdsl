@@ -9,11 +9,16 @@ import (
 //--------------------------------------------------------------------------------------//
 
 type (
-	M                  = objs.M
-	SearchBody         = objs.SearchBody
-	BodyOption         = objs.BodyOption
-	QueryResult        = objs.QueryResult
-	SortClauseResult   = objs.SortClauseResult
+	M                = objs.M
+	SearchBody       = objs.SearchBody
+	BodyOption       = objs.BodyOption
+	QueryResult      = objs.QueryResult
+	SortClauseResult = objs.SortClauseResult
+	// Other types
+	BooleanClause      = objs.BooleanClause
+	QueryStringOption  = objs.QueryStringOption
+	RangeQueryOption   = objs.RangeQueryOption
+	TermQueryOption    = objs.TermQueryOption
 	SourceFitlerOption = objs.SourceFitlerOption
 )
 
