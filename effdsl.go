@@ -15,7 +15,6 @@ type (
 	QueryResult        = objs.QueryResult
 	SortClauseResult   = objs.SortClauseResult
 	SourceFitlerOption = objs.SourceFitlerOption
-	D                  = objs.DefineType
 )
 
 //--------------------------------------------------------------------------------------//
@@ -25,6 +24,8 @@ type (
 var (
 	Define = objs.Define
 )
+
+var D objs.DefineType = Define
 
 //--------------------------------------------------------------------------------------//
 //                                      constants                                       //
