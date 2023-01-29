@@ -13,8 +13,8 @@ func (m M) MarshalJSON() ([]byte, error) {
 
 type SearchBody struct {
 	Source      json.Marshaler   `json:"_source,omitempty"`
-	From        uint64           `json:"from,omitempty"`
-	Size        uint64           `json:"size,omitempty"`
+	From        *uint64          `json:"from,omitempty"`
+	Size        *uint64          `json:"size,omitempty"`
 	Query       Query            `json:"query,omitempty"`
 	Sort        []SortClauseType `json:"sort,omitempty"`
 	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
@@ -46,8 +46,8 @@ func (f DefineType) WithPIT(id string, keepAlive string) BodyOption {
 // [Paginate search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#paginate-search-results
 func (f DefineType) WithPaginate(from uint64, size uint64) BodyOption {
 	return func(sb *SearchBody) error {
-		sb.From = from
-		sb.Size = size
+		sb.From = &from
+		sb.Size = &size
 		return nil
 	}
 }
