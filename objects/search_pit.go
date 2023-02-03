@@ -8,8 +8,8 @@ type PITS struct {
 }
 
 func (pit PITS) MarshalJSON() ([]byte, error) {
-	type PITAlias PITS
-	return json.Marshal((PITAlias)(pit))
+	type PITBase PITS
+	return json.Marshal((PITBase)(pit))
 }
 
 func PIT(id string, keepAlive string) PITS {

@@ -9,8 +9,8 @@ func (sa SearchAfterS) SearchAfterInfo() string {
 }
 
 func (sa SearchAfterS) MarshalJSON() ([]byte, error) {
-	type SearchAfterAlias SearchAfterS
-	return json.Marshal((SearchAfterAlias)(sa))
+	type SearchAfterBase SearchAfterS
+	return json.Marshal((SearchAfterBase)(sa))
 }
 
 func SearchAfter(sortValues ...any) SearchAfterResult {

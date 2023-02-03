@@ -15,11 +15,11 @@ func (tq TermQueryS) QueryInfo() string {
 }
 
 func (tq TermQueryS) MarshalJSON() ([]byte, error) {
-	type TermQueryAlias TermQueryS
+	type TermQueryBase TermQueryS
 	return json.Marshal(
 		M{
 			"term": M{
-				tq.Field: (TermQueryAlias)(tq),
+				tq.Field: (TermQueryBase)(tq),
 			},
 		},
 	)

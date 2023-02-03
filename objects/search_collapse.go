@@ -7,8 +7,8 @@ type CollapseS struct {
 }
 
 func (sc CollapseS) MarshalJSON() ([]byte, error) {
-	type SearchCollapseAlias CollapseS
-	return json.Marshal((SearchCollapseAlias)(sc))
+	type SearchCollapseBase CollapseS
+	return json.Marshal((SearchCollapseBase)(sc))
 }
 
 func Collapse(field string) CollapseS {

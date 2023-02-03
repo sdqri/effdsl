@@ -8,8 +8,8 @@ type SourceFilterS struct {
 }
 
 func (sf SourceFilterS) MarshalJSON() ([]byte, error) {
-	type SourceFilterAlias SourceFilterS
-	return json.Marshal((SourceFilterAlias)(sf))
+	type SourceFilterBase SourceFilterS
+	return json.Marshal((SourceFilterBase)(sf))
 }
 
 type SourceFitlerOption func(*SourceFilterS)

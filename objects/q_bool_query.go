@@ -20,10 +20,10 @@ func (bq BoolQueryS) QueryInfo() string {
 }
 
 func (bq BoolQueryS) MarshalJSON() ([]byte, error) {
-	type BoolQueryAlias BoolQueryS
+	type BoolQueryBase BoolQueryS
 	return json.Marshal(
 		map[string]any{
-			"bool": (BoolQueryAlias)(bq),
+			"bool": (BoolQueryBase)(bq),
 		},
 	)
 }

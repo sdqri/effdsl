@@ -13,10 +13,10 @@ func (eq ExistsQueryS) QueryInfo() string {
 }
 
 func (eq ExistsQueryS) MarshalJSON() ([]byte, error) {
-	type ExistsQuerySAlias ExistsQueryS
+	type ExistsQuerySBase ExistsQueryS
 	return json.Marshal(
 		M{
-			"exists": (ExistsQuerySAlias)(eq),
+			"exists": (ExistsQuerySBase)(eq),
 		},
 	)
 }

@@ -19,11 +19,11 @@ func (rq RangeQueryS) QueryInfo() string {
 }
 
 func (rq RangeQueryS) MarshalJSON() ([]byte, error) {
-	type RangeQueryAlias RangeQueryS
+	type RangeQueryBase RangeQueryS
 	return json.Marshal(
 		M{
 			"range": M{
-				rq.Field: (RangeQueryAlias)(rq),
+				rq.Field: (RangeQueryBase)(rq),
 			},
 		},
 	)

@@ -7,8 +7,8 @@ import (
 type M map[string]any
 
 func (m M) MarshalJSON() ([]byte, error) {
-	type MAlias M
-	return json.Marshal((MAlias)(m))
+	type MBase M
+	return json.Marshal((MBase)(m))
 }
 
 type SearchBody struct {
@@ -106,8 +106,8 @@ func (q MockedQuery) QueryInfo() string {
 }
 
 func (q MockedQuery) MarshalJSON() ([]byte, error) {
-	type MAlias M
-	return json.Marshal((MAlias)(q))
+	type MBase M
+	return json.Marshal((MBase)(q))
 }
 
 func MockQuery(m M) QueryResult {

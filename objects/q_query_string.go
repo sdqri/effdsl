@@ -3,8 +3,8 @@ package objects
 import "encoding/json"
 
 type QueryStringS struct {
-	Query  string   `json:"query"`
-	Fields []string `json:"fields"`
+	Query  string   `json:"query"`  //(Required, string) Query string you wish to parse and use for search.
+	Fields []string `json:"fields"` //(Optional, array of strings) Array of fields to search. Supports wildcards (*).
 }
 
 func (bq QueryStringS) QueryInfo() string {
@@ -12,10 +12,10 @@ func (bq QueryStringS) QueryInfo() string {
 }
 
 func (qs QueryStringS) MarshalJSON() ([]byte, error) {
-	type QueryStringAlias QueryStringS
+	type QueryStringBase QueryStringS
 	return json.Marshal(
 		map[string]any{
-			"query_string": (QueryStringAlias)(qs),
+			"query_string": (QueryStringBase)(qs),
 		},
 	)
 }
