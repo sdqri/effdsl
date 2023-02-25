@@ -3,8 +3,9 @@ package objects
 import "encoding/json"
 
 type QueryStringS struct {
-	Query  string   `json:"query"`  //(Required, string) Query string you wish to parse and use for search.
-	Fields []string `json:"fields"` //(Optional, array of strings) Array of fields to search. Supports wildcards (*).
+	Query           string   `json:"query"`                      //(Required, string) Query string you wish to parse and use for search.
+	Fields          []string `json:"fields"`                     //(Optional, array of strings) Array of fields to search. Supports wildcards (*).
+	AnalyzeWildcard bool     `json:"analyze_wildcard,omitempty"` //(Optional, Boolean) If true, the query attempts to analyze wildcard terms in the query string. Defaults to false.
 }
 
 func (bq QueryStringS) QueryInfo() string {
@@ -25,6 +26,12 @@ type QueryStringOption func(*QueryStringS)
 func (f DefineType) WithFields(fields ...string) QueryStringOption {
 	return func(queryString *QueryStringS) {
 		queryString.Fields = fields
+	}
+}
+
+func (f DefineType) WithAnalyzeWildcard() QueryStringOption {
+	return func(queryString *QueryStringS) {
+		queryString.AnalyzeWildcard = true
 	}
 }
 

@@ -19,3 +19,14 @@ func TestQueryString(t *testing.T) {
 	assert.Nil(t, err)
 	assert.Equal(t, expectedBody, string(jsonBody))
 }
+
+func TestQueryStringWithAnalyzeWildcard(t *testing.T) {
+	expectedBody := `{"query_string":{"query":"fake_query","fields":["field1","field2"],"analyze_wildcard":true}}`
+	queryStringResult := objs.D.QueryString("fake_query", objs.D.WithFields("field1", "field2"), objs.D.WithAnalyzeWildcard())
+	err := queryStringResult.Err
+	queryString := queryStringResult.Ok
+	assert.Nil(t, err)
+	jsonBody, err := json.Marshal(queryString)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
