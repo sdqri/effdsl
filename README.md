@@ -4,7 +4,16 @@
 
 Functional Elasticsearch DSL for Golang!
 
-Check supported features [here](FEATURES.md).
+What effdsl does:
+
+- Provides a functional Elasticsearch DSL for Golang.
+- Allows for constructing Elasticsearch queries using function calls instead of JSON objects.
+- Supports a variety of query types and options.
+- Simplifies the process of constructing complex queries.
+- Provides type safety and compile-time checking of queries.
+- Is easy to use and integrate with existing Go codebases.
+
+Note: For the complete list of supported query types and options for each one, please refer to the [here](FEATURES.md) file in the effdsl GitHub repository.
 
 ## Getting started
 

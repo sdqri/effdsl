@@ -26,7 +26,7 @@
 - [ ] range query
 - [ ] regexp query
 - [x] term query
-- [ ] terms query
+- [x] terms query
 - [x] terms_set query
 - [ ] wildcard query
 
