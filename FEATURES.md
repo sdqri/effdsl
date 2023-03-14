@@ -27,7 +27,7 @@
 - [ ] regexp query
 - [x] term query
 - [ ] terms query
-- [ ] terms_set query
+- [x] terms_set query
 - [ ] wildcard query
 
 ### Customize Search results (options):
