@@ -34,7 +34,7 @@ $ go get -u github.com/sdqri/effdsl
 
 ### How to use
 
-Start with `effdsl.Define()`, and use `effdsl.D.?` to find suitable options.
+Start with `effdsl.Define()`, and use `effdsl.?` to find suitable options.
 
 ### Examples:
 
@@ -44,34 +44,34 @@ An example query :
 import "github.com/sdqri/effdsl"
 
 body, err := effdsl.Define(
-	effdsl.D.WithSourceFilter(
-		effdsl.D.WithIncludes("field1", "field2"),
-		effdsl.D.WithExcludes("field3", "field4"),
+	effdsl.WithSourceFilter(
+		effdsl.WithIncludes("field1", "field2"),
+		effdsl.WithExcludes("field3", "field4"),
 	),
-	effdsl.D.WithPaginate(2, 100),
-	effdsl.D.WithQuery(
-		effdsl.D.BoolQuery(
-			effdsl.D.Must(
-				effdsl.D.QueryString("value1", effdsl.D.WithFields("title", "content")),
+	effdsl.WithPaginate(2, 100),
+	effdsl.WithQuery(
+		effdsl.BoolQuery(
+			effdsl.Must(
+				effdsl.QueryString("value1", effdsl.WithFields("title", "content")),
 			),
-			effdsl.D.Filter(
-				effdsl.D.RangeQuery("published_at", effdsl.D.WithGT("now-24h")),
-				effdsl.D.TermQuery("field5.keyword", "value2"),
-				effdsl.D.ExistsQuery("field6"),
+			effdsl.Filter(
+				effdsl.RangeQuery("published_at", effdsl.WithGT("now-24h")),
+				effdsl.TermQuery("field5.keyword", "value2"),
+				effdsl.ExistsQuery("field6"),
 			),
-			effdsl.D.MustNot(
-				effdsl.D.QueryString("value3", effdsl.D.WithFields("title", "content")),
+			effdsl.MustNot(
+				effdsl.QueryString("value3", effdsl.WithFields("title", "content")),
 			),
-			effdsl.D.Should(
-				effdsl.D.QueryString("value4", effdsl.D.WithFields("title", "content")),
+			effdsl.Should(
+				effdsl.QueryString("value4", effdsl.WithFields("title", "content")),
 			),
 		),
 	),
-	effdsl.D.WithSort(
-		effdsl.D.SortClause("field1", effdsl.SORT_DESC),
-		effdsl.D.SortClause("_score", effdsl.SORT_DEFAULT),
+	effdsl.WithSort(
+		effdsl.SortClause("field1", effdsl.SORT_DESC),
+		effdsl.SortClause("_score", effdsl.SORT_DEFAULT),
 	),
-	effdsl.D.WithCollpse("field7"),
+	effdsl.WithCollpse("field7"),
 )
 ```
 
