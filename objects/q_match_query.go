@@ -26,7 +26,7 @@ func (mq MatchQueryS) MarshalJSON() ([]byte, error) {
 
 // Returns documents that match a provided text, number, date or boolean value. The provided text is analyzed before matching.
 // [Match query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
-func (f DefineType) MatchQuery(field string, query string) QueryResult {
+func MatchQuery(field string, query string) QueryResult {
 	matchQuery := MatchQueryS{
 		Field: field,
 		Query: query,

@@ -1,4 +1,4 @@
-package objects_test
+package tests
 
 import (
 	"encoding/json"
@@ -6,14 +6,14 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	objs "github.com/sdqri/effdsl/objects"
+	effdsl "github.com/sdqri/effdsl"
 )
 
 func TestNewSourceFilter(t *testing.T) {
 	expectedBody := `{"includes":["field1","field2"],"excludes":["field3","field4"]}`
-	sourceFilter := objs.SourceFilter(
-		objs.D.WithIncludes("field1", "field2"),
-		objs.D.WithExcludes("field3", "field4"),
+	sourceFilter := effdsl.SourceFilter(
+		effdsl.WithIncludes("field1", "field2"),
+		effdsl.WithExcludes("field3", "field4"),
 	)
 	jsonBody, err := json.Marshal(sourceFilter)
 	assert.Nil(t, err)

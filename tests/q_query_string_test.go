@@ -1,17 +1,16 @@
-package objects_test
+package tests
 
 import (
 	"encoding/json"
 	"testing"
 
+	effdsl "github.com/sdqri/effdsl"
 	"github.com/stretchr/testify/assert"
-
-	objs "github.com/sdqri/effdsl/objects"
 )
 
 func TestQueryString(t *testing.T) {
 	expectedBody := `{"query_string":{"query":"fake_query","fields":["field1","field2"]}}`
-	queryStringResult := objs.D.QueryString("fake_query", objs.D.WithFields("field1", "field2"))
+	queryStringResult := effdsl.QueryString("fake_query", effdsl.WithFields("field1", "field2"))
 	err := queryStringResult.Err
 	queryString := queryStringResult.Ok
 	assert.Nil(t, err)
@@ -22,7 +21,7 @@ func TestQueryString(t *testing.T) {
 
 func TestQueryStringWithAnalyzeWildcard(t *testing.T) {
 	expectedBody := `{"query_string":{"query":"fake_query","fields":["field1","field2"],"analyze_wildcard":true}}`
-	queryStringResult := objs.D.QueryString("fake_query", objs.D.WithFields("field1", "field2"), objs.D.WithAnalyzeWildcard())
+	queryStringResult := effdsl.QueryString("fake_query", effdsl.WithFields("field1", "field2"), effdsl.WithAnalyzeWildcard())
 	err := queryStringResult.Err
 	queryString := queryStringResult.Ok
 	assert.Nil(t, err)

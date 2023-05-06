@@ -31,31 +31,31 @@ func (rq RangeQueryS) MarshalJSON() ([]byte, error) {
 
 type RangeQueryOption func(*RangeQueryS)
 
-func (f DefineType) WithGT(gt any) RangeQueryOption {
+func WithGT(gt any) RangeQueryOption {
 	return func(rangeQuery *RangeQueryS) {
 		rangeQuery.GT = gt
 	}
 }
 
-func (f DefineType) WithGTE(gte any) RangeQueryOption {
+func WithGTE(gte any) RangeQueryOption {
 	return func(rangeQuery *RangeQueryS) {
 		rangeQuery.GTE = gte
 	}
 }
 
-func (f DefineType) WithLT(lt any) RangeQueryOption {
+func WithLT(lt any) RangeQueryOption {
 	return func(rangeQuery *RangeQueryS) {
 		rangeQuery.LT = lt
 	}
 }
 
-func (f DefineType) WithLTE(lte any) RangeQueryOption {
+func WithLTE(lte any) RangeQueryOption {
 	return func(rangeQuery *RangeQueryS) {
 		rangeQuery.LTE = lte
 	}
 }
 
-func (f DefineType) WithFormat(format string) RangeQueryOption {
+func WithFormat(format string) RangeQueryOption {
 	return func(rangeQuery *RangeQueryS) {
 		rangeQuery.Format = format
 	}
@@ -63,7 +63,7 @@ func (f DefineType) WithFormat(format string) RangeQueryOption {
 
 // Returns documents that contain terms within a provided range.
 // [Range query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html
-func (f DefineType) RangeQuery(field string, opts ...RangeQueryOption) QueryResult {
+func RangeQuery(field string, opts ...RangeQueryOption) QueryResult {
 	rangeQuery := RangeQueryS{
 		Field: field,
 	}

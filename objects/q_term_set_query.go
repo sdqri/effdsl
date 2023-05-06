@@ -28,13 +28,13 @@ func (tsq TermSetQueryS) MarshalJSON() ([]byte, error) {
 
 type TermSetQueryOption func(*TermSetQueryS)
 
-func (f DefineType) WithMinimumShouldMatchField(field string) TermSetQueryOption {
+func WithMinimumShouldMatchField(field string) TermSetQueryOption {
 	return func(termSetQuery *TermSetQueryS) {
 		termSetQuery.MinimumShouldMatchField = field
 	}
 }
 
-func (f DefineType) WithMinimumShouldMatchScript(script string) TermSetQueryOption {
+func WithMinimumShouldMatchScript(script string) TermSetQueryOption {
 	return func(termSetQuery *TermSetQueryS) {
 		termSetQuery.MinimumShouldMatchScript = script
 	}
@@ -42,7 +42,7 @@ func (f DefineType) WithMinimumShouldMatchScript(script string) TermSetQueryOpti
 
 // Returns documents that contain at least one of the specified terms in a provided field.
 // [Terms Set query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-set-query.html
-func (f DefineType) TermsSetQuery(field string, terms []string, opts ...TermSetQueryOption) QueryResult {
+func TermsSetQuery(field string, terms []string, opts ...TermSetQueryOption) QueryResult {
 	termSetQuery := TermSetQueryS{
 		Field: field,
 		Terms: terms,

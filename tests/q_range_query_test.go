@@ -1,4 +1,4 @@
-package objects_test
+package tests
 
 import (
 	"encoding/json"
@@ -6,18 +6,18 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	objs "github.com/sdqri/effdsl/objects"
+	effdsl "github.com/sdqri/effdsl"
 )
 
 func TestNewRangeQueryWithNoOptions(t *testing.T) {
-	rangeQueryResult := objs.D.RangeQuery("fake_field")
+	rangeQueryResult := effdsl.RangeQuery("fake_field")
 	err := rangeQueryResult.Err
 	assert.NotNil(t, err)
 }
 
 func TestNewRangeQ1(t *testing.T) {
 	expectedBody := `{"range":{"fake_field":{"gt":0,"lt":10}}}`
-	rangeQueryResult := objs.D.RangeQuery("fake_field", objs.D.WithGT(0), objs.D.WithLT(10))
+	rangeQueryResult := effdsl.RangeQuery("fake_field", effdsl.WithGT(0), effdsl.WithLT(10))
 	err := rangeQueryResult.Err
 	rangeQuery := rangeQueryResult.Ok
 	assert.Nil(t, err)

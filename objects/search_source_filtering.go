@@ -14,7 +14,7 @@ func (sf SourceFilterS) MarshalJSON() ([]byte, error) {
 
 type SourceFitlerOption func(*SourceFilterS)
 
-func (f DefineType) WithIncludes(fields ...string) SourceFitlerOption {
+func WithIncludes(fields ...string) SourceFitlerOption {
 	return func(sf *SourceFilterS) {
 		if sf.Includes == nil {
 			sf.Includes = fields
@@ -24,7 +24,7 @@ func (f DefineType) WithIncludes(fields ...string) SourceFitlerOption {
 	}
 }
 
-func (f DefineType) WithExcludes(fields ...string) SourceFitlerOption {
+func WithExcludes(fields ...string) SourceFitlerOption {
 	return func(sf *SourceFilterS) {
 		if sf.Excludes == nil {
 			sf.Excludes = fields

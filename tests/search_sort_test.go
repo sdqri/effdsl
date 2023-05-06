@@ -1,4 +1,4 @@
-package objects_test
+package tests
 
 import (
 	"encoding/json"
@@ -6,12 +6,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	objs "github.com/sdqri/effdsl/objects"
+	effdsl "github.com/sdqri/effdsl/objects"
 )
 
 func TestNewSortClauseWithDefaultOrder(t *testing.T) {
 	expectedBody := `"fake_field"`
-	sortClauseResult := objs.D.SortClause("fake_field", objs.SORT_DEFAULT)
+	sortClauseResult := effdsl.SortClause("fake_field", effdsl.SORT_DEFAULT)
 	err := sortClauseResult.Err
 	sortClause := sortClauseResult.Ok
 	assert.Nil(t, err)
@@ -22,7 +22,7 @@ func TestNewSortClauseWithDefaultOrder(t *testing.T) {
 
 func TestNewSortClauseWithOrder(t *testing.T) {
 	expectedBody := `{"fake_field":"asc"}`
-	sortClauseResult := objs.D.SortClause("fake_field", objs.SORT_ASC)
+	sortClauseResult := effdsl.SortClause("fake_field", effdsl.SORT_ASC)
 	err := sortClauseResult.Err
 	sortClause := sortClauseResult.Ok
 	assert.Nil(t, err)

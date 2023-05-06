@@ -1,4 +1,4 @@
-package objects_test
+package tests
 
 import (
 	"encoding/json"
@@ -6,12 +6,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	objs "github.com/sdqri/effdsl/objects"
+	effdsl "github.com/sdqri/effdsl"
 )
 
 func TestNewExistsQuery(t *testing.T) {
 	expectedBody := `{"exists":{"field":"fake_field"}}`
-	existsQueryResult := objs.D.ExistsQuery("fake_field")
+	existsQueryResult := effdsl.ExistsQuery("fake_field")
 	err := existsQueryResult.Err
 	existsQuery := existsQueryResult.Ok
 	jsonBody, err := json.Marshal(existsQuery)

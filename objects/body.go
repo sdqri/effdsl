@@ -30,7 +30,7 @@ type BodyOption func(*SearchBody) error
 
 // A search request by default executes against the most recent visible data of the target indices, which is called point in time. Elasticsearch pit (point in time) is a lightweight view into the state of the data as it existed when initiated. In some cases, it’s preferred to perform multiple search requests using the same point in time. For example, if refreshes happen between search_after requests, then the results of those requests might not be consistent as changes happening between searches are only visible to the more recent point in time.
 // [Point in time]: https://www.elastic.co/guide/en/elasticsearch/reference/current/point-in-time-api.html
-func (f DefineType) WithPIT(id string, keepAlive string) BodyOption {
+func WithPIT(id string, keepAlive string) BodyOption {
 	pit := PIT(id, keepAlive)
 	return func(sb *SearchBody) error {
 		sb.PIT = pit
@@ -44,9 +44,11 @@ func (f DefineType) WithPIT(id string, keepAlive string) BodyOption {
 
 // By default, searches return the top 10 matching hits. To page through a larger set of results, you can use the search API's from and size parameters. The from parameter defines the number of hits to skip, defaulting to 0. The size parameter is the maximum number of hits to return. Together, these two parameters define a page of results.
 // [Paginate search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#paginate-search-results
-func (f DefineType) WithPaginate(from uint64, size uint64) BodyOption {
+func WithPaginate(from uint64, size uint64) BodyOption {
 	return func(sb *SearchBody) error {
-		sb.From = &from
+		if from != 0 {
+			sb.From = &from
+		}
 		sb.Size = &size
 		return nil
 	}
@@ -65,7 +67,7 @@ type SearchAfterResult struct {
 // By default, you cannot use from and size to page through more than 10,000 hits. This limit is a safeguard set by the index.max_result_window index setting. If you need to page through more than 10,000 hits, use the search_after parameter instead.
 // You can use the search_after parameter to retrieve the next page of hits using a set of sort values from the previous page.
 // [Search after]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
-func (f DefineType) WithSearchAfter(sortValues ...any) BodyOption {
+func WithSearchAfter(sortValues ...any) BodyOption {
 	SearchAfterResult := SearchAfter(sortValues...)
 	searchAfter := SearchAfterResult.Ok
 	err := SearchAfterResult.Err
@@ -89,7 +91,7 @@ type QueryResult struct {
 	Err error
 }
 
-func (f DefineType) WithQuery(queryResult QueryResult) BodyOption {
+func WithQuery(queryResult QueryResult) BodyOption {
 	query := queryResult.Ok
 	err := queryResult.Err
 	// Type assertion
@@ -133,7 +135,7 @@ type SortClauseResult struct {
 
 // Allows you to add one or more sorts on specific fields. Each sort can be reversed as well. The sort is defined on a per field level, with special field name for _score to sort by score, and _doc to sort by index order.
 // [Sort search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#sort-search-results
-func (f DefineType) WithSort(sortClauseResults ...SortClauseResult) BodyOption {
+func WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 	sortClauses := make([]SortClauseType, 0)
 	for _, scr := range sortClauseResults {
 		if scr.Err != nil {
@@ -159,7 +161,7 @@ func (f DefineType) WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 
 // You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key.
 // [Collapse search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
-func (f DefineType) WithCollpse(field string) BodyOption {
+func WithCollpse(field string) BodyOption {
 	searchCollapse := Collapse(field)
 	return func(sb *SearchBody) error {
 		sb.Collapse = searchCollapse
@@ -174,7 +176,7 @@ func (f DefineType) WithCollpse(field string) BodyOption {
 // You can use the _source parameter to select what fields of the source are returned. This is called source filtering.
 //The following search API request sets the _source request body parameter to false. The document source is not included in the response.
 // [Source filtering]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html#source-filtering
-func (f DefineType) WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
+func WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
 	sourceFilter := SourceFilter(opts...)
 	return func(sb *SearchBody) error {
 		sb.Source = sourceFilter
@@ -187,7 +189,6 @@ func (f DefineType) WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
 //                                        Define                                        //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
-type DefineType func(...BodyOption) (*SearchBody, error)
 
 func Define(opts ...BodyOption) (body *SearchBody, err error) {
 	body = new(SearchBody)
@@ -199,5 +200,3 @@ func Define(opts ...BodyOption) (body *SearchBody, err error) {
 	}
 	return body, nil
 }
-
-var D DefineType = Define

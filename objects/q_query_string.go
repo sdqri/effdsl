@@ -23,13 +23,13 @@ func (qs QueryStringS) MarshalJSON() ([]byte, error) {
 
 type QueryStringOption func(*QueryStringS)
 
-func (f DefineType) WithFields(fields ...string) QueryStringOption {
+func WithFields(fields ...string) QueryStringOption {
 	return func(queryString *QueryStringS) {
 		queryString.Fields = fields
 	}
 }
 
-func (f DefineType) WithAnalyzeWildcard() QueryStringOption {
+func WithAnalyzeWildcard() QueryStringOption {
 	return func(queryString *QueryStringS) {
 		queryString.AnalyzeWildcard = true
 	}
@@ -37,7 +37,7 @@ func (f DefineType) WithAnalyzeWildcard() QueryStringOption {
 
 // Returns documents based on a provided query string, using a parser with a strict syntax
 // [Query string query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html
-func (f DefineType) QueryString(query string, opts ...QueryStringOption) QueryResult {
+func QueryString(query string, opts ...QueryStringOption) QueryResult {
 	queryString := QueryStringS{
 		Query: query,
 	}

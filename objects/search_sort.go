@@ -29,7 +29,7 @@ func (sq SortClauseS) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmpM)
 }
 
-func (f DefineType) SortClause(field string, order SortOrder) SortClauseResult {
+func SortClause(field string, order SortOrder) SortClauseResult {
 	sortClause := SortClauseS{
 		Field: field,
 		Order: order,

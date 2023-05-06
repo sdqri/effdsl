@@ -27,7 +27,7 @@ func (tq TermQueryS) MarshalJSON() ([]byte, error) {
 
 type TermQueryOption func(*TermQueryS)
 
-func (f DefineType) WithBoost(boost float64) TermQueryOption {
+func WithTQBoost(boost float64) TermQueryOption {
 	return func(termQuery *TermQueryS) {
 		termQuery.Boost = &boost
 	}
@@ -35,7 +35,7 @@ func (f DefineType) WithBoost(boost float64) TermQueryOption {
 
 // Returns documents that contain an exact term in a provided field.
 // [Term query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-term-query.html
-func (f DefineType) TermQuery(field string, value string, opts ...TermQueryOption) QueryResult {
+func TermQuery(field string, value string, opts ...TermQueryOption) QueryResult {
 	termQuery := TermQueryS{
 		Field: field,
 		Value: value,

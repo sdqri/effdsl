@@ -23,8 +23,8 @@
 - [ ] fuzzy query
 - [ ] ids query
 - [ ] prefix query
-- [ ] range query
-- [ ] regexp query
+- [x] range query
+- [x] regexp query
 - [x] term query
 - [x] terms query
 - [x] terms_set query
@@ -32,7 +32,7 @@
 
 ### Customize Search results (options):
 
-- [ ] Collapse search results
+- [x] Collapse search results
 - [ ] Filter search results
 - [ ] Highlighting
 - [ ] Long-running searches

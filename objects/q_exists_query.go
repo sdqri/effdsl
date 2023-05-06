@@ -23,7 +23,7 @@ func (eq ExistsQueryS) MarshalJSON() ([]byte, error) {
 
 // Returns documents that contain an indexed value for a field.
 // [Exists query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-exists-query.html
-func (f DefineType) ExistsQuery(field string) QueryResult {
+func ExistsQuery(field string) QueryResult {
 	existsQuery := ExistsQueryS{
 		Field: field,
 	}
