@@ -45,6 +45,13 @@ var (
 	BoolQuery          = objs.BoolQuery
 	// q_exists_query.go
 	ExistsQuery = objs.ExistsQuery
+	// q_fuzzy_query.go
+	WithFuzziness      = objs.WithFuzziness
+	WithPrefixLength   = objs.WithPrefixLength
+	WithMaxExpansions  = objs.WithMaxExpansions
+	WithFQRewrite      = objs.WithFQRewrite
+	WithTranspositions = objs.WithTranspositions
+	FuzzyQuery         = objs.FuzzyQuery
 	// q_match_query.go
 	MatchQuery = objs.MatchQuery
 	// q_query_string.go
@@ -62,7 +69,7 @@ var (
 	WithFlags                 = objs.WithFlags
 	WithCaseInsensitive       = objs.WithCaseInsensitive
 	WithMaxDeterminizedStates = objs.WithMaxDeterminizedStates
-	WithRewrite               = objs.WithRewrite
+	WithRQRewrite             = objs.WithRQRewrite
 	RegexpQuery               = objs.RegexpQuery
 	// q_term_query.go
 	WithTQBoost = objs.WithTQBoost

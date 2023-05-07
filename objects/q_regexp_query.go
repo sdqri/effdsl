@@ -48,7 +48,7 @@ func WithMaxDeterminizedStates(states int) RegexpQueryOption {
 	}
 }
 
-func WithRewrite(rewrite string) RegexpQueryOption {
+func WithRQRewrite(rewrite string) RegexpQueryOption {
 	return func(rq *RegexpQueryS) {
 		rq.Rewrite = rewrite
 	}

@@ -27,7 +27,7 @@ func TestRegexpQuery_WithAllOptions(t *testing.T) {
 		effdsl.WithFlags("fake_flags"),
 		effdsl.WithCaseInsensitive(),
 		effdsl.WithMaxDeterminizedStates(100),
-		effdsl.WithRewrite("fake_rewrite"))
+		effdsl.WithRQRewrite("fake_rewrite"))
 	err := regexpQueryResult.Err
 	regexpQuery := regexpQueryResult.Ok
 	jsonBody, err := json.Marshal(regexpQuery)

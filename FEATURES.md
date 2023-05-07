@@ -20,7 +20,7 @@
 ### Term-level queries
 
 - [x] exists query
-- [ ] fuzzy query
+- [x] fuzzy query
 - [ ] ids query
 - [ ] prefix query
 - [x] range query
