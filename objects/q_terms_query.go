@@ -26,7 +26,7 @@ func (tq TermsQueryS) MarshalJSON() ([]byte, error) {
 
 	return json.Marshal(
 		M{
-			"range": m,
+			"terms": m,
 		},
 	)
 }
