@@ -20,6 +20,12 @@ type (
 	RangeQueryOption   = objs.RangeQueryOption
 	TermQueryOption    = objs.TermQueryOption
 	SourceFitlerOption = objs.SourceFitlerOption
+
+	MatchOperator = objs.MatchOperator
+	Fuzziness     = objs.Fuzziness
+
+	WildcardQueryFieldParameter = objs.WildcardQueryFieldParameter
+	RewriteParameter            = objs.RewriteParameter
 )
 
 //--------------------------------------------------------------------------------------//
@@ -53,9 +59,13 @@ var (
 	WithTranspositions = objs.WithTranspositions
 	FuzzyQuery         = objs.FuzzyQuery
 	// q_match_query.go
-	MatchQuery = objs.MatchQuery
+	MatchQuery             = objs.MatchQuery
+	WithMatchOperator      = objs.WithMatchOperator
+	WithFuzzinessParameter = objs.WithFuzzinessParameter
 	// q_wildcard_query.go
-	WildcardQuery = objs.WildcardQuery
+	WildcardQuery        = objs.WildcardQuery
+	WithBoost            = objs.WithBoost
+	WithRewriteParameter = objs.WithRewriteParameter
 	// q_query_string.go
 	WithFields          = objs.WithFields
 	WithAnalyzeWildcard = objs.WithAnalyzeWildcard
@@ -99,4 +109,17 @@ const (
 	SORT_DEFAULT objs.SortOrder = objs.SORT_DEFAULT
 	SORT_ASC     objs.SortOrder = objs.SORT_ASC
 	SORT_DESC    objs.SortOrder = objs.SORT_DESC
+
+	MatchOperatorOR  objs.MatchOperator = objs.MatchOperatorOR
+	MatchOperatorAND objs.MatchOperator = objs.MatchOperatorAND
+
+	FuzzinessAUTO objs.Fuzziness = objs.FuzzinessAUTO
+
+	RewriteParameterConstantScoreBlended  objs.RewriteParameter = objs.RewriteParameterConstantScoreBlended
+	RewriteParameterConstantScore         objs.RewriteParameter = objs.RewriteParameterConstantScore
+	RewriteParameterConstantScoreBoolean  objs.RewriteParameter = objs.RewriteParameterConstantScoreBoolean
+	RewriteParameterScoringBoolean        objs.RewriteParameter = objs.RewriteParameterScoringBoolean
+	RewriteParameterTopTermsBlendedFreqsN objs.RewriteParameter = objs.RewriteParameterTopTermsBlendedFreqsN
+	RewriteParameterTopTermsBoostN        objs.RewriteParameter = objs.RewriteParameterTopTermsBoostN
+	RewriteParameterTopTermsN             objs.RewriteParameter = objs.RewriteParameterTopTermsN
 )
