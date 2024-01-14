@@ -3,8 +3,8 @@ package objects
 import "encoding/json"
 
 type SourceFilterS struct {
-	Includes []string `json:"includes,ommitempty"`
-	Excludes []string `json:"excludes,ommitempty"`
+	Includes []string `json:"includes,omitempty"`
+	Excludes []string `json:"excludes,omitempty"`
 }
 
 func (sf SourceFilterS) MarshalJSON() ([]byte, error) {
