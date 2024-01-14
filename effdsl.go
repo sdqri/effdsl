@@ -54,6 +54,8 @@ var (
 	FuzzyQuery         = objs.FuzzyQuery
 	// q_match_query.go
 	MatchQuery = objs.MatchQuery
+	// q_wildcard_query.go
+	WildcardQuery = objs.WildcardQuery
 	// q_query_string.go
 	WithFields          = objs.WithFields
 	WithAnalyzeWildcard = objs.WithAnalyzeWildcard
