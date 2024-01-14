@@ -26,6 +26,8 @@ type (
 
 	WildcardQueryFieldParameter = objs.WildcardQueryFieldParameter
 	RewriteParameter            = objs.RewriteParameter
+
+	SortOrder = objs.SortOrder
 )
 
 //--------------------------------------------------------------------------------------//
