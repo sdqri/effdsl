@@ -28,6 +28,9 @@ type (
 	RewriteParameter            = objs.RewriteParameter
 
 	SortOrder = objs.SortOrder
+
+	SuggestSort = objs.SuggestSort
+	SuggestMode = objs.SuggestMode
 )
 
 //--------------------------------------------------------------------------------------//
@@ -101,6 +104,16 @@ var (
 	WithIncludes = objs.WithIncludes
 	WithExcludes = objs.WithExcludes
 	SourceFilter = objs.SourceFilter
+
+	// search_source_filtering.go
+	Suggesters              = objs.Suggesters
+	WithSuggest             = objs.WithSuggest
+	TermSuggester           = objs.TermSuggester
+	Term                    = objs.Term
+	WithTermSuggestAnalyzer = objs.WithTermSuggestAnalyzer
+	WithTermSuggestSize     = objs.WithTermSuggestSize
+	WithTermSuggestSort     = objs.WithTermSuggestSort
+	WithTermSuggestMode     = objs.WithTermSuggestMode
 )
 
 //--------------------------------------------------------------------------------------//
