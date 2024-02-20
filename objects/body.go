@@ -20,6 +20,7 @@ type SearchBody struct {
 	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
 	Collapse    json.Marshaler   `json:"collapse,omitempty"`
 	PIT         json.Marshaler   `json:"pit,omitempty"`
+	Suggest     Suggest          `json:"suggest,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -174,7 +175,7 @@ func WithCollpse(field string) BodyOption {
 //--------------------------------------------------------------------------------------//
 
 // You can use the _source parameter to select what fields of the source are returned. This is called source filtering.
-//The following search API request sets the _source request body parameter to false. The document source is not included in the response.
+// The following search API request sets the _source request body parameter to false. The document source is not included in the response.
 // [Source filtering]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html#source-filtering
 func WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
 	sourceFilter := SourceFilter(opts...)
@@ -199,4 +200,29 @@ func Define(opts ...BodyOption) (body *SearchBody, err error) {
 		}
 	}
 	return body, nil
+}
+
+//--------------------------------------------------------------------------------------//
+//                                         Suggest                                      //
+//--------------------------------------------------------------------------------------//
+
+type Suggest interface {
+	SuggestInfo() string
+	json.Marshaler
+}
+
+type SuggestResult struct {
+	Ok  Suggest
+	Err error
+}
+
+// WithSuggest - allows you to use suggest
+func WithSuggest(suggestResult SuggestResult) BodyOption {
+	suggest := suggestResult.Ok
+	err := suggestResult.Err
+	// Type assertion
+	return func(b *SearchBody) error {
+		b.Suggest = suggest
+		return err
+	}
 }

@@ -73,7 +73,7 @@ func RangeQuery(field string, opts ...RangeQueryOption) QueryResult {
 	if rangeQuery.GT == nil && rangeQuery.GTE == nil && rangeQuery.LT == nil && rangeQuery.LTE == nil {
 		return QueryResult{
 			Ok:  rangeQuery,
-			Err: errors.New("One of WithGT, WithGTE, WithLT, WithLTE should be proveded for range query"),
+			Err: errors.New("one of WithGT, WithGTE, WithLT, WithLTE should be proveded for range query"),
 		}
 	}
 	return QueryResult{
