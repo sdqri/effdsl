@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_Searhc_Suggest_MarshalJSON(t *testing.T) {
+func Test_Search_Suggest_MarshalJSON(t *testing.T) {
 	s := Suggesters("test", TermSuggester(
 		Term("my-suggestion-1", "tring out Elasticsearch", "message"),
 		Term("my-suggestion-2", "tring out Elasticsearch", "message",
