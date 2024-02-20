@@ -9,7 +9,11 @@ type SuggestS struct {
 
 func (s SuggestS) MarshalJSON() ([]byte, error) {
 	type SuggesterBase SuggestS
-	return json.Marshal((SuggesterBase)(s))
+	return json.Marshal(
+		M{
+			"suggest": (SuggesterBase)(s),
+		},
+	)
 }
 
 func (s SuggestS) SuggestInfo() string {
