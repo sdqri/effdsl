@@ -10,7 +10,7 @@ import (
 )
 
 func TestNewTermsQuery(t *testing.T) {
-	expectedBody := `{"range":{"boost":10,"fake_term":["fake_value1","fake_value2"]}}`
+	expectedBody := `{"terms":{"boost":10,"fake_term":["fake_value1","fake_value2"]}}`
 	termsQueryResult := effdsl.TermsQuery("fake_term", []string{"fake_value1", "fake_value2"}, effdsl.WithTSQBoost(10))
 	err := termsQueryResult.Err
 	termsQuery := termsQueryResult.Ok

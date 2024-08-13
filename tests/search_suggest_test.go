@@ -1,19 +1,21 @@
-package objects
+package tests
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+
+	effdsl "github.com/sdqri/effdsl"
 )
 
 func Test_Search_Suggest_MarshalJSON(t *testing.T) {
-	s := Suggesters("test", TermSuggester(
-		Term("my-suggestion-1", "tring out Elasticsearch", "message"),
-		Term("my-suggestion-2", "tring out Elasticsearch", "message",
-			WithTermSuggestMode(SuggestModeAlways),
-			WithTermSuggestAnalyzer("test"),
-			WithTermSuggestSize(1),
-			WithTermSuggestSort(SortScore),
+	s := effdsl.Suggesters("test", effdsl.TermSuggester(
+		effdsl.Term("my-suggestion-1", "tring out Elasticsearch", "message"),
+		effdsl.Term("my-suggestion-2", "tring out Elasticsearch", "message",
+			effdsl.WithTermSuggestMode(effdsl.SuggestModeAlways),
+			effdsl.WithTermSuggestAnalyzer("test"),
+			effdsl.WithTermSuggestSize(1),
+			effdsl.WithTermSuggestSort(effdsl.SortScore),
 		),
 	))
 

@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"testing"
 
-	effdsl "github.com/sdqri/effdsl"
 	"github.com/stretchr/testify/assert"
+
+	effdsl "github.com/sdqri/effdsl"
 )
 
 func TestQueryString(t *testing.T) {
