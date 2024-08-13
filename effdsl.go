@@ -41,6 +41,7 @@ var (
 	WithCollpse      = objs.WithCollpse
 	WithSourceFilter = objs.WithSourceFilter
 	Define           = objs.Define
+
 	// q_bool_query.go
 	Must               = objs.Must
 	Filter             = objs.Filter
@@ -48,8 +49,10 @@ var (
 	Should             = objs.Should
 	MinimumShouldMatch = objs.MinimumShouldMatch
 	BoolQuery          = objs.BoolQuery
+
 	// q_exists_query.go
 	ExistsQuery = objs.ExistsQuery
+
 	// q_fuzzy_query.go
 	WithFuzziness      = objs.WithFuzziness
 	WithPrefixLength   = objs.WithPrefixLength
@@ -57,18 +60,22 @@ var (
 	WithFQRewrite      = objs.WithFQRewrite
 	WithTranspositions = objs.WithTranspositions
 	FuzzyQuery         = objs.FuzzyQuery
+
 	// q_match_query.go
 	MatchQuery             = objs.MatchQuery
 	WithMatchOperator      = objs.WithMatchOperator
 	WithFuzzinessParameter = objs.WithFuzzinessParameter
+
 	// q_wildcard_query.go
 	WildcardQuery        = objs.WildcardQuery
 	WithBoost            = objs.WithBoost
 	WithRewriteParameter = objs.WithRewriteParameter
+
 	// q_query_string.go
 	WithFields          = objs.WithFields
 	WithAnalyzeWildcard = objs.WithAnalyzeWildcard
 	QueryString         = objs.QueryString
+
 	// q_range_query.go
 	WithGT     = objs.WithGT
 	WithGTE    = objs.WithGTE
@@ -76,30 +83,36 @@ var (
 	WithLTE    = objs.WithLTE
 	WithFormat = objs.WithFormat
 	RangeQuery = objs.RangeQuery
+
 	// q_regexp_query.go
 	WithFlags                 = objs.WithFlags
 	WithCaseInsensitive       = objs.WithCaseInsensitive
 	WithMaxDeterminizedStates = objs.WithMaxDeterminizedStates
 	WithRQRewrite             = objs.WithRQRewrite
 	RegexpQuery               = objs.RegexpQuery
+
 	// q_term_query.go
 	WithTQBoost = objs.WithTQBoost
 	TermQuery   = objs.TermQuery
+
 	// q_term_set_query.go
 	WithMinimumShouldMatchField  = objs.WithMinimumShouldMatchField
 	WithMinimumShouldMatchScript = objs.WithMinimumShouldMatchScript
 	TermsSetQuery                = objs.TermsSetQuery
+
 	// q_terms_query.go
 	WithTSQBoost = objs.WithTSQBoost
 	TermsQuery   = objs.TermsQuery
+
 	// search_sort.go
 	SortClause = objs.SortClause
+
 	// search_source_filtering.go
 	WithIncludes = objs.WithIncludes
 	WithExcludes = objs.WithExcludes
 	SourceFilter = objs.SourceFilter
 
-	// search_source_filtering.go
+	//search_suggest.go
 	Suggesters              = objs.Suggesters
 	WithSuggest             = objs.WithSuggest
 	TermSuggester           = objs.TermSuggester
@@ -111,15 +124,17 @@ var (
 )
 
 const (
+	//search_sort.go
 	SORT_DEFAULT objs.SortOrder = objs.SORT_DEFAULT
 	SORT_ASC     objs.SortOrder = objs.SORT_ASC
 	SORT_DESC    objs.SortOrder = objs.SORT_DESC
 
+	//q_match_query.go
 	MatchOperatorOR  objs.MatchOperator = objs.MatchOperatorOR
 	MatchOperatorAND objs.MatchOperator = objs.MatchOperatorAND
+	FuzzinessAUTO    objs.Fuzziness     = objs.FuzzinessAUTO
 
-	FuzzinessAUTO objs.Fuzziness = objs.FuzzinessAUTO
-
+	//q_wildcard_query.go
 	RewriteParameterConstantScoreBlended  objs.RewriteParameter = objs.RewriteParameterConstantScoreBlended
 	RewriteParameterConstantScore         objs.RewriteParameter = objs.RewriteParameterConstantScore
 	RewriteParameterConstantScoreBoolean  objs.RewriteParameter = objs.RewriteParameterConstantScoreBoolean
@@ -127,4 +142,11 @@ const (
 	RewriteParameterTopTermsBlendedFreqsN objs.RewriteParameter = objs.RewriteParameterTopTermsBlendedFreqsN
 	RewriteParameterTopTermsBoostN        objs.RewriteParameter = objs.RewriteParameterTopTermsBoostN
 	RewriteParameterTopTermsN             objs.RewriteParameter = objs.RewriteParameterTopTermsN
+
+	//search_suggest.go
+	SortScore          SuggestSort = objs.SortScore
+	FrequencyScore     SuggestSort = objs.FrequencyScore
+	SuggestModeMissing SuggestMode = objs.SuggestModeMissing
+	SuggestModePopular SuggestMode = objs.SuggestModePopular
+	SuggestModeAlways  SuggestMode = objs.SuggestModeAlways
 )
