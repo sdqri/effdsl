@@ -1,20 +1,20 @@
-package tests
+package objects
 
 import (
-	"encoding/json"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-
-	effdsl "github.com/sdqri/effdsl"
+	"github.com/stretchr/testify/require"
 )
 
-func TestNewMatchQuery(t *testing.T) {
-	expectedBody := `{"match":{"fake_field":{"query":"fake_query"}}}`
-	matchQueryResult := effdsl.MatchQuery("fake_field", "fake_query")
-	err := matchQueryResult.Err
-	matchQuery := matchQueryResult.Ok
-	jsonBody, err := json.Marshal(matchQuery)
-	assert.Nil(t, err)
-	assert.Equal(t, expectedBody, string(jsonBody))
+func Test_MatchQueryS_MarshalJSON(t *testing.T) {
+	q := MatchQuery("field_name", "some match query",
+		WithMatchOperator(MatchOperatorAND),
+		WithFuzzinessParameter(FuzzinessAUTO),
+	)
+
+	body, err := q.Ok.MarshalJSON()
+	require.NoError(t, err)
+
+	const expected = `{"match":{"field_name":{"query":"some match query","operator":"AND","fuzziness":"AUTO"}}}`
+	require.Equal(t, expected, string(body))
 }
