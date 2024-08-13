@@ -33,7 +33,7 @@ func (tq TermsQueryS) MarshalJSON() ([]byte, error) {
 
 type TermsQueryOption func(*TermsQueryS)
 
-//TODO: Fix repetitive methods with DefineType problem !important
+// TODO: Fix repetitive methods with DefineType problem !important
 func WithTSQBoost(boost float64) TermsQueryOption {
 	return func(termsQuery *TermsQueryS) {
 		termsQuery.Boost = &boost

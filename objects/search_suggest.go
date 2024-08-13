@@ -34,14 +34,10 @@ func Suggesters(globalText string, s Suggester) SuggestResult {
 	}
 }
 
-// ----------------------------------------------------
-
 type Suggester interface {
 	json.Marshaler
 	_type() string
 }
-
-// ----------------------------------------------------
 
 // TermSuggester - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#term-suggester
 type TermsSuggest []TermSuggest

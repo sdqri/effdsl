@@ -30,10 +30,6 @@ func (bq BoolQueryS) MarshalJSON() ([]byte, error) {
 
 type BooleanClause func(*BoolQueryS) error
 
-//--------------------------------------------------------------------------------------//
-//                                         must                                         //
-//--------------------------------------------------------------------------------------//
-
 // The clause (query) must appear in matching documents and will contribute to the score.
 func Must(queryResults ...QueryResult) BooleanClause {
 	clauses := make([]Query, 0)
@@ -55,10 +51,6 @@ func Must(queryResults ...QueryResult) BooleanClause {
 		return nil
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                        filter                                        //
-//--------------------------------------------------------------------------------------//
 
 // The clause (query) must appear in matching documents. However unlike must the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching.
 func Filter(queryResults ...QueryResult) BooleanClause {
@@ -82,10 +74,6 @@ func Filter(queryResults ...QueryResult) BooleanClause {
 	}
 }
 
-//--------------------------------------------------------------------------------------//
-//                                       must_not                                       //
-//--------------------------------------------------------------------------------------//
-
 // The clause (query) must not appear in the matching documents. Clauses are executed in filter context meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned.
 func MustNot(queryResults ...QueryResult) BooleanClause {
 	clauses := make([]Query, 0)
@@ -106,10 +94,6 @@ func MustNot(queryResults ...QueryResult) BooleanClause {
 		return nil
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                        should                                        //
-//--------------------------------------------------------------------------------------//
 
 // The clause (query) should appear in the matching document.
 func Should(queryResults ...QueryResult) BooleanClause {
@@ -133,10 +117,6 @@ func Should(queryResults ...QueryResult) BooleanClause {
 	}
 }
 
-//--------------------------------------------------------------------------------------//
-//                                 minimum_should_match                                 //
-//--------------------------------------------------------------------------------------//
-
 // You can use the minimum_should_match parameter to specify the number or percentage of should clauses returned documents must match.
 // [minimum_should_match parameter]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-minimum-should-match.html
 func MinimumShouldMatch(minimumShouldMatch string) BooleanClause {
@@ -145,10 +125,6 @@ func MinimumShouldMatch(minimumShouldMatch string) BooleanClause {
 		return nil
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                     constructor                                      //
-//--------------------------------------------------------------------------------------//
 
 // A query that matches documents matching boolean combinations of other queries. The bool query maps to Lucene BooleanQuery. It is built using one or more boolean clauses, each clause with a typed occurrence.
 // [Boolean query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html

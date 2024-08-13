@@ -4,16 +4,14 @@ import (
 	objs "github.com/sdqri/effdsl/objects"
 )
 
-//--------------------------------------------------------------------------------------//
-//                                    Type aliasing                                     //
-//--------------------------------------------------------------------------------------//
-
+// Type aliasing
 type (
 	M                = objs.M
 	SearchBody       = objs.SearchBody
 	BodyOption       = objs.BodyOption
 	QueryResult      = objs.QueryResult
 	SortClauseResult = objs.SortClauseResult
+
 	// Other types
 	BooleanClause      = objs.BooleanClause
 	QueryStringOption  = objs.QueryStringOption
@@ -32,10 +30,6 @@ type (
 	SuggestSort = objs.SuggestSort
 	SuggestMode = objs.SuggestMode
 )
-
-//--------------------------------------------------------------------------------------//
-//                                        Define                                        //
-//--------------------------------------------------------------------------------------//
 
 var (
 	// body.go
@@ -115,10 +109,6 @@ var (
 	WithTermSuggestSort     = objs.WithTermSuggestSort
 	WithTermSuggestMode     = objs.WithTermSuggestMode
 )
-
-//--------------------------------------------------------------------------------------//
-//                                      constants                                       //
-//--------------------------------------------------------------------------------------//
 
 const (
 	SORT_DEFAULT objs.SortOrder = objs.SORT_DEFAULT

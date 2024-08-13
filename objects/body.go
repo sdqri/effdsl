@@ -25,10 +25,6 @@ type SearchBody struct {
 
 type BodyOption func(*SearchBody) error
 
-//--------------------------------------------------------------------------------------//
-//                                    Point in time                                     //
-//--------------------------------------------------------------------------------------//
-
 // A search request by default executes against the most recent visible data of the target indices, which is called point in time. Elasticsearch pit (point in time) is a lightweight view into the state of the data as it existed when initiated. In some cases, it’s preferred to perform multiple search requests using the same point in time. For example, if refreshes happen between search_after requests, then the results of those requests might not be consistent as changes happening between searches are only visible to the more recent point in time.
 // [Point in time]: https://www.elastic.co/guide/en/elasticsearch/reference/current/point-in-time-api.html
 func WithPIT(id string, keepAlive string) BodyOption {
@@ -38,10 +34,6 @@ func WithPIT(id string, keepAlive string) BodyOption {
 		return nil
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                       Paginate                                       //
-//--------------------------------------------------------------------------------------//
 
 // By default, searches return the top 10 matching hits. To page through a larger set of results, you can use the search API's from and size parameters. The from parameter defines the number of hits to skip, defaulting to 0. The size parameter is the maximum number of hits to return. Together, these two parameters define a page of results.
 // [Paginate search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#paginate-search-results
@@ -77,10 +69,6 @@ func WithSearchAfter(sortValues ...any) BodyOption {
 		return err
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                        Query                                         //
-//--------------------------------------------------------------------------------------//
 
 type Query interface {
 	QueryInfo() string
@@ -120,10 +108,6 @@ func MockQuery(m M) QueryResult {
 	}
 }
 
-//--------------------------------------------------------------------------------------//
-//                                         Sort                                         //
-//--------------------------------------------------------------------------------------//
-
 type SortClauseType interface {
 	SortClauseInfo() string
 	json.Marshaler
@@ -156,10 +140,6 @@ func WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 	}
 }
 
-//--------------------------------------------------------------------------------------//
-//                                       Collapse                                       //
-//--------------------------------------------------------------------------------------//
-
 // You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key.
 // [Collapse search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
 func WithCollpse(field string) BodyOption {
@@ -169,10 +149,6 @@ func WithCollpse(field string) BodyOption {
 		return nil
 	}
 }
-
-//--------------------------------------------------------------------------------------//
-//                                   Source filtering                                   //
-//--------------------------------------------------------------------------------------//
 
 // You can use the _source parameter to select what fields of the source are returned. This is called source filtering.
 // The following search API request sets the _source request body parameter to false. The document source is not included in the response.
@@ -185,12 +161,6 @@ func WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
 	}
 }
 
-//--------------------------------------------------------------------------------------//
-//                                                                                      //
-//                                        Define                                        //
-//                                                                                      //
-//--------------------------------------------------------------------------------------//
-
 func Define(opts ...BodyOption) (body *SearchBody, err error) {
 	body = new(SearchBody)
 	for _, opt := range opts {
@@ -201,10 +171,6 @@ func Define(opts ...BodyOption) (body *SearchBody, err error) {
 	}
 	return body, nil
 }
-
-//--------------------------------------------------------------------------------------//
-//                                         Suggest                                      //
-//--------------------------------------------------------------------------------------//
 
 type Suggest interface {
 	SuggestInfo() string
