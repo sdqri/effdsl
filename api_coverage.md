@@ -22,7 +22,7 @@
 
 - [x] exists query
 - [x] fuzzy query
-- [ ] ids query
+- [x] ids query
 - [ ] prefix query
 - [x] range query
 - [x] regexp query
