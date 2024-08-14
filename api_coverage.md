@@ -16,7 +16,7 @@
 - [ ] multi_match query
 - [ ] combined_fields query
 - [x] query_string query 
-- [ ] simple_query_string query
+- [x] simple_query_string query
 
 ### Term-level queries
 
