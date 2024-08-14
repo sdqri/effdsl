@@ -3,7 +3,7 @@
 - [x] bool query
 - [x] boosting query
 - [x] constant score query 
-- [ ] disjunction max query
+- [x] disjunction max query
 - [ ] function_score query
 
 ### Full text queries:
