@@ -1,7 +1,7 @@
 ### Compound queries:
 
 - [x] bool query
-- [ ] boosting query
+- [x] boosting query
 - [ ] constant score query 
 - [ ] disjunction max query
 - [ ] function_score query
