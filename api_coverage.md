@@ -11,7 +11,7 @@
 - [ ] intervals query
 - [x] match query
 - [x] match_bool_prefix query
-- [ ] match_phrase query
+- [x] match_phrase query
 - [ ] match_phrase_prefix query
 - [ ] multi_match query
 - [ ] combined_fields query
