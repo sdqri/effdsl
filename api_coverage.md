@@ -10,7 +10,7 @@
 
 - [ ] intervals query
 - [x] match query
-- [ ] match_bool_prefix query
+- [x] match_bool_prefix query
 - [ ] match_phrase query
 - [ ] match_phrase_prefix query
 - [ ] multi_match query
