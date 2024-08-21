@@ -30,13 +30,13 @@ func (tq TermQueryS) MarshalJSON() ([]byte, error) {
 
 type TermQueryOption func(*TermQueryS)
 
-func WithTQBoost(boost float64) TermQueryOption {
+func WithBoost(boost float64) TermQueryOption {
 	return func(termQuery *TermQueryS) {
 		termQuery.Boost = &boost
 	}
 }
 
-func WithTQCaseInsensitive(caseInsensitive bool) TermQueryOption {
+func WithCaseInsensitive(caseInsensitive bool) TermQueryOption {
 	return func(termQuery *TermQueryS) {
 		termQuery.CaseInsensitive = &caseInsensitive
 	}

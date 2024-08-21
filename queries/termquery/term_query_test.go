@@ -11,7 +11,7 @@ import (
 
 func TestNewTermQuery(t *testing.T) {
 	expectedBody := `{"term":{"fake_term":{"value":"fake_value","boost":2}}}`
-	termQueryResult := tq.TermQuery("fake_term", "fake_value", tq.WithTQBoost(2))
+	termQueryResult := tq.TermQuery("fake_term", "fake_value", tq.WithBoost(2))
 	err := termQueryResult.Err
 	termQuery := termQueryResult.Ok
 	jsonBody, err := json.Marshal(termQuery)
