@@ -77,9 +77,10 @@ func WithRewrite(rewrite Rewrite) FuzzyQueryOption {
 	}
 }
 
-// Returns documents that contain terms similar to the specified term
-// with a given degree of similarity.
-// [Fuzzy query]: https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html
+// FuzzyQuery returns documents that contain terms similar to the specified term with a given degree of similarity.
+//
+// For more details, see the official Elasticsearch documentation:
+// https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html
 func FuzzyQuery(field string, value string, opts ...FuzzyQueryOption) effdsl.QueryResult {
 	fuzzyQuery := FuzzyQueryS{
 		Field: field,
