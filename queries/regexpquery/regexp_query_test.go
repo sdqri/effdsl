@@ -27,7 +27,7 @@ func TestRegexpQuery_WithAllOptions(t *testing.T) {
 		rq.WithFlags("fake_flags"),
 		rq.WithCaseInsensitive(),
 		rq.WithMaxDeterminizedStates(100),
-		rq.WithRQRewrite("fake_rewrite"))
+		rq.WithRewrite(rq.ConstantScore))
 	err := regexpQueryResult.Err
 	regexpQuery := regexpQueryResult.Ok
 	jsonBody, err := json.Marshal(regexpQuery)
