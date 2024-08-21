@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	pq "github.com/sdqri/effdsl/queries/prefixquery"
+	pq "github.com/sdqri/effdsl/v2/queries/prefixquery"
 )
 
 func TestPrefixQuery_WithNoOptions(t *testing.T) {

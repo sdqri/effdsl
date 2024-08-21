@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	eq "github.com/sdqri/effdsl/queries/existsquery"
+	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
 )
 
 func TestNewExistsQuery(t *testing.T) {

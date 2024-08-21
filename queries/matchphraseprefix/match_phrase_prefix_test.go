@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	mppq "github.com/sdqri/effdsl/queries/matchphraseprefix"
+	mppq "github.com/sdqri/effdsl/v2/queries/matchphraseprefix"
 )
 
 func TestNewMatchPhrasePrefixQueryWithNoOptions(t *testing.T) {

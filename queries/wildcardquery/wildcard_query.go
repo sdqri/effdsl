@@ -3,7 +3,7 @@ package wildcardquery
 import (
 	"encoding/json"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-wildcard-query.html

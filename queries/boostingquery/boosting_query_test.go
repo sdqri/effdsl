@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	bq "github.com/sdqri/effdsl/queries/boostingquery"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+	bq "github.com/sdqri/effdsl/v2/queries/boostingquery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 func TestBoostingQuery(t *testing.T) {

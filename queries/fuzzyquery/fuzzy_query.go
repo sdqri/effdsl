@@ -3,7 +3,7 @@ package fuzzyquery
 import (
 	"encoding/json"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 // FuzzyQueryS represents a query that matches documents containing terms

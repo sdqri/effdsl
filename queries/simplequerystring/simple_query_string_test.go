@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	sqs "github.com/sdqri/effdsl/queries/simplequerystring"
+	sqs "github.com/sdqri/effdsl/v2/queries/simplequerystring"
 )
 
 func TestQueryString(t *testing.T) {

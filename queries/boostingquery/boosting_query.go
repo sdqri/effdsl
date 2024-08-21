@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 type BoostingQueryS struct {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	mbpq "github.com/sdqri/effdsl/queries/matchboolprefix"
+	mbpq "github.com/sdqri/effdsl/v2/queries/matchboolprefix"
 )
 
 func TestNewMatchBoolPrefixQueryWithAnalyzer(t *testing.T) {

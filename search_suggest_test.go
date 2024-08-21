@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	effdsl "github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 func Test_Search_Suggest_MarshalJSON(t *testing.T) {

@@ -3,7 +3,7 @@ package idsquery
 import (
 	"encoding/json"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 // IDsQueryS represents the structure of the IDs query.

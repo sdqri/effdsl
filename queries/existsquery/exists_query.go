@@ -3,7 +3,7 @@ package existsquery
 import (
 	"encoding/json"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 type ExistsQueryS struct {

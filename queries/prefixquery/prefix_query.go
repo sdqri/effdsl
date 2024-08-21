@@ -3,7 +3,7 @@ package prefixquery
 import (
 	"encoding/json"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
 )
 
 // PrefixQueryS represents a query that matches documents containing terms

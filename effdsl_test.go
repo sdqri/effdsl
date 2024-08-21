@@ -7,12 +7,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	effdsl "github.com/sdqri/effdsl"
-	bq "github.com/sdqri/effdsl/queries/boolquery"
-	eq "github.com/sdqri/effdsl/queries/existsquery"
-	qs "github.com/sdqri/effdsl/queries/querystring"
-	rq "github.com/sdqri/effdsl/queries/rangequery"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+	"github.com/sdqri/effdsl/v2"
+	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
+	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
+	qs "github.com/sdqri/effdsl/v2/queries/querystring"
+	rq "github.com/sdqri/effdsl/v2/queries/rangequery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 func TestWithQuery(t *testing.T) {

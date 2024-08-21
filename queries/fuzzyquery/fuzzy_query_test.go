@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	fq "github.com/sdqri/effdsl/queries/fuzzyquery"
+	fq "github.com/sdqri/effdsl/v2/queries/fuzzyquery"
 )
 
 func TestFuzzyQuery_WithNoOptions(t *testing.T) {

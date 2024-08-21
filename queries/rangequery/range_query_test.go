@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	rq "github.com/sdqri/effdsl/queries/rangequery"
+	rq "github.com/sdqri/effdsl/v2/queries/rangequery"
 )
 
 func TestNewRangeQueryWithNoOptions(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	rq "github.com/sdqri/effdsl/queries/regexpquery"
+	rq "github.com/sdqri/effdsl/v2/queries/regexpquery"
 )
 
 func TestRegexpQuery_WithNoOptions(t *testing.T) {
@@ -20,7 +20,7 @@ func TestRegexpQuery_WithNoOptions(t *testing.T) {
 }
 
 func TestRegexpQuery_WithAllOptions(t *testing.T) {
-	expectedBody := `{"regexp":{"fake_field":{"value":"fake_value","flags":"fake_flags","case_insensitive":true,"max_determinized_states":100,"rewrite":"fake_rewrite"}}}`
+	expectedBody := `{"regexp":{"fake_field":{"value":"fake_value","flags":"fake_flags","case_insensitive":true,"max_determinized_states":100,"rewrite":"constant_score"}}}`
 	regexpQueryResult := rq.RegexpQuery(
 		"fake_field",
 		"fake_value",

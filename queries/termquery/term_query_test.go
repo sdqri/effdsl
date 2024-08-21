@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	tq "github.com/sdqri/effdsl/queries/termquery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 func TestNewTermQuery(t *testing.T) {

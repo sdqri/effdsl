@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	wcq "github.com/sdqri/effdsl/queries/wildcardquery"
+	wcq "github.com/sdqri/effdsl/v2/queries/wildcardquery"
 )
 
 func Test_WildcardQueryS_MarshalJSON(t *testing.T) {
@@ -17,6 +17,6 @@ func Test_WildcardQueryS_MarshalJSON(t *testing.T) {
 	body, err := q.Ok.MarshalJSON()
 	require.NoError(t, err)
 
-	const expected = `{"wildcard":{"field_name":{"boost":1,"rewrite":"constant_score","value":"some match query"}}}`
+	const expected = `{"wildcard":{"field_name":{"boost":1,"rewrite":"constant_score_blended","value":"some match query"}}}`
 	require.Equal(t, expected, string(body))
 }

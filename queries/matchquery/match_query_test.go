@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	mq "github.com/sdqri/effdsl/queries/matchquery"
+	mq "github.com/sdqri/effdsl/v2/queries/matchquery"
 )
 
 func Test_MatchQueryS_MarshalJSON(t *testing.T) {

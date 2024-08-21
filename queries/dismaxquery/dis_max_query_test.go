@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/sdqri/effdsl"
-	dmq "github.com/sdqri/effdsl/queries/dismaxquery"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+	"github.com/sdqri/effdsl/v2"
+	dmq "github.com/sdqri/effdsl/v2/queries/dismaxquery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 func TestDisMaxQuery(t *testing.T) {

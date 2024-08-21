@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	iq "github.com/sdqri/effdsl/queries/idsquery"
+	iq "github.com/sdqri/effdsl/v2/queries/idsquery"
 )
 
 func TestIDsQuery(t *testing.T) {

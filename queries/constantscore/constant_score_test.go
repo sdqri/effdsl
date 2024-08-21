@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	cs "github.com/sdqri/effdsl/queries/constantscore"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+	cs "github.com/sdqri/effdsl/v2/queries/constantscore"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 func TestConstantScoreQuery_WithAllOptions(t *testing.T) {
