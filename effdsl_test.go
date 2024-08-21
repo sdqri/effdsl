@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	effdsl "github.com/sdqri/effdsl"
-	bq "github.com/sdqri/effdsl/queries/booleanquery"
+	bq "github.com/sdqri/effdsl/queries/boolquery"
 	eq "github.com/sdqri/effdsl/queries/existsquery"
 	qs "github.com/sdqri/effdsl/queries/querystring"
 	rq "github.com/sdqri/effdsl/queries/rangequery"

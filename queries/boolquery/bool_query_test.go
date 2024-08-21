@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	effdsl "github.com/sdqri/effdsl"
-	bq "github.com/sdqri/effdsl/queries/booleanquery"
+	bq "github.com/sdqri/effdsl/queries/boolquery"
 )
 
 func TestBoolQuery(t *testing.T) {

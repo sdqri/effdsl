@@ -123,7 +123,7 @@ func MustNot(queryResults ...effdsl.QueryResult) BooleanClause {
 //
 // For more details, see the official Elasticsearch documentation:
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-minimum-should-match.html
-func MinimumShouldMatch(minimumShouldMatch string) BooleanClause {
+func WithMinimumShouldMatch(minimumShouldMatch string) BooleanClause {
 	return func(boolQuery *BoolQueryS) error {
 		boolQuery.MinimumShouldMatch = minimumShouldMatch
 		return nil
