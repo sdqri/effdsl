@@ -1074,9 +1074,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#v120-latest" class="md-nav__link">
+  <a href="#v212-latest" class="md-nav__link">
     <span class="md-ellipsis">
-      v1.2.0 Latest
+      v2.1.2 Latest
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.1.2 Latest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v120" class="md-nav__link">
+    <span class="md-ellipsis">
+      v1.2.0
     </span>
   </a>
   
@@ -1119,9 +1152,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#v120-latest" class="md-nav__link">
+  <a href="#v212-latest" class="md-nav__link">
     <span class="md-ellipsis">
-      v1.2.0 Latest
+      v2.1.2 Latest
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.1.2 Latest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v120" class="md-nav__link">
+    <span class="md-ellipsis">
+      v1.2.0
     </span>
   </a>
   
@@ -1146,7 +1212,20 @@
 
 
 <h1 id="release-notes">Release Notes</h1>
-<h2 id="v120-latest">v1.2.0 Latest</h2>
+<h2 id="v212-latest">v2.1.2 Latest</h2>
+<h3 id="whats-new">What's New</h3>
+<ul>
+<li>✨ Add support for boosting query, constant score query, disjunction max query in compound queries.</li>
+<li>✨ Add support for match query, match_bool_prefix query, match_phrase query, match_phrase_prefix query, simple_query_string query in full text queries.</li>
+<li>✨ Add support for ids query, prefix query, wildcard query in term-level queries.</li>
+<li>📝 Add documentation for all supported queries.</li>
+</ul>
+<h3 id="whats-changed">What's Changed</h3>
+<ul>
+<li>🔄 Separate queries into packages to remove prefixed parameters.</li>
+<li>✅ Complete functional options in queries.</li>
+</ul>
+<h2 id="v120">v1.2.0</h2>
 <ul>
 <li>💡 Extend <code>MatchQuery</code> parameters &amp; add <code>WildcardQuery</code> and <code>Suggesters</code>. PR <a href="https://github.com/sdqri/effdsl/pull/2">#2</a> by <a href="https://github.com/moguchev">@moguchev</a>.</li>
 </ul>
