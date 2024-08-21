@@ -21,8 +21,8 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Values ...string**  
-    An array of document IDs. This is a required parameter.
+*   **Values (...string)**  
+    _(Required, positional)_ An array of document IDs. This is a required parameter.
 
 ### Additional Information
 

@@ -12,12 +12,12 @@ import (
 
 query, err := effdsl.Define(
     rq.RegexpQuery(
-        "field_name",
-        "some_pattern",
-        rq.WithFlags("some_flags"),
+        "user.id",
+        "k.*y",
+        rq.WithFlags("ALL"),
         rq.WithCaseInsensitive(),
-        rq.WithMaxDeterminizedStates(50),
-        rq.WithRQRewrite("scoring_boolean"),
+        rq.WithMaxDeterminizedStates(10000),
+        rq.WithRQRewrite(rq.ConstantScore),
     )
 )
 
@@ -28,29 +28,29 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Value string**  
-    The regular expression pattern to match against the field. This is a required parameter.
+*   **Value (string)**  
+    _(Required, positional)_ The regular expression pattern to match against the field. This is a required parameter.
 
-* **WithFlags(string)**  
-    Additional matching options for the regular expression.
+*   **WithFlags (string)**  
+    _(Optional, Functional option)_ Additional matching options for the regular expression.
 
-* **WithCaseInsensitive()**  
-    If true, the regular expression is case-insensitive.
+*   **WithCaseInsensitive (bool)**  
+    _(Optional, Functional option)_ If true, the regular expression is case-insensitive.
 
-* **WithMaxDeterminizedStates(int)**  
-    The maximum number of automaton states required for the query. Lower values will reduce memory usage but increase query time.
+*   **WithMaxDeterminizedStates (int)**  
+    _(Optional, Functional option)_ The maximum number of automaton states required for the query. Lower values will reduce memory usage but increase query time.
 
-* **WithRQRewrite(string)**  
-    The method used to rewrite the query. Valid values include:
-    * "constant_score_boolean"
-    * "constant_score_filter"
-    * "scoring_boolean"
-    * "top_terms_boost_N" (where N is the number of top terms)
-    * "top_terms_N" (where N is the number of top terms)
-    * "random_access_N" (where N is the maximum number of matching terms)
+*   **WithRewrite (Rewrite)**  
+    _(Optional, Functional option)_ The method used to rewrite the query. Valid values are:
+    *   `constant_score`: Query is rewritten to a constant score query.
+    *   `scoring_boolean`: Query is rewritten to a scoring boolean query.
+    *   `constant_score_boolean`: Query is rewritten to a constant score boolean query.
+    *   `top_terms_N`: Query is rewritten to match the top N scoring terms.
+    *   `top_terms_boost_N`: Query is rewritten to match the top N scoring terms with boosting.
+    *   `top_terms_blended_freqs_N`: Query is rewritten to match the top N scoring terms with blended frequencies.
 
 ### Additional Information
 

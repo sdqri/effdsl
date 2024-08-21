@@ -1,44 +1,53 @@
 # Match Phrase Prefix Query
 
-## Overview
+A match phrase prefix query returns documents that match a given phrase with a prefix, considering the position of the terms. The provided text is analyzed before matching.
 
-The `MatchPhrasePrefixQuery` is used to create a match phrase prefix query for a specific field and query text. This query type is helpful when you need to search for phrases that start with the specified query text and allow for prefix matching. The query supports various options, including the analyzer, slop, max expansions, and behavior for zero terms.
+### Example
 
-## Example
-
-```code
+```go
 import (
-	"encoding/json"
-	"testing"
-
-	"github.com/stretchr/testify/assert"
-
-	mppq "github.com/sdqri/effdsl/queries/matchphraseprefix"
+	"github.com/sdqri/effdsl"
+	mppq "github.com/sdqri/effdsl/queries/matchphraseprefixquery"
 )
 
-func TestNewMatchPhrasePrefixQueryWithNoOptions(t *testing.T) {
-	matchQueryResult := mppq.MatchPhrasePrefixQuery("message", "quick brown f")
-	err := matchQueryResult.Err
-	matchQuery := matchQueryResult.Ok
-	assert.Nil(t, err)
-	expectedBody := `{"match_phrase_prefix":{"message":{"query":"quick brown f"}}}`
-	jsonBody, err := json.Marshal(matchQuery)
-	assert.Nil(t, err)
-	assert.Equal(t, expectedBody, string(jsonBody))
-}
+query, err := effdsl.Define(
+    mppq.MatchPhrasePrefixQuery(
+        "field_name",
+        "some phrase prefix query",
+        mppq.WithAnalyzer("my_analyzer"),
+        mppq.WithSlop(2),
+        mppq.WithMaxExpansions(10),
+    )
+)
+
+res, err := es.Search(
+    es.Search.WithBody(strings.NewReader(query)),
+)
 ```
+### Parameters
 
-## Parameters
+*   **Field (string)**  
+    _(Required, positional)_ The field to search. This is a required parameter.
 
-*   `Field` (Required, string): The field to search.
-*   `Query` (Required, string): The query text to search for.
-*   `Analyzer` (Optional, string): The analyzer used to convert text in the query string into tokens.
-*   `Slop` (Optional, integer): The maximum number of positions allowed between matching tokens for phrases.
-*   `MaxExpansions` (Optional, integer): The maximum number of terms to which the last provided term will expand.
-*   `ZeroTermsQuery` (Optional, string): Specifies what to do when the analyzed text contains no terms. Valid values are "none" (default) or "all".
+*   **Query (string)**  
+    _(Required, positional)_ The text to search for in the provided field. This is a required parameter.
 
-## Additional Information
+*   **WithAnalyzer (string)**  
+    _(Optional, Functional option)_ Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.
 
-This query is used when you want to search for a prefix of a phrase in a specific field. It is particularly useful for autocomplete-like search experiences, where you want to suggest phrases based on partial input.
+*   **WithSlop (int)**  
+    _(Optional, Functional option)_ Maximum number of positions allowed between matching tokens for phrases. Defaults to 0.
 
-For more details, refer to the official [Elasticsearch documentation](https://elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html).
+*   **WithMaxExpansions (int)**  
+    _(Optional, Functional option)_ Maximum number of terms to which the last provided term will expand. Defaults to not expanding terms.
+
+*   **WithZeroTermsQuery (ZeroTerms)**  
+    _(Optional, Functional option)_ Indicates what to do when the analyzed text contains no terms. Valid values are:
+    
+    *   `none` (Default): No documents are returned if the analyzer removes all tokens.
+    *   `all`: Returns all documents, similar to a match_all query.
+
+### Additional Information
+
+For more details on the match phrase prefix query and its parameters, refer to the [official Elasticsearch documentation on match phrase prefix queries](https://elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html).
+

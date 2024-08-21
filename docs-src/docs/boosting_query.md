@@ -22,17 +22,19 @@ res, err := es.Search(
     es.Search.WithBody(strings.NewReader(query)),
 )
 ```
+Positional requierd parameters
+### Parameters
 
 ### Parameters
 
-- **Positive (Query)**  
-  The query that documents must match to be considered for inclusion in the results.
-
-- **Negative (Query)**  
-  The query object used to reduce the relevance score of documents matching this query.
-  
-- **NegativeBoost (float64)**  
-  A floating-point number between 0 and 1.0 used to decrease the relevance scores of documents matching the negative query.
+*   **Positive (Query)**  
+    _(Required, positional)_ The query that documents must match to be considered for inclusion in the results.
+    
+*   **Negative (Query)**  
+    _(Required, positional)_ The query object used to reduce the relevance score of documents matching this query.
+    
+*   **NegativeBoost (float64)**  
+    _(Required, positional)_ A floating-point number between 0 and 1.0 used to decrease the relevance scores of documents matching the negative query.
 
 ### Additional Information
 

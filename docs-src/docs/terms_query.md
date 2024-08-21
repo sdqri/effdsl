@@ -12,9 +12,9 @@ import (
 
 query, err := effdsl.Define(
     tsq.TermsQuery(
-        "field_name",
-        []string{"term1", "term2"},
-        tsq.WithBoost(1.5),
+        "user.id",
+        []string{"kimchy", "elkbee"},
+        tsq.WithBoost(1.0),
     )
 )
 
@@ -25,15 +25,15 @@ res, err := es.Search(
 
 ### Parameters
 
-*   **Field string**  
-    The field you wish to search. This is a required parameter.
-    
-*   **Values []string**  
-    The array of terms you wish to find in the provided field. This is a required parameter.
-    
-*   **WithBoost(float64)**  
-    Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
-    
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
+
+*   **Values ([]string)**  
+    _(Required, positional)_ The array of terms you wish to find in the provided field. This is a required parameter.
+
+*   **WithBoost (float64)**  
+    _(Optional, Functional option)_ Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
+   
 
 ### Additional Information
 

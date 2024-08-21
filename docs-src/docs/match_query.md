@@ -26,43 +26,43 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Query string**  
-    The text, number, boolean value, or date you wish to find in the provided field. This is a required parameter.
+*   **Query (string)**  
+    _(Required, positional)_ The text, number, boolean value, or date you wish to find in the provided field. This is a required parameter.
 
-* **WithAnalyzer(string)**  
-    Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.
+*   **WithAnalyzer (string)**  
+    _(Optional, Functional option)_ Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.
 
-* **WithAutoGenerateSynonymsPhrase(bool)**
-    If true, match phrase queries are automatically created for multi-term synonyms.
+*   **WithAutoGenerateSynonymsPhrase (bool)**  
+    _(Optional, Functional option)_ If true, match phrase queries are automatically created for multi-term synonyms.
 
-* **WithBoost(float64)** 
-    Floating point number used to decrease or increase the relevance scores of the query.
+*   **WithBoost (float64)**  
+    _(Optional, Functional option)_ Floating-point number used to decrease or increase the relevance scores of the query.
 
-* **WithFuzzinessParameter(int)**
-    Maximum number of terms to which the query will expand.
+*   **WithFuzzinessParameter (int)**  
+    _(Optional, Functional option)_ Maximum number of terms to which the query will expand.
 
-* **WithMaxExpansions(int)**
-    Maximum number of terms to which the query will expand. Defaults to 50.
+*   **WithMaxExpansions (int)**  
+    _(Optional, Functional option)_ Maximum number of terms to which the query will expand. Defaults to 50.
 
-* **WithPrefixLength(int)**
-    Number of beginning characters left unchanged for fuzzy matching. Defaults to 0.
-  
-* **WithFuzzyTranspositions(bool)**
-    If true, edits for fuzzy matching include transpositions of two adjacent characters.
+*   **WithPrefixLength (int)**  
+    _(Optional, Functional option)_ Number of beginning characters left unchanged for fuzzy matching. Defaults to 0.
 
-* **WithFuzzyRewrite(FuzzyRewrite)**
-    Method used to rewrite the query. See the rewrite parameter for valid values and more information.
+*   **WithFuzzyTranspositions (bool)**  
+    _(Optional, Functional option)_ If true, edits for fuzzy matching include transpositions of two adjacent characters.
 
-* **WithOperator(Operator)**
-    Boolean logic used to interpret text in the query value. Valid values are:
-      * `OR` (Default): For example, a query value of "capital of Hungary" is interpreted as "capital OR of OR Hungary".
-      * `AND`: For example, a query value of "capital of Hungary" is interpreted as "capital AND of AND Hungary".
+*   **WithFuzzyRewrite (FuzzyRewrite)**  
+    _(Optional, Functional option)_ Method used to rewrite the query. See the rewrite parameter for valid values and more information.
 
-* **WithMinimumShouldMatch(string)** 
-    Minimum number of clauses that must match for a document to be returned.
+*   **WithOperator (Operator)**  
+    _(Optional, Functional option)_ Boolean logic used to interpret text in the query value. Valid values are:
+    * `OR` (Default): For example, a query value of "capital of Hungary" is interpreted as "capital OR of OR Hungary".
+    * `AND`: For example, a query value of "capital of Hungary" is interpreted as "capital AND of AND Hungary".
+
+*   **WithMinimumShouldMatch (string)**  
+    _(Optional, Functional option)_ Minimum number of clauses that must match for a document to be returned.
 
 ### Additional Information
 

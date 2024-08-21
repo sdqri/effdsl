@@ -657,11 +657,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1209,45 +1209,51 @@
 </ul>
 <p>To find similar terms, the fuzzy query creates a set of all possible variations, or expansions, of the search term within a specified edit distance. The query then returns exact matches for each expansion.</p>
 <h2 id="example">Example</h2>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">fuzzyQueryResult</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fq</span><span class="p">.</span><span class="nx">FuzzyQuery</span><span class="p">(</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="s">&quot;fake_field&quot;</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="s">&quot;fake_value&quot;</span><span class="p">,</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">WithFuzziness</span><span class="p">(</span><span class="s">&quot;AUTO&quot;</span><span class="p">),</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">WithPrefixLength</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">WithMaxExpansions</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">WithTranspositions</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">WithRewrite</span><span class="p">(</span><span class="nx">fq</span><span class="p">.</span><span class="nx">ConstantScore</span><span class="p">),</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">)</span>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="s">&quot;github.com/sdqri/effdsl&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">eq</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/queries/existsquery&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">fq</span><span class="p">.</span><span class="nx">FuzzyQuery</span><span class="p">(</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;user.id&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="s">&quot;ki&quot;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Field string</strong><br />
-    The field you wish to search. This is a required parameter.</p>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field you wish to search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>Value string</strong><br />
-    The term you wish to find in the provided field. This is a required parameter.</p>
+<p><strong>Value (string)</strong><br />
+<em>(Required, positional)</em> The term you wish to find in the provided field. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithFuzziness(string)</strong><br />
-    The degree of fuzziness allowed for the search term (e.g. "AUTO", "1", "2", etc.). Defaults to no fuzziness.</p>
+<p><strong>WithFuzziness (string)</strong><br />
+<em>(Optional, Functional option)</em> The degree of fuzziness allowed for the search term (e.g., "AUTO", "1", "2", etc.). Defaults to no fuzziness.</p>
 </li>
 <li>
-<p><strong>WithMaxExpansions(int)</strong><br />
-    Maximum number of terms to match. Defaults to 50.</p>
+<p><strong>WithMaxExpansions (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms to match. Defaults to 50.</p>
 </li>
 <li>
-<p><strong>WithPrefixLength(int)</strong><br />
-    Number of initial characters that must match exactly. Defaults to 0.</p>
+<p><strong>WithPrefixLength (int)</strong><br />
+<em>(Optional, Functional option)</em> Number of initial characters that must match exactly. Defaults to 0.</p>
 </li>
 <li>
-<p><strong>WithTranspositions(bool)</strong><br />
-    If true, allows transpositions of two adjacent characters. Defaults to true.</p>
+<p><strong>WithTranspositions (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, allows transpositions of two adjacent characters. Defaults to true.</p>
 </li>
 <li>
-<p><strong>WithRewrite(Rewrite)</strong><br />
-    Method used to rewrite the query. Valid values are:</p>
+<p><strong>WithRewrite (Rewrite)</strong><br />
+<em>(Optional, Functional option)</em> Method used to rewrite the query. Valid values are:</p>
 <ul>
 <li><code>constant_score</code>: Query is rewritten to a constant score query.</li>
 <li><code>scoring_boolean</code>: Query is rewritten to a scoring boolean query.</li>

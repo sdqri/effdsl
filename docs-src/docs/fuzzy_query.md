@@ -14,45 +14,52 @@ To find similar terms, the fuzzy query creates a set of all possible variations,
 ## Example
 
 ```go
-fuzzyQueryResult := fq.FuzzyQuery(
-    "fake_field",
-    "fake_value",
-    fq.WithFuzziness("AUTO"),
-    fq.WithPrefixLength(1),
-    fq.WithMaxExpansions(10),
-    fq.WithTranspositions(true),
-    fq.WithRewrite(fq.ConstantScore),
+import (
+	"github.com/sdqri/effdsl"
+	eq "github.com/sdqri/effdsl/queries/existsquery"
 )
+
+query, err := effdsl.Define(
+    fq.FuzzyQuery(
+        "user.id",
+        "ki",
+    )
+)
+
+res, err := es.Search(
+    es.Search.WithBody(strings.NewReader(query)),
+)
+
 ```
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Value string**  
-    The term you wish to find in the provided field. This is a required parameter.
+*   **Value (string)**  
+    _(Required, positional)_ The term you wish to find in the provided field. This is a required parameter.
 
-* **WithFuzziness(string)**  
-    The degree of fuzziness allowed for the search term (e.g. "AUTO", "1", "2", etc.). Defaults to no fuzziness.
+*   **WithFuzziness (string)**  
+    _(Optional, Functional option)_ The degree of fuzziness allowed for the search term (e.g., "AUTO", "1", "2", etc.). Defaults to no fuzziness.
 
-* **WithMaxExpansions(int)**  
-    Maximum number of terms to match. Defaults to 50.
+*   **WithMaxExpansions (int)**  
+    _(Optional, Functional option)_ Maximum number of terms to match. Defaults to 50.
 
-* **WithPrefixLength(int)**  
-    Number of initial characters that must match exactly. Defaults to 0.
+*   **WithPrefixLength (int)**  
+    _(Optional, Functional option)_ Number of initial characters that must match exactly. Defaults to 0.
 
-* **WithTranspositions(bool)**  
-    If true, allows transpositions of two adjacent characters. Defaults to true.
+*   **WithTranspositions (bool)**  
+    _(Optional, Functional option)_ If true, allows transpositions of two adjacent characters. Defaults to true.
 
-* **WithRewrite(Rewrite)**  
-    Method used to rewrite the query. Valid values are:
-      * `constant_score`: Query is rewritten to a constant score query.
-      * `scoring_boolean`: Query is rewritten to a scoring boolean query.
-      * `constant_score_boolean`: Query is rewritten to a constant score boolean query.
-      * `top_terms_N`: Query is rewritten to match the top N scoring terms.
-      * `top_terms_boost_N`: Query is rewritten to match the top N scoring terms with boosting.
-      * `top_terms_blended_freqs_N`: Query is rewritten to match the top N scoring terms with blended frequencies.
+*   **WithRewrite (Rewrite)**  
+    _(Optional, Functional option)_ Method used to rewrite the query. Valid values are:
+    *   `constant_score`: Query is rewritten to a constant score query.
+    *   `scoring_boolean`: Query is rewritten to a scoring boolean query.
+    *   `constant_score_boolean`: Query is rewritten to a constant score boolean query.
+    *   `top_terms_N`: Query is rewritten to match the top N scoring terms.
+    *   `top_terms_boost_N`: Query is rewritten to match the top N scoring terms with boosting.
+    *   `top_terms_blended_freqs_N`: Query is rewritten to match the top N scoring terms with blended frequencies.
 
 ### Additional Information
 

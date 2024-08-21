@@ -21,8 +21,8 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
 ### Additional Information
 

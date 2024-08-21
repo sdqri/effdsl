@@ -657,11 +657,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1196,60 +1196,59 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">rq</span><span class="p">.</span><span class="nx">RangeQuery</span><span class="p">(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;field_name&quot;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;age&quot;</span><span class="p">,</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithGT</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithLTE</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithFormat</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd&quot;</span><span class="p">),</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">)</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithLTE</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nx">rq</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Field string</strong><br />
-    The field you wish to search. This is a required parameter.</p>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field you wish to search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithGT(any)</strong><br />
-    Greater than. If specified, the range query will include terms greater than this value.</p>
+<p><strong>WithGT (any)</strong><br />
+<em>(Optional, Functional option)</em> Greater than. If specified, the range query will include terms greater than this value.</p>
 </li>
 <li>
-<p><strong>WithGTE(any)</strong><br />
-    Greater than or equal to. If specified, the range query will include terms greater than or equal to this value.</p>
+<p><strong>WithGTE (any)</strong><br />
+<em>(Optional, Functional option)</em> Greater than or equal to. If specified, the range query will include terms greater than or equal to this value.</p>
 </li>
 <li>
-<p><strong>WithLT(any)</strong><br />
-    Less than. If specified, the range query will include terms less than this value.</p>
+<p><strong>WithLT (any)</strong><br />
+<em>(Optional, Functional option)</em> Less than. If specified, the range query will include terms less than this value.</p>
 </li>
 <li>
-<p><strong>WithLTE(any)</strong><br />
-    Less than or equal to. If specified, the range query will include terms less than or equal to this value.</p>
+<p><strong>WithLTE (any)</strong><br />
+<em>(Optional, Functional option)</em> Less than or equal to. If specified, the range query will include terms less than or equal to this value.</p>
 </li>
 <li>
-<p><strong>WithFormat(string)</strong><br />
-    Date format used to convert date values in the query. This is optional.</p>
+<p><strong>WithFormat (string)</strong><br />
+<em>(Optional, Functional option)</em> Date format used to convert date values in the query.</p>
 </li>
 <li>
-<p><strong>WithRelation(Relation)</strong><br />
-    Indicates how the range query matches values for range fields. Valid values are:</p>
+<p><strong>WithRelation (Relation)</strong><br />
+<em>(Optional, Functional option)</em> Indicates how the range query matches values for range fields. Valid values are:</p>
 <ul>
-<li>INTERSECTS</li>
-<li>CONTAINS</li>
-<li>WITHIN</li>
+<li><code>INTERSECTS</code></li>
+<li><code>CONTAINS</code></li>
+<li><code>WITHIN</code></li>
 </ul>
 </li>
 <li>
-<p><strong>WithTimeZone(string)</strong><br />
-    Coordinated Universal Time (UTC) offset or IANA time zone used to convert date values in the query to UTC. This is optional.</p>
+<p><strong>WithTimeZone (string)</strong><br />
+<em>(Optional, Functional option)</em> Coordinated Universal Time (UTC) offset or IANA time zone used to convert date values in the query to UTC.</p>
 </li>
 <li>
-<p><strong>WithBoost(float64)</strong><br />
-    Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.</p>
+<p><strong>WithBoost (float64)</strong><br />
+<em>(Optional, Functional option)</em> Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>

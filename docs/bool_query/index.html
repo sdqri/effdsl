@@ -735,11 +735,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1253,23 +1253,23 @@
 <ul>
 <li>
 <p><strong>Must(query)</strong><br />
-    The clause must appear in matching documents and will contribute to the score.</p>
+<em>(Optional, Functional option)</em> The clause must appear in matching documents and will contribute to the score.</p>
 </li>
 <li>
 <p><strong>Filter(query)</strong><br />
-    The clause must appear in matching documents. Unlike must, the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching.</p>
+<em>(Optional, Functional option)</em> The clause must appear in matching documents. Unlike must, the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching.</p>
 </li>
 <li>
 <p><strong>Should(query)</strong><br />
-    The clause should appear in the matching document.</p>
+<em>(Optional, Functional option)</em> The clause should appear in the matching document.</p>
 </li>
 <li>
-<p><strong>MustNot(query)</strong>:<br />
-    The clause must not appear in the matching documents. Clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned.</p>
+<p><strong>MustNot(query)</strong><br />
+<em>(Optional, Functional option)</em> The clause must not appear in the matching documents. Clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned.</p>
 </li>
 <li>
-<p><strong>WithMinimumShouldMatch(string)</strong> 
-    Minimum number of clauses that must match for a document to be returned.</p>
+<p><strong>WithMinimumShouldMatch(string)</strong><br />
+<em>(Optional, Functional option)</em> Minimum number of clauses that must match for a document to be returned.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>

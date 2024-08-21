@@ -537,6 +537,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-information" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Information
@@ -726,11 +735,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1160,6 +1169,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#additional-information" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Information
@@ -1189,7 +1207,7 @@
 <h1 id="boosting-query">Boosting Query</h1>
 <p>A boosting query matches documents based on a positive query while reducing the relevance score of documents that also match a negative query. This type of query is useful for situations where you want to boost the relevance of documents that match a primary condition but penalize documents that match a secondary, less desired condition. The boosting query is constructed using a positive query, a negative query, and a negative boost factor.</p>
 <h3 id="example">Example</h3>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<p><div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="s">&quot;github.com/sdqri/effdsl&quot;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">bq</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/queries/boostingquery&quot;</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">tq</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/queries/termquery&quot;</span>
@@ -1206,19 +1224,21 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">)</span>
 </span></code></pre></div>
+Positional requierd parameters</p>
 <h3 id="parameters">Parameters</h3>
+<h3 id="parameters_1">Parameters</h3>
 <ul>
 <li>
 <p><strong>Positive (Query)</strong><br />
-  The query that documents must match to be considered for inclusion in the results.</p>
+<em>(Required, positional)</em> The query that documents must match to be considered for inclusion in the results.</p>
 </li>
 <li>
 <p><strong>Negative (Query)</strong><br />
-  The query object used to reduce the relevance score of documents matching this query.</p>
+<em>(Required, positional)</em> The query object used to reduce the relevance score of documents matching this query.</p>
 </li>
 <li>
 <p><strong>NegativeBoost (float64)</strong><br />
-  A floating-point number between 0 and 1.0 used to decrease the relevance scores of documents matching the negative query.</p>
+<em>(Required, positional)</em> A floating-point number between 0 and 1.0 used to decrease the relevance scores of documents matching the negative query.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>

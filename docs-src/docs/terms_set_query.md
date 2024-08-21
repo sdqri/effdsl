@@ -12,10 +12,9 @@ import (
 
 query, err := effdsl.Define(
     tsq.TermsSetQuery(
-        "field_name",
-        []string{"term1", "term2"},
-        tsq.WithMinimumShouldMatchField("min_should_match_field"),
-        tsq.WithMinimumShouldMatchScript("min_should_match_script"),
+        "programming_languages",
+        []string{"c++", "java", "php"},
+        tsq.WithMinimumShouldMatchField("required_matches"),
     )
 )
 
@@ -23,20 +22,19 @@ res, err := es.Search(
     es.Search.WithBody(strings.NewReader(query)),
 )
 ```
-
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Terms []string**  
-    An array of terms you wish to find in the provided field. To return a document, at least one of the terms must exactly match the field value, including whitespace and capitalization. This is a required parameter.
+*   **Terms ([]string)**  
+    _(Required, positional)_ An array of terms you wish to find in the provided field. To return a document, at least one of the terms must exactly match the field value, including whitespace and capitalization. This is a required parameter.
 
-* **WithMinimumShouldMatchField(string)**  
-    The field which holds the minimum number of terms that should match. Only used when `minimum_should_match_script` is not set.
+*   **WithMinimumShouldMatchField (string)**  
+    _(Optional, Functional option)_ The field that holds the minimum number of terms that should match. Only used when `minimum_should_match_script` is not set.
 
-* **WithMinimumShouldMatchScript(string)**  
-    Script which returns the minimum number of terms that should match.
+*   **WithMinimumShouldMatchScript (string)**  
+    _(Optional, Functional option)_ Script that returns the minimum number of terms that should match.
 
 ### Additional Information
 

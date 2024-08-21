@@ -726,11 +726,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1210,56 +1210,56 @@
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Field string</strong><br />
-    The field you wish to search. This is a required parameter.</p>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field you wish to search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>Query string</strong><br />
-    The text, number, boolean value, or date you wish to find in the provided field. This is a required parameter.</p>
+<p><strong>Query (string)</strong><br />
+<em>(Required, positional)</em> The text, number, boolean value, or date you wish to find in the provided field. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithAnalyzer(string)</strong><br />
-    Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.</p>
+<p><strong>WithAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.</p>
 </li>
 <li>
-<p><strong>WithAutoGenerateSynonymsPhrase(bool)</strong>
-    If true, match phrase queries are automatically created for multi-term synonyms.</p>
+<p><strong>WithAutoGenerateSynonymsPhrase (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, match phrase queries are automatically created for multi-term synonyms.</p>
 </li>
 <li>
-<p><strong>WithBoost(float64)</strong> 
-    Floating point number used to decrease or increase the relevance scores of the query.</p>
+<p><strong>WithBoost (float64)</strong><br />
+<em>(Optional, Functional option)</em> Floating-point number used to decrease or increase the relevance scores of the query.</p>
 </li>
 <li>
-<p><strong>WithFuzzinessParameter(int)</strong>
-    Maximum number of terms to which the query will expand.</p>
+<p><strong>WithFuzzinessParameter (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms to which the query will expand.</p>
 </li>
 <li>
-<p><strong>WithMaxExpansions(int)</strong>
-    Maximum number of terms to which the query will expand. Defaults to 50.</p>
+<p><strong>WithMaxExpansions (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms to which the query will expand. Defaults to 50.</p>
 </li>
 <li>
-<p><strong>WithPrefixLength(int)</strong>
-    Number of beginning characters left unchanged for fuzzy matching. Defaults to 0.</p>
+<p><strong>WithPrefixLength (int)</strong><br />
+<em>(Optional, Functional option)</em> Number of beginning characters left unchanged for fuzzy matching. Defaults to 0.</p>
 </li>
 <li>
-<p><strong>WithFuzzyTranspositions(bool)</strong>
-    If true, edits for fuzzy matching include transpositions of two adjacent characters.</p>
+<p><strong>WithFuzzyTranspositions (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, edits for fuzzy matching include transpositions of two adjacent characters.</p>
 </li>
 <li>
-<p><strong>WithFuzzyRewrite(FuzzyRewrite)</strong>
-    Method used to rewrite the query. See the rewrite parameter for valid values and more information.</p>
+<p><strong>WithFuzzyRewrite (FuzzyRewrite)</strong><br />
+<em>(Optional, Functional option)</em> Method used to rewrite the query. See the rewrite parameter for valid values and more information.</p>
 </li>
 <li>
-<p><strong>WithOperator(Operator)</strong>
-    Boolean logic used to interpret text in the query value. Valid values are:</p>
+<p><strong>WithOperator (Operator)</strong><br />
+<em>(Optional, Functional option)</em> Boolean logic used to interpret text in the query value. Valid values are:</p>
 <ul>
 <li><code>OR</code> (Default): For example, a query value of "capital of Hungary" is interpreted as "capital OR of OR Hungary".</li>
 <li><code>AND</code>: For example, a query value of "capital of Hungary" is interpreted as "capital AND of AND Hungary".</li>
 </ul>
 </li>
 <li>
-<p><strong>WithMinimumShouldMatch(string)</strong> 
-    Minimum number of clauses that must match for a document to be returned.</p>
+<p><strong>WithMinimumShouldMatch (string)</strong><br />
+<em>(Optional, Functional option)</em> Minimum number of clauses that must match for a document to be returned.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>

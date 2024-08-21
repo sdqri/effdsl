@@ -46,20 +46,20 @@ res, err := es.Search(
 
 ### Parameters
 
-- **Must(query)**  
-    The clause must appear in matching documents and will contribute to the score.
+*   **Must(query)**  
+    _(Optional, Functional option)_ The clause must appear in matching documents and will contribute to the score.
+    
+*   **Filter(query)**  
+    _(Optional, Functional option)_ The clause must appear in matching documents. Unlike must, the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching.
 
-- **Filter(query)**  
-    The clause must appear in matching documents. Unlike must, the score of the query will be ignored. Filter clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching.
+*   **Should(query)**  
+    _(Optional, Functional option)_ The clause should appear in the matching document.
 
-- **Should(query)**  
-    The clause should appear in the matching document.
+*   **MustNot(query)**  
+    _(Optional, Functional option)_ The clause must not appear in the matching documents. Clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned.
 
-- **MustNot(query)**:  
-    The clause must not appear in the matching documents. Clauses are executed in filter context, meaning that scoring is ignored and clauses are considered for caching. Because scoring is ignored, a score of 0 for all documents is returned.
-
-- **WithMinimumShouldMatch(string)** 
-    Minimum number of clauses that must match for a document to be returned.
+*   **WithMinimumShouldMatch(string)**  
+    _(Optional, Functional option)_ Minimum number of clauses that must match for a document to be returned.
 
 ### Additional Information
 For more details on the boolean query and its parameters, refer to the [official Elasticsearch documentation on bool queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html).

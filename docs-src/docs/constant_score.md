@@ -25,11 +25,11 @@ res, err := es.Search(
 
 ### Parameters
 
-- **Filter (effdsl.Query)**  
-  The query object that documents must match. This is a required parameter.
+*   **Filter (effdsl.Query)**  
+    _(Required, positional)_ The query object that documents must match. This is a required parameter.
 
-- **Boost (float64)**  
-  A floating-point number used as the constant relevance score for every document matching the filter query. This is an optional parameter and defaults to 1.0 if not specified.
+*   **Boost (float64)**  
+    _(Required, positional)_ A floating-point number used as the constant relevance score for every document matching the filter query. This is a required parameter and defaults to 1.0 if not specified.
 
 ### Additional Information
 

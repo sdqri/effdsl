@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://sdqri.org/effdsl/query_string/">
       
       
-        <link rel="prev" href="../match_phrase_query/">
+        <link rel="prev" href="../match_phrase_prefix/">
       
       
         <link rel="next" href="../simple_query_string/">
@@ -659,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1196,107 +1196,106 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">qs</span><span class="p">.</span><span class="nx">QueryString</span><span class="p">(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;field1:value1 AND field2:value2&quot;</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithDefaultField</span><span class="p">(</span><span class="s">&quot;field_name&quot;</span><span class="p">),</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithAllowLeadingWildcard</span><span class="p">(),</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithFuzziness</span><span class="p">(</span><span class="s">&quot;AUTO&quot;</span><span class="p">),</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">)</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;alice&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithFields</span><span class="p">(</span><span class="s">&quot;first_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;last_name&quot;</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nx">qs</span><span class="p">.</span><span class="nx">WithFuzziness</span><span class="p">(</span><span class="s">&quot;AUTO&quot;</span><span class="p">),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Query string</strong><br />
-    The query string to parse and use for search. This is a required parameter.</p>
+<p><strong>Query (string)</strong><br />
+<em>(Required, positional)</em> The query string to parse and use for search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithDefaultField(string)</strong><br />
-    Default field to search if no field is provided in the query string.</p>
+<p><strong>WithDefaultField (string)</strong><br />
+<em>(Optional, Functional option)</em> Default field to search if no field is provided in the query string.</p>
 </li>
 <li>
-<p><strong>WithAllowLeadingWildcard()</strong><br />
-    If true, wildcard characters <code>*</code> and <code>?</code> are allowed as the first character in the query string. Defaults to true.</p>
+<p><strong>WithAllowLeadingWildcard ()</strong><br />
+<em>(Optional, Functional option)</em> If true, wildcard characters <code>*</code> and <code>?</code> are allowed as the first character in the query string. Defaults to true.</p>
 </li>
 <li>
-<p><strong>WithAnalyzeWildcard()</strong><br />
-    If true, the query attempts to analyze wildcard terms in the query string. Defaults to false.</p>
+<p><strong>WithAnalyzeWildcard ()</strong><br />
+<em>(Optional, Functional option)</em> If true, the query attempts to analyze wildcard terms in the query string. Defaults to false.</p>
 </li>
 <li>
-<p><strong>WithAnalyzer(string)</strong><br />
-    Analyzer used to convert the text in the query string into tokens.</p>
+<p><strong>WithAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert the text in the query string into tokens.</p>
 </li>
 <li>
-<p><strong>WithAutoGenerateSynonymsPhrase(bool)</strong><br />
-    If true, match phrase queries are automatically created for multi-term synonyms. Defaults to true.</p>
+<p><strong>WithAutoGenerateSynonymsPhrase (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, match phrase queries are automatically created for multi-term synonyms. Defaults to true.</p>
 </li>
 <li>
-<p><strong>WithBoost(float64)</strong><br />
-    Floating point number used to adjust the relevance scores of the query.</p>
+<p><strong>WithBoost (float64)</strong><br />
+<em>(Optional, Functional option)</em> Floating point number used to adjust the relevance scores of the query.</p>
 </li>
 <li>
-<p><strong>WithDefaultOperator(Operator)</strong><br />
-    Default boolean logic used to interpret text in the query string. Valid values are:</p>
+<p><strong>WithDefaultOperator (Operator)</strong><br />
+<em>(Optional, Functional option)</em> Default boolean logic used to interpret text in the query string. Valid values are:</p>
 <ul>
 <li><code>OR</code>: Logical OR.</li>
 <li><code>AND</code>: Logical AND.</li>
 </ul>
 </li>
 <li>
-<p><strong>WithEnablePositionIncrements(bool)</strong><br />
-    If true, enable position increments in queries constructed from the query string search.</p>
+<p><strong>WithEnablePositionIncrements (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, enable position increments in queries constructed from the query string search.</p>
 </li>
 <li>
-<p><strong>WithFields(...string)</strong><br />
-    Array of fields to search. Supports wildcards <code>*</code>.</p>
+<p><strong>WithFields (...string)</strong><br />
+<em>(Optional, Functional option)</em> Array of fields to search. Supports wildcards <code>*</code>.</p>
 </li>
 <li>
-<p><strong>WithFuzziness(string)</strong><br />
-    Maximum edit distance allowed for fuzzy matching.</p>
+<p><strong>WithFuzziness (string)</strong><br />
+<em>(Optional, Functional option)</em> Maximum edit distance allowed for fuzzy matching.</p>
 </li>
 <li>
-<p><strong>WithFuzzyMaxExpansions(int)</strong><br />
-    Maximum number of terms for fuzzy matching expansion.</p>
+<p><strong>WithFuzzyMaxExpansions (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms for fuzzy matching expansion.</p>
 </li>
 <li>
-<p><strong>WithFuzzyPrefixLength(int)</strong><br />
-    Number of beginning characters left unchanged for fuzzy matching.</p>
+<p><strong>WithFuzzyPrefixLength (int)</strong><br />
+<em>(Optional, Functional option)</em> Number of beginning characters left unchanged for fuzzy matching.</p>
 </li>
 <li>
-<p><strong>WithFuzzyTranspositions(bool)</strong><br />
-    If true, edits for fuzzy matching include transpositions of adjacent characters.</p>
+<p><strong>WithFuzzyTranspositions (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, edits for fuzzy matching include transpositions of adjacent characters.</p>
 </li>
 <li>
-<p><strong>WithLenient(bool)</strong><br />
-    If true, format-based errors are ignored.</p>
+<p><strong>WithLenient (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, format-based errors are ignored.</p>
 </li>
 <li>
-<p><strong>WithMaxDeterminizedStates(int)</strong><br />
-    Maximum number of automaton states required for the query.</p>
+<p><strong>WithMaxDeterminizedStates (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of automaton states required for the query.</p>
 </li>
 <li>
-<p><strong>WithMinimumShouldMatch(string)</strong><br />
-    Minimum number of clauses that must match for a document to be returned.</p>
+<p><strong>WithMinimumShouldMatch (string)</strong><br />
+<em>(Optional, Functional option)</em> Minimum number of clauses that must match for a document to be returned.</p>
 </li>
 <li>
-<p><strong>WithQuoteAnalyzer(string)</strong><br />
-    Analyzer used to convert quoted text in the query string into tokens.</p>
+<p><strong>WithQuoteAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert quoted text in the query string into tokens.</p>
 </li>
 <li>
-<p><strong>WithPhraseSlop(int)</strong><br />
-    Maximum number of positions allowed between matching tokens for phrases.</p>
+<p><strong>WithPhraseSlop (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of positions allowed between matching tokens for phrases.</p>
 </li>
 <li>
-<p><strong>WithQuoteFieldSuffix(string)</strong><br />
-    Suffix appended to quoted text in the query string.</p>
+<p><strong>WithQuoteFieldSuffix (string)</strong><br />
+<em>(Optional, Functional option)</em> Suffix appended to quoted text in the query string.</p>
 </li>
 <li>
-<p><strong>WithRewrite(Rewrite)</strong><br />
-    Method used to rewrite the query. Valid values are:</p>
+<p><strong>WithRewrite (Rewrite)</strong><br />
+<em>(Optional, Functional option)</em> Method used to rewrite the query. Valid values are:</p>
 <ul>
 <li><code>constant_score</code></li>
 <li><code>scoring_boolean</code></li>
@@ -1307,8 +1306,8 @@
 </ul>
 </li>
 <li>
-<p><strong>WithTimeZone(string)</strong><br />
-    UTC offset or IANA time zone used to convert date values in the query string to UTC.</p>
+<p><strong>WithTimeZone (string)</strong><br />
+<em>(Optional, Functional option)</em> UTC offset or IANA time zone used to convert date values in the query string to UTC.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>
@@ -1348,7 +1347,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../match_phrase_query/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Match Phrase Query">
+          <a href="../match_phrase_prefix/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Match Phrase Prefix Query">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1358,7 +1357,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Match Phrase Query
+                Match Phrase Prefix Query
               </div>
             </div>
           </a>

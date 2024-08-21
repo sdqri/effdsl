@@ -659,11 +659,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1196,7 +1196,7 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">sqs</span><span class="p">.</span><span class="nx">SimpleQueryString</span><span class="p">(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;\&quot;fried eggs\&quot; +(eggplant | potato) -frittata&quot;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">`&quot;fried eggs&quot; +(eggplant | potato) -frittata`</span><span class="p">,</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">sqs</span><span class="p">.</span><span class="nx">WithFields</span><span class="p">(</span><span class="s">&quot;title^5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;body&quot;</span><span class="p">),</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">sqs</span><span class="p">.</span><span class="nx">WithDefaultOperator</span><span class="p">(</span><span class="nx">sqs</span><span class="p">.</span><span class="nx">AND</span><span class="p">),</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">)</span>
@@ -1209,64 +1209,64 @@
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Query string</strong><br />
-    The query string you wish to parse and use for search. This is a required parameter.</p>
+<p><strong>Query (string)</strong><br />
+<em>(Required, positional)</em> The query string you wish to parse and use for search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithFields(...string)</strong><br />
-    Array of fields to search. Supports wildcards (*).</p>
+<p><strong>WithFields (...string)</strong><br />
+<em>(Optional, Functional option)</em> Array of fields to search. Supports wildcards <code>*</code>.</p>
 </li>
 <li>
-<p><strong>WithDefaultOperator(Operator)</strong><br />
-    Default boolean logic used to interpret text in the query string. Valid values are:</p>
+<p><strong>WithDefaultOperator (Operator)</strong><br />
+<em>(Optional, Functional option)</em> Default boolean logic used to interpret text in the query string. Valid values are:</p>
 <ul>
-<li>OR: For example, a query value of "capital of Hungary" is interpreted as "capital OR of OR Hungary".</li>
-<li>AND: For example, a query value of "capital of Hungary" is interpreted as "capital AND of AND Hungary".</li>
+<li><code>OR</code>: For example, a query value of "capital of Hungary" is interpreted as "capital OR of OR Hungary".</li>
+<li><code>AND</code>: For example, a query value of "capital of Hungary" is interpreted as "capital AND of AND Hungary".</li>
 </ul>
 </li>
 <li>
-<p><strong>WithAnalyzeWildcard()</strong><br />
-    If true, the query attempts to analyze wildcard terms in the query string. Defaults to false.</p>
+<p><strong>WithAnalyzeWildcard ()</strong><br />
+<em>(Optional, Functional option)</em> If true, the query attempts to analyze wildcard terms in the query string. Defaults to false.</p>
 </li>
 <li>
-<p><strong>WithAnalyzer(string)</strong><br />
-    Analyzer used to convert text in the query string into tokens.</p>
+<p><strong>WithAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert text in the query string into tokens.</p>
 </li>
 <li>
-<p><strong>WithAutoGenerateSynonymsPhrase(bool)</strong><br />
-    If true, match phrase queries are automatically created for multi-term synonyms. Defaults to true.</p>
+<p><strong>WithAutoGenerateSynonymsPhrase (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, match phrase queries are automatically created for multi-term synonyms. Defaults to true.</p>
 </li>
 <li>
-<p><strong>WithFlags(string)</strong><br />
-    List of enabled operators for the simple query string syntax. Defaults to ALL (all operators). See Limit operators for valid values.</p>
+<p><strong>WithFlags (string)</strong><br />
+<em>(Optional, Functional option)</em> List of enabled operators for the simple query string syntax. Defaults to ALL (all operators). See Limit operators for valid values.</p>
 </li>
 <li>
-<p><strong>WithFuzzyMaxExpansions(int)</strong><br />
-    Maximum number of terms for fuzzy matching expansion.</p>
+<p><strong>WithFuzzyMaxExpansions (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms for fuzzy matching expansion.</p>
 </li>
 <li>
-<p><strong>WithFuzzyPrefixLength(int)</strong><br />
-    Number of beginning characters left unchanged for fuzzy matching.</p>
+<p><strong>WithFuzzyPrefixLength (int)</strong><br />
+<em>(Optional, Functional option)</em> Number of beginning characters left unchanged for fuzzy matching.</p>
 </li>
 <li>
-<p><strong>WithFuzzyTranspositions(bool)</strong><br />
-    If true, edits for fuzzy matching include transpositions of adjacent characters.</p>
+<p><strong>WithFuzzyTranspositions (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, edits for fuzzy matching include transpositions of adjacent characters.</p>
 </li>
 <li>
-<p><strong>WithLenient(bool)</strong><br />
-    If true, format-based errors are ignored.</p>
+<p><strong>WithLenient (bool)</strong><br />
+<em>(Optional, Functional option)</em> If true, format-based errors are ignored.</p>
 </li>
 <li>
-<p><strong>WithMinimumShouldMatch(string)</strong><br />
-    Minimum number of clauses that must match for a document to be returned.</p>
+<p><strong>WithMinimumShouldMatch (string)</strong><br />
+<em>(Optional, Functional option)</em> Minimum number of clauses that must match for a document to be returned.</p>
 </li>
 <li>
-<p><strong>WithQuoteFieldSuffix(string)</strong><br />
-    Suffix appended to quoted text in the query string.</p>
+<p><strong>WithQuoteFieldSuffix (string)</strong><br />
+<em>(Optional, Functional option)</em> Suffix appended to quoted text in the query string.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>
-<p>For more details on the simple query string query and its parameters, refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">official Elasticsearch documentation on simple query string queries</a>.</p>
+<p>For more details on the simple query string query and its parameters, refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html">official Elasticsearch documentation on simple query string queries</a>.</p>
 
 
 

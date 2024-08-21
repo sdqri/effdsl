@@ -28,11 +28,11 @@ res, err := es.Search(
 
 ### Parameters
 
-- **Queries ([]query)**  
-  An array of query objects that documents must match. This is a required parameter.
+*   **Queries ([]query)**  
+    _(Required, positional)_ An array of query objects that documents must match. This is a required parameter.
 
-- **TieBreaker (float64)**  
-  A floating-point number used to adjust the relevance scores when multiple queries match. This is an optional parameter.
+*   **WithTieBreaker (float64)**  
+    _(Optional, Functional option)_ A floating-point number used to adjust the relevance scores when multiple queries match. This is an optional parameter.
 
 ### Additional Information
 

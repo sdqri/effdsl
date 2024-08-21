@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://sdqri.org/effdsl/match_phrase_prefix/">
       
       
+        <link rel="prev" href="../match_phrase_query/">
+      
+      
+        <link rel="next" href="../query_string/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -222,10 +226,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href=".." class="md-tabs__link">
           
   
@@ -328,6 +334,8 @@
       
   
   
+    
+  
   
   
     
@@ -346,14 +354,17 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           
@@ -369,13 +380,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             effdsl
@@ -528,8 +539,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -551,11 +564,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
         
           
           <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
@@ -569,7 +582,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_3">
             <span class="md-nav__icon md-icon"></span>
             Full Text Queries
@@ -643,18 +656,85 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Match Phrase Prefix Query
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Information
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1062,15 +1142,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       Example
@@ -1116,41 +1187,60 @@
 
 
 <h1 id="match-phrase-prefix-query">Match Phrase Prefix Query</h1>
-<h2 id="overview">Overview</h2>
-<p>The <code>MatchPhrasePrefixQuery</code> is used to create a match phrase prefix query for a specific field and query text. This query type is helpful when you need to search for phrases that start with the specified query text and allow for prefix matching. The query supports various options, including the analyzer, slop, max expansions, and behavior for zero terms.</p>
-<h2 id="example">Example</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import (
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    &quot;encoding/json&quot;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    &quot;testing&quot;
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    &quot;github.com/stretchr/testify/assert&quot;
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    mppq &quot;github.com/sdqri/effdsl/queries/matchphraseprefix&quot;
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>)
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>func TestNewMatchPhrasePrefixQueryWithNoOptions(t *testing.T) {
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    matchQueryResult := mppq.MatchPhrasePrefixQuery(&quot;message&quot;, &quot;quick brown f&quot;)
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    err := matchQueryResult.Err
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    matchQuery := matchQueryResult.Ok
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    assert.Nil(t, err)
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    expectedBody := `{&quot;match_phrase_prefix&quot;:{&quot;message&quot;:{&quot;query&quot;:&quot;quick brown f&quot;}}}`
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    jsonBody, err := json.Marshal(matchQuery)
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    assert.Nil(t, err)
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    assert.Equal(t, expectedBody, string(jsonBody))
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>}
+<p>A match phrase prefix query returns documents that match a given phrase with a prefix, considering the position of the terms. The provided text is analyzed before matching.</p>
+<h3 id="example">Example</h3>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="s">&quot;github.com/sdqri/effdsl&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">mppq</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/queries/matchphraseprefixquery&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">mppq</span><span class="p">.</span><span class="nx">MatchPhrasePrefixQuery</span><span class="p">(</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;field_name&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="s">&quot;some phrase prefix query&quot;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">mppq</span><span class="p">.</span><span class="nx">WithAnalyzer</span><span class="p">(</span><span class="s">&quot;my_analyzer&quot;</span><span class="p">),</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="nx">mppq</span><span class="p">.</span><span class="nx">WithSlop</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nx">mppq</span><span class="p">.</span><span class="nx">WithMaxExpansions</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="parameters">Parameters</h2>
+<h3 id="parameters">Parameters</h3>
 <ul>
-<li><code>Field</code> (Required, string): The field to search.</li>
-<li><code>Query</code> (Required, string): The query text to search for.</li>
-<li><code>Analyzer</code> (Optional, string): The analyzer used to convert text in the query string into tokens.</li>
-<li><code>Slop</code> (Optional, integer): The maximum number of positions allowed between matching tokens for phrases.</li>
-<li><code>MaxExpansions</code> (Optional, integer): The maximum number of terms to which the last provided term will expand.</li>
-<li><code>ZeroTermsQuery</code> (Optional, string): Specifies what to do when the analyzed text contains no terms. Valid values are "none" (default) or "all".</li>
+<li>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field to search. This is a required parameter.</p>
+</li>
+<li>
+<p><strong>Query (string)</strong><br />
+<em>(Required, positional)</em> The text to search for in the provided field. This is a required parameter.</p>
+</li>
+<li>
+<p><strong>WithAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.</p>
+</li>
+<li>
+<p><strong>WithSlop (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of positions allowed between matching tokens for phrases. Defaults to 0.</p>
+</li>
+<li>
+<p><strong>WithMaxExpansions (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of terms to which the last provided term will expand. Defaults to not expanding terms.</p>
+</li>
+<li>
+<p><strong>WithZeroTermsQuery (ZeroTerms)</strong><br />
+<em>(Optional, Functional option)</em> Indicates what to do when the analyzed text contains no terms. Valid values are:</p>
+<ul>
+<li><code>none</code> (Default): No documents are returned if the analyzer removes all tokens.</li>
+<li><code>all</code>: Returns all documents, similar to a match_all query.</li>
 </ul>
-<h2 id="additional-information">Additional Information</h2>
-<p>This query is used when you want to search for a prefix of a phrase in a specific field. It is particularly useful for autocomplete-like search experiences, where you want to suggest phrases based on partial input.</p>
-<p>For more details, refer to the official <a href="https://elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">Elasticsearch documentation</a>.</p>
+</li>
+</ul>
+<h3 id="additional-information">Additional Information</h3>
+<p>For more details on the match phrase prefix query and its parameters, refer to the <a href="https://elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase-prefix.html">official Elasticsearch documentation on match phrase prefix queries</a>.</p>
 
 
 
@@ -1181,6 +1271,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../match_phrase_query/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Match Phrase Query">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Match Phrase Query
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../query_string/" class="md-footer__link md-footer__link--next" aria-label="Next: Query String Query">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Query String Query
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

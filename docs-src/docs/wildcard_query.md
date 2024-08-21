@@ -12,10 +12,10 @@ import (
 
 query, err := effdsl.Define(
     wq.WildcardQuery(
-        "field_name",
-        "some match query",
+        "user.id",
+        "ki*y",
         wq.WithBoost(1.0),
-        wq.WithRewrite(wq.RewriteParameterConstantScore),
+        wq.WithRewrite(wcq.ConstantScoreBlended),
     )
 )
 
@@ -26,20 +26,20 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Value string**  
-    The wildcard pattern for terms you wish to find in the provided field. This is a required parameter.
+*   **Value (string)**  
+    _(Required, positional)_ The wildcard pattern for terms you wish to find in the provided field. This is a required parameter.
 
-* **WithBoost(float64)**  
-    Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
+*   **WithBoost (float64)**  
+    _(Optional, Functional option)_ Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.
 
-* **WithCaseInsensitive()**  
-    If true, the wildcard pattern is treated as case-insensitive.
+*   **WithCaseInsensitive (bool)**  
+    _(Optional, Functional option)_ If true, the wildcard pattern is treated as case-insensitive.
 
-* **WithRewrite(Rewrite)**  
-    Method used to rewrite the query. For valid values and more information, see the rewrite parameter.
+*   **WithRewrite (Rewrite)**  
+    _(Optional, Functional option)_ Method used to rewrite the query. For valid values and more information, see the rewrite parameter.
 
 ### Additional Information
 

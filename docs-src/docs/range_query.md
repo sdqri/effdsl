@@ -12,11 +12,10 @@ import (
 
 query, err := effdsl.Define(
     rq.RangeQuery(
-        "field_name",
+        "age",
         rq.WithGT(10),
-        rq.WithLTE(100),
-        rq.WithFormat("yyyy-MM-dd"),
-        rq.WithBoost(1.5),
+        rq.WithLTE(20),
+        rq.WithBoost(2.0),
     )
 )
 
@@ -27,35 +26,35 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **WithGT(any)**  
-    Greater than. If specified, the range query will include terms greater than this value.
+*   **WithGT (any)**  
+    _(Optional, Functional option)_ Greater than. If specified, the range query will include terms greater than this value.
 
-* **WithGTE(any)**  
-    Greater than or equal to. If specified, the range query will include terms greater than or equal to this value.
+*   **WithGTE (any)**  
+    _(Optional, Functional option)_ Greater than or equal to. If specified, the range query will include terms greater than or equal to this value.
 
-* **WithLT(any)**  
-    Less than. If specified, the range query will include terms less than this value.
+*   **WithLT (any)**  
+    _(Optional, Functional option)_ Less than. If specified, the range query will include terms less than this value.
 
-* **WithLTE(any)**  
-    Less than or equal to. If specified, the range query will include terms less than or equal to this value.
+*   **WithLTE (any)**  
+    _(Optional, Functional option)_ Less than or equal to. If specified, the range query will include terms less than or equal to this value.
 
-* **WithFormat(string)**  
-    Date format used to convert date values in the query. This is optional.
+*   **WithFormat (string)**  
+    _(Optional, Functional option)_ Date format used to convert date values in the query.
 
-* **WithRelation(Relation)**  
-    Indicates how the range query matches values for range fields. Valid values are:
-      * INTERSECTS
-      * CONTAINS
-      * WITHIN
+*   **WithRelation (Relation)**  
+    _(Optional, Functional option)_ Indicates how the range query matches values for range fields. Valid values are:
+    *   `INTERSECTS`
+    *   `CONTAINS`
+    *   `WITHIN`
 
-* **WithTimeZone(string)**  
-    Coordinated Universal Time (UTC) offset or IANA time zone used to convert date values in the query to UTC. This is optional.
+*   **WithTimeZone (string)**  
+    _(Optional, Functional option)_ Coordinated Universal Time (UTC) offset or IANA time zone used to convert date values in the query to UTC.
 
-* **WithBoost(float64)**  
-    Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
+*   **WithBoost (float64)**  
+    _(Optional, Functional option)_ Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
 
 ### Additional Information
 

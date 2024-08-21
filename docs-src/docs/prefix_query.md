@@ -12,10 +12,8 @@ import (
 
 query, err := effdsl.Define(
     pq.PrefixQuery(
-        "field_name",
-        "prefix_value",
-        pq.WithRewrite(pq.ConstantScore),
-        pq.WithCaseInsensitive(true),
+        "name",
+        "al",
     )
 )
 
@@ -26,23 +24,23 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Value string**  
-    The prefix you wish to match against terms in the provided field. This is a required parameter.
+*   **Value (string)**  
+    _(Required, positional)_ The prefix you wish to match against terms in the provided field. This is a required parameter.
 
-* **WithRewrite(Rewrite)**  
-    The method used to rewrite the query. Valid values are:
-      * constant_score: Query is rewritten to a constant score query.
-      * scoring_boolean: Query is rewritten to a scoring boolean query.
-      * constant_score_boolean: Query is rewritten to a constant score boolean query.
-      * top_terms_N: Query is rewritten to match the top N scoring terms.
-      * top_terms_boost_N: Query is rewritten to match the top N scoring terms with boosting.
-      * top_terms_blended_freqs_N: Query is rewritten to match the top N scoring terms with blended frequencies.
+*   **WithRewrite (Rewrite)**  
+    _(Optional, Functional option)_ The method used to rewrite the query. Valid values are:
+    *   `constant_score`: Query is rewritten to a constant score query.
+    *   `scoring_boolean`: Query is rewritten to a scoring boolean query.
+    *   `constant_score_boolean`: Query is rewritten to a constant score boolean query.
+    *   `top_terms_N`: Query is rewritten to match the top N scoring terms.
+    *   `top_terms_boost_N`: Query is rewritten to match the top N scoring terms with boosting.
+    *   `top_terms_blended_freqs_N`: Query is rewritten to match the top N scoring terms with blended frequencies.
 
-* **WithCaseInsensitive(bool)**  
-    Whether the query is case insensitive. Defaults to false.
+*   **WithCaseInsensitive (bool)**  
+    _(Optional, Functional option)_ Whether the query is case insensitive. Defaults to false.
 
 ### Additional Information
 

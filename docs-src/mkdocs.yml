@@ -50,7 +50,7 @@ nav:
       - match_query.md
       - match_bool_prefix.md
       - match_phrase_query.md
-      - match_phrase_prefix_query.md
+      - match_phrase_prefix.md
       - query_string.md
       - simple_query_string.md
     - Term-Level Queries:

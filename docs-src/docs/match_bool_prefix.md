@@ -25,14 +25,14 @@ res, err := es.Search(
 
 ### Parameters
 
-* **Field string**  
-    The field you wish to search. This is a required parameter.
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
 
-* **Query string**  
-    The query text you wish to search for in the provided field. This is a required parameter.
+*   **Query (string)**  
+    _(Required, positional)_ The query text you wish to search for in the provided field. This is a required parameter.
 
-* **WithAnalyzer(string)**  
-    Analyzer used to convert the text in the query value into tokens. If no analyzer is provided, the default analyzer for the field is used.
+*   **WithAnalyzer (string)**  
+    _(Optional, Functional option)_ Analyzer used to convert the text in the query value into tokens. If no analyzer is provided, the default analyzer for the field is used.
 
 ### Additional Information
 

@@ -14,7 +14,7 @@
         <link rel="prev" href="../match_bool_prefix/">
       
       
-        <link rel="next" href="../query_string/">
+        <link rel="next" href="../match_phrase_prefix/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -726,11 +726,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1209,27 +1209,27 @@
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Field string</strong><br />
-    The field to search. This is a required parameter.</p>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field to search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>Query string</strong><br />
-    The text to search for in the provided field. This is a required parameter.</p>
+<p><strong>Query (string)</strong><br />
+<em>(Required, positional)</em> The text to search for in the provided field. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithAnalyzer(string)</strong><br />
-    Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.</p>
+<p><strong>WithAnalyzer (string)</strong><br />
+<em>(Optional, Functional option)</em> Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the field. If no analyzer is mapped, the index’s default analyzer is used.</p>
 </li>
 <li>
-<p><strong>WithSlop(int)</strong><br />
-    Maximum number of positions allowed between matching tokens for phrases. Defaults to 0.</p>
+<p><strong>WithSlop (int)</strong><br />
+<em>(Optional, Functional option)</em> Maximum number of positions allowed between matching tokens for phrases. Defaults to 0.</p>
 </li>
 <li>
-<p><strong>WithZeroTermsquery(ZeroTerms)</strong><br />
-    Indicates what to do when the analyzed text contains no terms. Valid values are:</p>
+<p><strong>WithZeroTermsquery (ZeroTerms)</strong><br />
+<em>(Optional, Functional option)</em> Indicates what to do when the analyzed text contains no terms. Valid values are:</p>
 <ul>
-<li>none (Default): No documents are returned if the analyzer removes all tokens.</li>
-<li>all: Returns all documents, similar to a match_all query.</li>
+<li><code>none</code> (Default): No documents are returned if the analyzer removes all tokens.</li>
+<li><code>all</code>: Returns all documents, similar to a match_all query.</li>
 </ul>
 </li>
 </ul>
@@ -1287,13 +1287,13 @@
         
         
           
-          <a href="../query_string/" class="md-footer__link md-footer__link--next" aria-label="Next: Query String Query">
+          <a href="../match_phrase_prefix/" class="md-footer__link md-footer__link--next" aria-label="Next: Match Phrase Prefix Query">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Query String Query
+                Match Phrase Prefix Query
               </div>
             </div>
             <div class="md-footer__button md-icon">

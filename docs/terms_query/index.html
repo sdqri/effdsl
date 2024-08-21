@@ -657,11 +657,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../match_phrase_prefix_query.md" class="md-nav__link">
+      <a href="../match_phrase_prefix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Match Phrase Prefix Query
   </span>
   
 
@@ -1196,9 +1196,9 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">tsq</span><span class="p">.</span><span class="nx">TermsQuery</span><span class="p">(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;field_name&quot;</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;term1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;term2&quot;</span><span class="p">},</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">tsq</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="s">&quot;user.id&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;kimchy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;elkbee&quot;</span><span class="p">},</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nx">tsq</span><span class="p">.</span><span class="nx">WithBoost</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">)</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">)</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
@@ -1209,16 +1209,16 @@
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li>
-<p><strong>Field string</strong><br />
-    The field you wish to search. This is a required parameter.</p>
+<p><strong>Field (string)</strong><br />
+<em>(Required, positional)</em> The field you wish to search. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>Values []string</strong><br />
-    The array of terms you wish to find in the provided field. This is a required parameter.</p>
+<p><strong>Values ([]string)</strong><br />
+<em>(Required, positional)</em> The array of terms you wish to find in the provided field. This is a required parameter.</p>
 </li>
 <li>
-<p><strong>WithBoost(float64)</strong><br />
-    Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.</p>
+<p><strong>WithBoost (float64)</strong><br />
+<em>(Optional, Functional option)</em> Floating point number used to decrease or increase the relevance scores of a query. Defaults to 1.0.</p>
 </li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>

@@ -12,10 +12,9 @@ import (
 
 query, err := effdsl.Define(
     tq.TermQuery(
-        "field_name",
-        "exact term",
-        tq.WithTQBoost(1.5),
-        tq.WithTQCaseInsensitive(true),
+        "user.id",
+        "kimchy",
+        tq.WithBoost(1.5),
     )
 )
 
@@ -26,18 +25,18 @@ res, err := es.Search(
 
 ### Parameters
 
-*   **Field string**  
-    The field you wish to search. This is a required parameter.
-    
-*   **Value string**  
-    The term you wish to find in the provided field. This is a required parameter. The term must exactly match the field value, including whitespace and capitalization.
-    
-*   **WithTQBoost(float64)**  
-    Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
-    
-*   **WithTQCaseInsensitive(bool)**  
-    Allows ASCII case insensitive matching of the value with the indexed field values when set to true. Defaults to false.
-    
+*   **Field (string)**  
+    _(Required, positional)_ The field you wish to search. This is a required parameter.
+
+*   **Value (string)**  
+    _(Required, positional)_ The term you wish to find in the provided field. This is a required parameter. The term must exactly match the field value, including whitespace and capitalization.
+
+*   **WithBoost (float64)**  
+    _(Optional, Functional option)_ Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
+
+*   **WithCaseInsensitive (bool)**  
+    _(Optional, Functional option)_ Allows ASCII case-insensitive matching of the value with the indexed field values when set to true. Defaults to false.
+   
 
 ### Additional Information
 
