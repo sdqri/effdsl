@@ -6,16 +6,20 @@ A constant score query wraps a filter query and returns every matching document 
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	csq "github.com/sdqri/effdsl/queries/constantscore"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	csq "github.com/sdqri/effdsl/v2/queries/constantscore"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 query, err := effdsl.Define(
-    csq.ConstantScoreQuery(
-        tq.TermQuery("user.id", "kimchy"),
-        1.2
-    )
+    effdsl.WithQuery(
+        csq.ConstantScoreQuery(
+            tq.TermQuery("user.id", "kimchy"),
+            1.2
+        ),
+    ),
 )
 
 res, err := es.Search(

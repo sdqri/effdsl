@@ -6,12 +6,16 @@ An exists query returns documents that contain an indexed value for a specified 
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	eq "github.com/sdqri/effdsl/queries/existsquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
 )
 
 query, err := effdsl.Define(
-    eq.ExistsQuery("field_name"),
+    effdsl.WithQuery(
+        eq.ExistsQuery("field_name"),
+    ),
 )
 
 res, err := es.Search(

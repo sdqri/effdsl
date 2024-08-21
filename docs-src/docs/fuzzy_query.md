@@ -15,15 +15,19 @@ To find similar terms, the fuzzy query creates a set of all possible variations,
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	eq "github.com/sdqri/effdsl/queries/existsquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
 )
 
 query, err := effdsl.Define(
-    fq.FuzzyQuery(
-        "user.id",
-        "ki",
-    )
+    effdsl.WithQuery(
+        fq.FuzzyQuery(
+            "user.id",
+            "ki",
+        ),
+    ),
 )
 
 res, err := es.Search(

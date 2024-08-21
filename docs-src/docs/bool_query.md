@@ -22,21 +22,26 @@ The bool query adopts a more-matches-is-better approach, so the score from each 
 
 ```go
 import (
-    "github.com/sdqri/effdsl"
     es "github.com/elastic/go-elasticsearch/v8"
-	mq "github.com/sdqri/effdsl/queries/matchquery"
-	bq "github.com/sdqri/effdsl/queries/boolquery"
+
+    "github.com/sdqri/effdsl/v2"
+	mq "github.com/sdqri/effdsl/v2/queries/matchquery"
+	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
 )
 
 query, err := effdsl.Define(
-    bq.Must(mq.MatchQuery(effdsl.M{"user.name": "john_doe"})),
-    bq.Must(mq.MatchQuery("post.status": "published")),
-    bq.Filter(mq.MatchQuery("category": "technology")),
-    bq.Filter(mq.MatchQuery("tags": "go")),
-    bq.Should(mq.MatchQuery("title": "elasticsearch")),
-    bq.Should(mq.MatchQuery("content": "search optimization")),
-    bq.MustNot(mq.MatchQuery("user.role": "banned")),
-    bq.MustNot(mq.MatchQuery("status": "draft")),
+    effdsl.WithQuery(
+        bq.BoolQuery(
+            bq.Must(mq.MatchQuery(effdsl.M{"user.name": "john_doe"})),
+            bq.Must(mq.MatchQuery("post.status": "published")),
+            bq.Filter(mq.MatchQuery("category": "technology")),
+            bq.Filter(mq.MatchQuery("tags": "go")),
+            bq.Should(mq.MatchQuery("title": "elasticsearch")),
+            bq.Should(mq.MatchQuery("content": "search optimization")),
+            bq.MustNot(mq.MatchQuery("user.role": "banned")),
+            bq.MustNot(mq.MatchQuery("status": "draft")),
+        ),
+    ),
 )
 
 res, err := es.Search(

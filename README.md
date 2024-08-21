@@ -16,7 +16,7 @@ This module provides a simple and functional way to build Elasticsearch queries 
 - **Procedural query creation:** ✨ Designed for straightforward and refined query building, particularly useful when queries need to be generated programmatically.
 - **Comprehensive query support:** 📚 Covers most compound, full-text, and term-level queries, with easy extension for additional types.
 
-For more information, detailed guides, and examples, please read the [documentation](https://sdqri.github.com/effdsl).
+For more information, detailed guides, and examples, please read the [documentation](https://sdqri.github.io/effdsl).
 
 ## Getting started
 
@@ -33,7 +33,7 @@ to your code, and then `go [build|run|test]` will automatically fetch the necess
 Otherwise, run the following Go command to install the `effdsl` package:
 
 ```sh
-$ go get -u github.com/sdqri/effdsl
+$ go get -u github.com/sdqri/effdsl/v2
 ```
 
 ### How to use
@@ -73,17 +73,23 @@ And here’s the same query using effdsl:
 ```go
 import (
     es "github.com/elastic/go-elasticsearch/v8"
-	mq "github.com/sdqri/effdsl/queries/matchquery"
+    
+    "github.com/sdqri/effdsl"
+    mq "github.com/sdqri/effdsl/queries/matchquery"
 )
 
-query, err := effdsl.Define(mq.MatchQuery("message", "Hello World"))
+query, err := effdsl.Define(
+    effdsl.WithQuery(
+        mq.MatchQuery("message", "Hello World"),
+    ),
+)
 
 res, err := es.Search(
   es.Search.WithBody(strings.NewReader(query)),
 )
 ```
 
-For more examples and details on query parameters, visit the [documentation](https://sdqri.github.com/effdsl).
+For more examples and details on query parameters, visit the [documentation](https://sdqri.github.io/effdsl).
 
 ## 🤝 Contribution
 Contributions are welcome! Whether it's fixing a bug 🐛, adding a new feature 🌟, or improving the documentation 📚, your help is appreciated. Please check out the CONTRIBUTING.md guide to get started.

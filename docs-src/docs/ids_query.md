@@ -6,12 +6,16 @@ Returns documents based on their IDs.
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	iq "github.com/sdqri/effdsl/queries/idsquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	iq "github.com/sdqri/effdsl/v2/queries/idsquery"
 )
 
 query, err := effdsl.Define(
-    iq.IDsQuery("1", "4", "100"),
+    effdsl.WithQuery(
+        iq.IDsQuery("1", "4", "100"),
+    ),
 )
 
 res, err := es.Search(

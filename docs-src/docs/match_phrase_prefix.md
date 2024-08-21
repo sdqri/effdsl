@@ -6,18 +6,22 @@ A match phrase prefix query returns documents that match a given phrase with a p
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	mppq "github.com/sdqri/effdsl/queries/matchphraseprefixquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	mppq "github.com/sdqri/effdsl/v2/queries/matchphraseprefixquery"
 )
 
 query, err := effdsl.Define(
-    mppq.MatchPhrasePrefixQuery(
-        "field_name",
-        "some phrase prefix query",
-        mppq.WithAnalyzer("my_analyzer"),
-        mppq.WithSlop(2),
-        mppq.WithMaxExpansions(10),
-    )
+    effdsl.WithQuery(
+        mppq.MatchPhrasePrefixQuery(
+            "field_name",
+            "some phrase prefix query",
+            mppq.WithAnalyzer("my_analyzer"),
+            mppq.WithSlop(2),
+            mppq.WithMaxExpansions(10),
+        ),
+    ),
 )
 
 res, err := es.Search(

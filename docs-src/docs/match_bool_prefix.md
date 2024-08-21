@@ -6,16 +6,20 @@ A match bool prefix query analyzes its input and constructs a bool query from th
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	mbpq "github.com/sdqri/effdsl/queries/matchboolprefix"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	mbpq "github.com/sdqri/effdsl/v2/queries/matchboolprefix"
 )
 
 query, err := effdsl.Define(
-    mbpq.MatchBoolPrefixQuery(
-        "message",
-        "quick brown f",
-        mbpq.WithAnalyzer("keyword"),
-    )
+    effdsl.WithQuery(
+        mbpq.MatchBoolPrefixQuery(
+            "message",
+            "quick brown f",
+            mbpq.WithAnalyzer("keyword"),
+        ),
+    ),
 )
 
 res, err := es.Search(

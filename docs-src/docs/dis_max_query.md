@@ -6,19 +6,23 @@ A disjunction max query (dis_max) is used to find documents that match multiple 
 
 ```go
 import (
-	"github.com/sdqri/effdsl"
-	dmq "github.com/sdqri/effdsl/queries/dismaxquery"
-	tq "github.com/sdqri/effdsl/queries/termquery"
+    es "github.com/elastic/go-elasticsearch/v8"
+
+	"github.com/sdqri/effdsl/v2"
+	dmq "github.com/sdqri/effdsl/v2/queries/dismaxquery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
 
 query, err := effdsl.Define(
-    dmq.DisMaxQuery(
-        []effdsl.QueryResult{
-            tq.TermQuery("title", "Quick pets"),
-            tq.TermQuery("body", "Quick pets"),
-        },
-        dmq.WithTieBreaker(0.7),
-    )
+    effdsl.WithQuery(
+        dmq.DisMaxQuery(
+            []effdsl.QueryResult{
+                tq.TermQuery("title", "Quick pets"),
+                tq.TermQuery("body", "Quick pets"),
+            },
+            dmq.WithTieBreaker(0.7),
+        ),
+    ),
 )
 
 res, err := es.Search(
