@@ -171,12 +171,13 @@ func WithQuoteFieldSuffix(suffix string) QueryStringOption {
 type Rewrite string
 
 const (
-	ConstantScore         Rewrite = "constant_score"            // Query is rewritten to a constant score query.
-	ScoringBoolean        Rewrite = "scoring_boolean"           // Query is rewritten to a scoring boolean query.
-	ConstantScoreBoolean  Rewrite = "constant_score_boolean"    // Query is rewritten to a constant score boolean query.
-	TopTermsN             Rewrite = "top_terms_N"               // Query is rewritten to match the top N scoring terms.
-	TopTermsBoostN        Rewrite = "top_terms_boost_N"         // Query is rewritten to match the top N scoring terms with boosting.
-	TopTermsBlendedFreqsN Rewrite = "top_terms_blended_freqs_N" // Query is rewritten to match the top N scoring terms with blended frequencies.
+	ConstantScoreBlended  Rewrite = "constant_score_blended"
+	ConstantScore         Rewrite = "constant_score"
+	ConstantScoreBoolean  Rewrite = "constant_score_boolean"
+	ScoringBoolean        Rewrite = "scoring_boolean"
+	TopTermsBlendedFreqsN Rewrite = "top_terms_blended_freqs_N"
+	TopTermsBoostN        Rewrite = "top_terms_boost_N"
+	TopTermsN             Rewrite = "top_terms_N"
 )
 
 func WithRewrite(rewrite Rewrite) QueryStringOption {
