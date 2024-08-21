@@ -12,7 +12,7 @@ import (
 func TestQueryString(t *testing.T) {
 	expectedBody := `{"simple_query_string":{"query":"\"fried eggs\" +(eggplant | potato) -frittata","fields":["title^5","body"],"default_operator":"AND"}}`
 	queryStringResult := sqs.SimpleQueryString(
-		"\"fried eggs\" +(eggplant | potato) -frittata",
+		`"fried eggs" +(eggplant | potato) -frittata`,
 		sqs.WithFields("title^5", "body"),
 		sqs.WithDefaultOperator(sqs.AND),
 	)
