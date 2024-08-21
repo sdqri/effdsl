@@ -49,13 +49,13 @@ func WithCaseInsensitive() WildcardQueryOption {
 type Rewrite string
 
 const (
-	RewriteParameterConstantScoreBlended  Rewrite = "constant_score_blended"
-	RewriteParameterConstantScore         Rewrite = "constant_score"
-	RewriteParameterConstantScoreBoolean  Rewrite = "constant_score_boolean"
-	RewriteParameterScoringBoolean        Rewrite = "scoring_boolean"
-	RewriteParameterTopTermsBlendedFreqsN Rewrite = "top_terms_blended_freqs_N"
-	RewriteParameterTopTermsBoostN        Rewrite = "top_terms_boost_N"
-	RewriteParameterTopTermsN             Rewrite = "top_terms_N"
+	ConstantScoreBlended  Rewrite = "constant_score_blended"
+	ConstantScore         Rewrite = "constant_score"
+	ConstantScoreBoolean  Rewrite = "constant_score_boolean"
+	ScoringBoolean        Rewrite = "scoring_boolean"
+	TopTermsBlendedFreqsN Rewrite = "top_terms_blended_freqs_N"
+	TopTermsBoostN        Rewrite = "top_terms_boost_N"
+	TopTermsN             Rewrite = "top_terms_N"
 )
 
 func WithRewrite(rewrite Rewrite) WildcardQueryOption {
