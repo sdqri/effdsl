@@ -34,7 +34,7 @@ func (tq TermsQueryS) MarshalJSON() ([]byte, error) {
 
 type TermsQueryOption func(*TermsQueryS)
 
-func WithTSQBoost(boost float64) TermsQueryOption {
+func WithBoost(boost float64) TermsQueryOption {
 	return func(termsQuery *TermsQueryS) {
 		termsQuery.Boost = &boost
 	}
