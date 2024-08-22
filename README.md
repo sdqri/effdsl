@@ -74,8 +74,8 @@ And here’s the same query using effdsl:
 import (
     es "github.com/elastic/go-elasticsearch/v8"
     
-    "github.com/sdqri/effdsl"
-    mq "github.com/sdqri/effdsl/queries/matchquery"
+    "github.com/sdqri/effdsl/v2"
+    mq "github.com/sdqri/effdsl/v2/queries/matchquery"
 )
 
 query, err := effdsl.Define(

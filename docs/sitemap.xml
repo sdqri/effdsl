@@ -2,117 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sdqri.org/effdsl/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/api_coverage/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/bool_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/boosting_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/constant_score/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/dis_max_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/exists_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/fuzzy_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/ids_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_bool_prefix/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_phrase_prefix/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_phrase_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/prefix_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/query_string/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/range_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/regexp_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/release_notes/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/simple_query_string/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/term_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/terms_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/terms_set_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/wildcard_query/</loc>
-         <lastmod>2024-08-21</lastmod>
+         <lastmod>2024-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

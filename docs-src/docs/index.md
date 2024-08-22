@@ -70,8 +70,8 @@ And here’s the same query using effdsl:
 import (
     es "github.com/elastic/go-elasticsearch/v8"
     
-    "github.com/sdqri/effdsl"
-    mq "github.com/sdqri/effdsl/queries/matchquery"
+    "github.com/sdqri/effdsl/v2"
+    mq "github.com/sdqri/effdsl/v2/queries/matchquery"
 )
 
 query, err := effdsl.Define(
@@ -85,10 +85,10 @@ res, err := es.Search(
 )
 ```
 
-For more examples and details on query parameters, visit the [documentation](https://sdqri.github.io/effdsl).
+For more examples and details on query parameters, visit the documentation.
 
 ## 🤝 Contribution
 Contributions are welcome! Whether it's fixing a bug 🐛, adding a new feature 🌟, or improving the documentation 📚, your help is appreciated. Please check out the CONTRIBUTING.md guide to get started.
 
 ## 📜 License
-This project is licensed under the **MIT License**. For more details, see the [License](LICENSE.md) file. 📄 ( **In short:** You can use, modify, and distribute this software freely as long as you include the original copyright notice and license. The software is provided "as-is" without warranties or guarantees.)
+This project is licensed under the **MIT License**. For more details, see the [License](https://github.com/sdqri/effdsl/blob/master/LICENSE) file. 📄 ( **In short:** You can use, modify, and distribute this software freely as long as you include the original copyright notice and license. The software is provided "as-is" without warranties or guarantees.)
