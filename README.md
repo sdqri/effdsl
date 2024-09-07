@@ -25,7 +25,7 @@ For more information, detailed guides, and examples, please read the [documentat
 With [Go module](https://github.com/golang/go/wiki/Modules) support, simply add the following import
 
 ```
-import "github.com/sdqri/effdsl"
+import "github.com/sdqri/effdsl/v2"
 ```
 
 to your code, and then `go [build|run|test]` will automatically fetch the necessary dependencies.
