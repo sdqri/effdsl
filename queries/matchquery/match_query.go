@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/sdqri/effdsl/v2"
+	"github.com/sdqri/effdsl/v2/utils"
 )
 
 type MatchQueryS struct {
@@ -43,41 +44,41 @@ type matchQueryFieldParameters struct {
 	/*
 		(Optional, string) Analyzer used to convert the text in the query value into tokens. Defaults to the index-time analyzer mapped for the <field>. If no analyzer is mapped, the index’s default analyzer is used.
 	*/
-	Analyzer string
+	Analyzer string `json:"analyzer"`
 	/*
 		(Optional, Boolean) If true, match phrase queries are automatically created for multi-term synonyms. Defaults to true.
 	*/
-	AutoGenerateSynonymsPhrase *bool
+	AutoGenerateSynonymsPhrase *bool `json:"auto_generate_synonyms_phrase_query"`
 	/*
 		(Optional, float) Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
 		Boost values are relative to the default value of 1.0. A boost value between 0 and 1.0 decreases the relevance score. A value greater than 1.0 increases the relevance score.
 	*/
-	Boost *float64
+	Boost *float64 `json:"boost"`
 	/*
 		(Optional, string) Maximum edit distance allowed for matching. See [Fuzziness](https://www.elastic.co/guide/en/elasticsearch/reference/current/common-options.html#fuzziness) for valid values and more information.
 	*/
-	Fuzziness string
+	Fuzziness string `json:"fuzziness"`
 	/*
 		(Optional, integer) Maximum number of terms to which the query will expand. Defaults to 50.
 	*/
-	MaxExpansions *int
+	MaxExpansions *int `json:"max_expansions"`
 	/*
 		(Optional, integer) Number of beginning characters left unchanged for fuzzy matching. Defaults to 0.
 	*/
-	PrefixLength *int
+	PrefixLength *int `json:"prefix_length"`
 	/*
 		(Optional, Boolean) If true, edits for fuzzy matching include transpositions of two adjacent characters (ab → ba). Defaults to true.
 	*/
-	FuzzyTranspositions *bool
+	FuzzyTranspositions *bool `json:"fuzzy_transpositions"`
 	/*
 		(Optional, string) Method used to rewrite the query. See the rewrite parameter for valid values and more information.
 		If the fuzziness parameter is not 0, the match query uses a fuzzy_rewrite method of top_terms_blended_freqs_${max_expansions} by default.
 	*/
-	FuzzyRewrite FuzzyRewrite
+	FuzzyRewrite FuzzyRewrite `json:"fuzzy_rewrite"`
 	/*
 		(Optional, Boolean) If true, format-based errors, such as providing a text query value for a numeric field, are ignored. Defaults to false.
 	*/
-	Lenient *bool
+	Lenient *bool `json:"lenient"`
 	/*
 		(Optional, string) Boolean logic used to interpret text in the query value. Valid values are:
 		* OR (Default)
@@ -85,11 +86,11 @@ type matchQueryFieldParameters struct {
 		* AND
 			* For example, a query value of capital of Hungary is interpreted as capital AND of AND Hungary.
 	*/
-	Operator Operator
+	Operator Operator `json:"operator"`
 	/*
 		(Optional, string) Minimum number of clauses that must match for a document to be returned. See the minimum_should_match parameter for valid values and more information.
 	*/
-	MinimumShouldMatch string
+	MinimumShouldMatch string `json:"minimum_should_match"`
 	/*
 		(Optional, string) Indicates whether no documents are returned if the analyzer removes all tokens, such as when using a stop filter. Valid values are:
 		* none (Default)
@@ -97,7 +98,7 @@ type matchQueryFieldParameters struct {
 		* all
 			* Returns all documents, similar to a match_all query.
 	*/
-	ZeroTermsQuery ZeroTerms
+	ZeroTermsQuery ZeroTerms `json:"zero_terms_query"`
 }
 
 type MatchQueryFieldParameter func(params *matchQueryFieldParameters)
@@ -208,21 +209,20 @@ func WithZeroTermsquery(zt ZeroTerms) MatchQueryFieldParameter {
 // For more details, see the official Elasticsearch documentation:
 // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html
 func MatchQuery(field string, query string, params ...MatchQueryFieldParameter) effdsl.QueryResult {
-	matchQuery := MatchQueryS{
-		Field: field,
-		Query: query,
-	}
+	matchQuery := MatchQueryS{}
 
 	var parameters matchQueryFieldParameters
 	for _, prm := range params {
 		prm(&parameters)
 	}
 
-	matchQuery.Operator = string(parameters.Operator)
-	matchQuery.Fuzziness = string(parameters.Fuzziness)
+	matchQuery, err := utils.CastStruct[matchQueryFieldParameters, MatchQueryS](parameters)
+
+	matchQuery.Field = field
+	matchQuery.Query = query
 
 	return effdsl.QueryResult{
 		Ok:  matchQuery,
-		Err: nil,
+		Err: err,
 	}
 }
