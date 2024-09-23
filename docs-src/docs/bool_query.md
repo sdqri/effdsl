@@ -23,10 +23,9 @@ The bool query adopts a more-matches-is-better approach, so the score from each 
 ```go
 import (
     es "github.com/elastic/go-elasticsearch/v8"
-
     "github.com/sdqri/effdsl/v2"
-	mq "github.com/sdqri/effdsl/v2/queries/matchquery"
-	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
+    mq "github.com/sdqri/effdsl/queries/matchquery"
+    bq "github.com/sdqri/effdsl/queries/boolquery"
 )
 
 query, err := effdsl.Define(

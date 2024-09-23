@@ -7,10 +7,9 @@ A disjunction max query (dis_max) is used to find documents that match multiple 
 ```go
 import (
     es "github.com/elastic/go-elasticsearch/v8"
-
 	"github.com/sdqri/effdsl/v2"
-	dmq "github.com/sdqri/effdsl/v2/queries/dismaxquery"
-	tq "github.com/sdqri/effdsl/v2/queries/termquery"
+	dmq "github.com/sdqri/effdsl/queries/dismaxquery"
+	tq "github.com/sdqri/effdsl/queries/termquery"
 )
 
 query, err := effdsl.Define(

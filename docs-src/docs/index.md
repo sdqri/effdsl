@@ -29,7 +29,7 @@ to your code, and then `go [build|run|test]` will automatically fetch the necess
 Otherwise, run the following Go command to install the `effdsl` package:
 
 ```sh
-$ go get -u github.com/sdqri/effdsl/v2
+$ go get -u github.com/sdqri/effdsl
 ```
 
 ### How to use
@@ -76,8 +76,8 @@ import (
 
 query, err := effdsl.Define(
     effdsl.WithQuery(
-        mq.MatchQuery("message", "Hello World"),
-    ),
+        mq.MatchQuery("message", "Hello World")
+    ),    
 )
 
 res, err := es.Search(

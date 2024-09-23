@@ -6,10 +6,9 @@ A match phrase prefix query returns documents that match a given phrase with a p
 
 ```go
 import (
-    es "github.com/elastic/go-elasticsearch/v8"
-
+	es "github.com/elastic/go-elasticsearch/v8"
 	"github.com/sdqri/effdsl/v2"
-	mppq "github.com/sdqri/effdsl/v2/queries/matchphraseprefixquery"
+	mppq "github.com/sdqri/effdsl/queries/matchphraseprefixquery"
 )
 
 query, err := effdsl.Define(

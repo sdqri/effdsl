@@ -15,10 +15,9 @@ To find similar terms, the fuzzy query creates a set of all possible variations,
 
 ```go
 import (
-    es "github.com/elastic/go-elasticsearch/v8"
-
+	es "github.com/elastic/go-elasticsearch/v8"
 	"github.com/sdqri/effdsl/v2"
-	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
+	eq "github.com/sdqri/effdsl/queries/existsquery"
 )
 
 query, err := effdsl.Define(

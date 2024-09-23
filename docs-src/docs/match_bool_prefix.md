@@ -6,10 +6,9 @@ A match bool prefix query analyzes its input and constructs a bool query from th
 
 ```go
 import (
-    es "github.com/elastic/go-elasticsearch/v8"
-
+	es "github.com/elastic/go-elasticsearch/v8"
 	"github.com/sdqri/effdsl/v2"
-	mbpq "github.com/sdqri/effdsl/v2/queries/matchboolprefix"
+	mbpq "github.com/sdqri/effdsl/queries/matchboolprefix"
 )
 
 query, err := effdsl.Define(

@@ -7,10 +7,9 @@ A boosting query matches documents based on a positive query while reducing the 
 ```go
 import (
     es "github.com/elastic/go-elasticsearch/v8"
-
 	"github.com/sdqri/effdsl/v2"
-	bq "github.com/sdqri/effdsl/v2/queries/boostingquery"
-	tq "github.com/sdqri/effdsl/v2/queries/termquery"
+	bq "github.com/sdqri/effdsl/queries/boostingquery"
+	tq "github.com/sdqri/effdsl/queries/termquery"
 )
 
 query, err := effdsl.Define(
@@ -18,9 +17,8 @@ query, err := effdsl.Define(
         bq.BoostingQuery(
             tq.TermQuery("text", "apple"),
             tq.TermQuery("text", "pie tart fruit crumble tree"),
-            0.5, 
-        ),
-    ),
+            0.5),
+    ), 
 )
 
 res, err := es.Search(
