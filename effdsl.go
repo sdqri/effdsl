@@ -140,9 +140,14 @@ func WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 	}
 }
 
+// Deprecated: use WithCollapse
+func WithCollpse(field string) BodyOption {
+	return WithCollapse(field)
+}
+
 // You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key.
 // [Collapse search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
-func WithCollpse(field string) BodyOption {
+func WithCollapse(field string) BodyOption {
 	searchCollapse := Collapse(field)
 	return func(sb *SearchBody) error {
 		sb.Collapse = searchCollapse
