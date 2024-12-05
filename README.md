@@ -1,7 +1,7 @@
 # effdsl
 
 ![GitHub Release](https://img.shields.io/github/v/release/sdqri/effdsl)
-[![GoDoc](https://pkg.go.dev/badge/github.com/sdqri/effdsl?status.svg)](https://pkg.go.dev/github.com/sdqri/effdsl?tab=doc)
+[![GoDoc](https://pkg.go.dev/badge/github.com/sdqri/effdsl/v2?status.svg)](https://pkg.go.dev/github.com/sdqri/effdsl/v2?tab=doc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sdqri/effdsl)](https://goreportcard.com/report/github.com/sdqri/effdsl)
 ![GitHub License](https://img.shields.io/github/license/sdqri/effdsl)
 <a href="https://github.com/sdqri/effdsl/pulls" style="text-decoration: none;"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions welcome"></a>
