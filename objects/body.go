@@ -20,7 +20,7 @@ type SearchBody struct {
 	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
 	Collapse    json.Marshaler   `json:"collapse,omitempty"`
 	PIT         json.Marshaler   `json:"pit,omitempty"`
-	Suggest     Suggest          `json:"suggest,omitempty"`
+	Suggest     SuggestType      `json:"suggest,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -206,13 +206,13 @@ func Define(opts ...BodyOption) (body *SearchBody, err error) {
 //                                         Suggest                                      //
 //--------------------------------------------------------------------------------------//
 
-type Suggest interface {
+type SuggestType interface {
 	SuggestInfo() string
 	json.Marshaler
 }
 
 type SuggestResult struct {
-	Ok  Suggest
+	Ok  SuggestType
 	Err error
 }
 

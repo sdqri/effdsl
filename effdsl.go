@@ -106,10 +106,9 @@ var (
 	SourceFilter = objs.SourceFilter
 
 	// search_source_filtering.go
-	Suggesters              = objs.Suggesters
+	Suggest                 = objs.Suggest
 	WithSuggest             = objs.WithSuggest
 	TermSuggester           = objs.TermSuggester
-	Term                    = objs.Term
 	WithTermSuggestAnalyzer = objs.WithTermSuggestAnalyzer
 	WithTermSuggestSize     = objs.WithTermSuggestSize
 	WithTermSuggestSort     = objs.WithTermSuggestSort
