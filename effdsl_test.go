@@ -174,7 +174,7 @@ func TestDefindeQ1(t *testing.T) {
 		},
 		"sort":[
 		   {
-			  "sort_field1":"desc"
+			  "sort_field1":{"order": "desc"}
 		   },
 		   "_score"
 		],
