@@ -62,6 +62,20 @@ func TestWithPIT(t *testing.T) {
 	assert.Equal(t, expectedBody, string(jsonBody))
 }
 
+func TestWithSuggest(t *testing.T) {
+	expectedBody := `{"suggest":{"text":"test","my-suggestion-1":{"text":"tring out Elasticsearch","term":{"field":"message"}}}}`
+	f := effdsl.WithSuggest(
+		effdsl.Suggest("test",
+			effdsl.TermSuggester("my-suggestion-1", "tring out Elasticsearch", "message"),
+		),
+	)
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
 func TestDefindeQ1(t *testing.T) {
 	expectedBody := `
 	{
