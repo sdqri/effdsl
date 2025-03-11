@@ -106,13 +106,22 @@ var (
 	SourceFilter = objs.SourceFilter
 
 	// search_source_filtering.go
-	Suggest                 = objs.Suggest
-	WithSuggest             = objs.WithSuggest
-	TermSuggester           = objs.TermSuggester
-	WithTermSuggestAnalyzer = objs.WithTermSuggestAnalyzer
-	WithTermSuggestSize     = objs.WithTermSuggestSize
-	WithTermSuggestSort     = objs.WithTermSuggestSort
-	WithTermSuggestMode     = objs.WithTermSuggestMode
+	Suggest                               = objs.Suggest
+	WithSuggest                           = objs.WithSuggest
+	TermSuggester                         = objs.TermSuggester
+	WithTermSuggesterAnalyzer             = objs.WithTermSuggesterAnalyzer
+	WithTermSuggesterSize                 = objs.WithTermSuggesterSize
+	WithTermSuggesterSort                 = objs.WithTermSuggesterSort
+	WithTermSuggesterMode                 = objs.WithTermSuggesterMode
+	CompletionSuggester                   = objs.CompletionSuggester
+	WithCompletionSuggesterSize           = objs.WithCompletionSuggesterSize
+	WithCompletionSuggesterSkipDuplicates = objs.WithCompletionSuggesterSkipDuplicates
+	WithCompletionSuggesterFuzzy          = objs.WithCompletionSuggesterFuzzy
+	WithFuzzyFuzziness                    = objs.WithFuzzyFuzziness
+	WithFuzzyTranspositions               = objs.WithFuzzyTranspositions
+	WithFuzzyMinLength                    = objs.WithFuzzyMinLength
+	WithFuzzyPrefixLength                 = objs.WithFuzzyPrefixLength
+	WithFuzzyUnicodeAware                 = objs.WithFuzzyUnicodeAware
 )
 
 //--------------------------------------------------------------------------------------//

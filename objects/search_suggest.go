@@ -59,8 +59,10 @@ type Suggestion interface {
 // ----------------------------------------------------
 
 type SuggestionS struct {
-	Name string `json:"-"`              //
-	Text string `json:"text,omitempty"` // The suggest text. The suggest text is a required option that needs to be set globally or per suggestion.
+	Name   string `json:"-"`              //
+	Text   string `json:"text,omitempty"` // The suggest text. The suggest text is a required option that needs to be set globally or per suggestion.
+	Prefix string `json:"prefix,omitempty"`
+	Regex  string `json:"regex,omitempty"` // The completion suggester also supports regex queries meaning you can express a prefix as a regular expression
 	Suggester
 }
 
@@ -75,9 +77,15 @@ func (s SuggestionS) MarshalJSON() ([]byte, error) {
 	}
 
 	type suggestionS struct {
-		Text string `json:"text,omitempty"`
+		Text   string `json:"text,omitempty"`
+		Prefix string `json:"prefix,omitempty"`
+		Regex  string `json:"regex,omitempty"`
 	}
-	suggestionSJson, err := json.Marshal(suggestionS{Text: s.Text})
+	suggestionSJson, err := json.Marshal(suggestionS{
+		Text:   s.Text,
+		Prefix: s.Prefix,
+		Regex:  s.Regex,
+	})
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +104,7 @@ type Suggester interface {
 type TermSuggesterS struct {
 	Field       string      `json:"field"`              // The field to fetch the candidate suggestions from. This is a required option that either needs to be set globally or per suggestion.
 	Analyzer    string      `json:"analyzer,omitempty"` // The analyzer to analyse the suggest text with. Defaults to the search analyzer of the suggest field.
-	Size        int         `json:"size,omitempty"`     // The maximum corrections to be returned per suggest text token.
+	Size        *uint64     `json:"size,omitempty"`     // The maximum corrections to be returned per suggest text token.
 	Sort        SuggestSort `json:"sort,omitempty"`     // Defines how suggestions should be sorted per suggest text term. Two possible values: score, frequency
 	SuggestMode SuggestMode `json:"suggest_mode,omitempty"`
 }
@@ -139,25 +147,25 @@ const (
 
 type TermSuggesterOption func(*TermSuggesterS)
 
-func WithTermSuggestAnalyzer(analyzer string) TermSuggesterOption {
+func WithTermSuggesterAnalyzer(analyzer string) TermSuggesterOption {
 	return func(termSuggest *TermSuggesterS) {
 		termSuggest.Analyzer = analyzer
 	}
 }
 
-func WithTermSuggestSize(size int) TermSuggesterOption {
+func WithTermSuggesterSize(size uint64) TermSuggesterOption {
 	return func(termSuggest *TermSuggesterS) {
-		termSuggest.Size = size
+		termSuggest.Size = &size
 	}
 }
 
-func WithTermSuggestSort(sort SuggestSort) TermSuggesterOption {
+func WithTermSuggesterSort(sort SuggestSort) TermSuggesterOption {
 	return func(termSuggest *TermSuggesterS) {
 		termSuggest.Sort = sort
 	}
 }
 
-func WithTermSuggestMode(mode SuggestMode) TermSuggesterOption {
+func WithTermSuggesterMode(mode SuggestMode) TermSuggesterOption {
 	return func(termSuggest *TermSuggesterS) {
 		termSuggest.SuggestMode = mode
 	}
@@ -179,4 +187,135 @@ func TermSuggester(name, text, field string, opts ...TermSuggesterOption) Sugges
 		Suggester: termSuggester,
 	}
 	return s
+}
+
+// ----------------------------------------------------
+
+// CompletionSuggesterS - https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#completion-suggester
+type CompletionSuggesterS struct {
+	Field          string  `json:"field"`                     // The name of the field on which to run the query (required).
+	Size           *uint64 `json:"size,omitempty"`            // The number of suggestions to return (defaults to 5).
+	SkipDuplicates bool    `json:"skip_duplicates,omitempty"` // Whether duplicate suggestions should be filtered out (defaults to false).
+	Fuzzy          *FuzzyS `json:"fuzzy,omitempty"`           // Fuzzy options for the completion suggester
+	// TODO: add "contexts" field
+}
+
+func (c CompletionSuggesterS) MarshalJSON() ([]byte, error) {
+	type CompletionSuggesterSBase CompletionSuggesterS
+	return json.Marshal(
+		M{
+			"completion": (CompletionSuggesterSBase)(c),
+		},
+	)
+}
+
+func (c CompletionSuggesterS) SuggesterInfo() string {
+	return "Completion suggester"
+}
+
+type CompletionSuggesterOption func(*CompletionSuggesterS)
+
+func WithCompletionSuggesterSize(size uint64) CompletionSuggesterOption {
+	return func(c *CompletionSuggesterS) {
+		c.Size = &size
+	}
+}
+
+func WithCompletionSuggesterSkipDuplicates(skipDuplicates bool) CompletionSuggesterOption {
+	return func(c *CompletionSuggesterS) {
+		c.SkipDuplicates = skipDuplicates
+	}
+}
+
+func WithCompletionSuggesterFuzzy(opt ...FuzzyOption) CompletionSuggesterOption {
+	fuzzy := completionSuggesterFuzzy(opt...)
+	return func(c *CompletionSuggesterS) {
+		c.Fuzzy = &fuzzy
+	}
+}
+
+// The completion suggester provides auto-complete/search-as-you-type functionality. This is a navigational feature to guide users to relevant results as they are typing, improving search precision. It is not meant for spell correction or did-you-mean functionality like the term or phrase suggesters.
+// [CompletionSuggester]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#completion-suggester
+func CompletionSuggester(name, prefix, field string, opts ...CompletionSuggesterOption) Suggestion {
+	completionSuggester := CompletionSuggesterS{
+		Field: field,
+	}
+	for _, opt := range opts {
+		opt(&completionSuggester)
+	}
+
+	s := SuggestionS{
+		Name:      name,
+		Prefix:    prefix,
+		Suggester: completionSuggester,
+	}
+	return s
+}
+
+// The completion suggester also supports regex queries meaning you can express a prefix as a regular expression.
+// [CompletionSuggesterRegex]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#regex
+func CompletionSuggesterRegex(name, regex, field string, opts ...CompletionSuggesterOption) Suggestion {
+	completionSuggester := CompletionSuggesterS{
+		Field: field,
+	}
+	for _, opt := range opts {
+		opt(&completionSuggester)
+	}
+
+	s := SuggestionS{
+		Name:      name,
+		Regex:     regex,
+		Suggester: completionSuggester,
+	}
+	return s
+}
+
+// ----------------------------------------------------
+
+type FuzzyS struct {
+	Fuzziness      Fuzziness `json:"fuzziness,omitempty"`      // The fuzziness factor, defaults to AUTO.
+	Transpositions *bool     `json:"transpositions,omitempty"` // If set to true, transpositions are counted as one change instead of two, defaults to true.
+	MinLength      *uint64   `json:"min_length,omitempty"`     // Minimum length of the input before fuzzy suggestions are returned, defaults 3.
+	PrefixLength   *uint64   `json:"prefix_length,omitempty"`  // Minimum length of the input, which is not checked for fuzzy alternatives, defaults to 1.
+	UnicodeAware   bool      `json:"unicode_aware,omitempty"`  // If true, all measurements (like fuzzy edit distance, transpositions, and lengths) are measured in Unicode code points instead of in bytes. This is slightly slower than raw bytes, so it is set to false by default.
+}
+
+type FuzzyOption func(*FuzzyS)
+
+func WithFuzzyFuzziness(fuzziness Fuzziness) FuzzyOption {
+	return func(f *FuzzyS) {
+		f.Fuzziness = fuzziness
+	}
+}
+
+func WithFuzzyTranspositions(transpositions bool) FuzzyOption {
+	return func(f *FuzzyS) {
+		f.Transpositions = &transpositions
+	}
+}
+
+func WithFuzzyMinLength(minLength uint64) FuzzyOption {
+	return func(f *FuzzyS) {
+		f.MinLength = &minLength
+	}
+}
+
+func WithFuzzyPrefixLength(prefixLength uint64) FuzzyOption {
+	return func(f *FuzzyS) {
+		f.PrefixLength = &prefixLength
+	}
+}
+
+func WithFuzzyUnicodeAware(unicodeAware bool) FuzzyOption {
+	return func(f *FuzzyS) {
+		f.UnicodeAware = unicodeAware
+	}
+}
+
+func completionSuggesterFuzzy(opt ...FuzzyOption) FuzzyS {
+	fuzzy := FuzzyS{}
+	for _, o := range opt {
+		o(&fuzzy)
+	}
+	return fuzzy
 }
