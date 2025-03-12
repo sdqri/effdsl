@@ -1,148 +1,199 @@
 package effdsl
 
 import (
-	objs "github.com/sdqri/effdsl/objects"
+	"encoding/json"
 )
 
-//--------------------------------------------------------------------------------------//
-//                                    Type aliasing                                     //
-//--------------------------------------------------------------------------------------//
+type M map[string]any
 
-type (
-	M                = objs.M
-	SearchBody       = objs.SearchBody
-	BodyOption       = objs.BodyOption
-	QueryResult      = objs.QueryResult
-	SortClauseResult = objs.SortClauseResult
-	// Other types
-	BooleanClause      = objs.BooleanClause
-	QueryStringOption  = objs.QueryStringOption
-	RangeQueryOption   = objs.RangeQueryOption
-	TermQueryOption    = objs.TermQueryOption
-	SourceFitlerOption = objs.SourceFitlerOption
+func (m M) MarshalJSON() ([]byte, error) {
+	type MBase M
+	return json.Marshal((MBase)(m))
+}
 
-	MatchOperator = objs.MatchOperator
-	Fuzziness     = objs.Fuzziness
+type SearchBody struct {
+	Source      json.Marshaler   `json:"_source,omitempty"`
+	From        *uint64          `json:"from,omitempty"`
+	Size        *uint64          `json:"size,omitempty"`
+	Query       Query            `json:"query,omitempty"`
+	Sort        []SortClauseType `json:"sort,omitempty"`
+	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
+	Collapse    json.Marshaler   `json:"collapse,omitempty"`
+	PIT         json.Marshaler   `json:"pit,omitempty"`
+	Suggest     SuggestType      `json:"suggest,omitempty"`
+}
 
-	WildcardQueryFieldParameter = objs.WildcardQueryFieldParameter
-	RewriteParameter            = objs.RewriteParameter
+type BodyOption func(*SearchBody) error
 
-	SortOrder = objs.SortOrder
+// A search request by default executes against the most recent visible data of the target indices, which is called point in time. Elasticsearch pit (point in time) is a lightweight view into the state of the data as it existed when initiated. In some cases, it’s preferred to perform multiple search requests using the same point in time. For example, if refreshes happen between search_after requests, then the results of those requests might not be consistent as changes happening between searches are only visible to the more recent point in time.
+// [Point in time]: https://www.elastic.co/guide/en/elasticsearch/reference/current/point-in-time-api.html
+func WithPIT(id string, keepAlive string) BodyOption {
+	pit := PIT(id, keepAlive)
+	return func(sb *SearchBody) error {
+		sb.PIT = pit
+		return nil
+	}
+}
 
-	SuggestSort = objs.SuggestSort
-	SuggestMode = objs.SuggestMode
-)
+// By default, searches return the top 10 matching hits. To page through a larger set of results, you can use the search API's from and size parameters. The from parameter defines the number of hits to skip, defaulting to 0. The size parameter is the maximum number of hits to return. Together, these two parameters define a page of results.
+// [Paginate search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#paginate-search-results
+func WithPaginate(from uint64, size uint64) BodyOption {
+	return func(sb *SearchBody) error {
+		if from != 0 {
+			sb.From = &from
+		}
+		sb.Size = &size
+		return nil
+	}
+}
 
-//--------------------------------------------------------------------------------------//
-//                                        Define                                        //
-//--------------------------------------------------------------------------------------//
+type SearchAfterType interface {
+	SearchAfterInfo() string
+	json.Marshaler
+}
 
-var (
-	// body.go
-	WithPIT          = objs.WithPIT
-	WithPaginate     = objs.WithPaginate
-	WithSearchAfter  = objs.WithSearchAfter
-	WithQuery        = objs.WithQuery
-	WithSort         = objs.WithSort
-	WithCollpse      = objs.WithCollpse
-	WithSourceFilter = objs.WithSourceFilter
-	Define           = objs.Define
-	// q_bool_query.go
-	Must               = objs.Must
-	Filter             = objs.Filter
-	MustNot            = objs.MustNot
-	Should             = objs.Should
-	MinimumShouldMatch = objs.MinimumShouldMatch
-	BoolQuery          = objs.BoolQuery
-	// q_exists_query.go
-	ExistsQuery = objs.ExistsQuery
-	// q_fuzzy_query.go
-	WithFuzziness      = objs.WithFuzziness
-	WithPrefixLength   = objs.WithPrefixLength
-	WithMaxExpansions  = objs.WithMaxExpansions
-	WithFQRewrite      = objs.WithFQRewrite
-	WithTranspositions = objs.WithTranspositions
-	FuzzyQuery         = objs.FuzzyQuery
-	// q_match_query.go
-	MatchQuery             = objs.MatchQuery
-	WithMatchOperator      = objs.WithMatchOperator
-	WithFuzzinessParameter = objs.WithFuzzinessParameter
-	// q_wildcard_query.go
-	WildcardQuery        = objs.WildcardQuery
-	WithBoost            = objs.WithBoost
-	WithRewriteParameter = objs.WithRewriteParameter
-	// q_query_string.go
-	WithFields          = objs.WithFields
-	WithAnalyzeWildcard = objs.WithAnalyzeWildcard
-	QueryString         = objs.QueryString
-	// q_range_query.go
-	WithGT     = objs.WithGT
-	WithGTE    = objs.WithGTE
-	WithLT     = objs.WithLT
-	WithLTE    = objs.WithLTE
-	WithFormat = objs.WithFormat
-	RangeQuery = objs.RangeQuery
-	// q_regexp_query.go
-	WithFlags                 = objs.WithFlags
-	WithCaseInsensitive       = objs.WithCaseInsensitive
-	WithMaxDeterminizedStates = objs.WithMaxDeterminizedStates
-	WithRQRewrite             = objs.WithRQRewrite
-	RegexpQuery               = objs.RegexpQuery
-	// q_term_query.go
-	WithTQBoost = objs.WithTQBoost
-	TermQuery   = objs.TermQuery
-	// q_term_set_query.go
-	WithMinimumShouldMatchField  = objs.WithMinimumShouldMatchField
-	WithMinimumShouldMatchScript = objs.WithMinimumShouldMatchScript
-	TermsSetQuery                = objs.TermsSetQuery
-	// q_terms_query.go
-	WithTSQBoost = objs.WithTSQBoost
-	TermsQuery   = objs.TermsQuery
-	// search_sort.go
-	SortClause = objs.SortClause
-	// search_source_filtering.go
-	WithIncludes = objs.WithIncludes
-	WithExcludes = objs.WithExcludes
-	SourceFilter = objs.SourceFilter
+type SearchAfterResult struct {
+	Ok  SearchAfterType
+	Err error
+}
 
-	// search_source_filtering.go
-	Suggest                               = objs.Suggest
-	WithSuggest                           = objs.WithSuggest
-	TermSuggester                         = objs.TermSuggester
-	WithTermSuggesterAnalyzer             = objs.WithTermSuggesterAnalyzer
-	WithTermSuggesterSize                 = objs.WithTermSuggesterSize
-	WithTermSuggesterSort                 = objs.WithTermSuggesterSort
-	WithTermSuggesterMode                 = objs.WithTermSuggesterMode
-	CompletionSuggester                   = objs.CompletionSuggester
-	WithCompletionSuggesterSize           = objs.WithCompletionSuggesterSize
-	WithCompletionSuggesterSkipDuplicates = objs.WithCompletionSuggesterSkipDuplicates
-	WithCompletionSuggesterFuzzy          = objs.WithCompletionSuggesterFuzzy
-	WithFuzzyFuzziness                    = objs.WithFuzzyFuzziness
-	WithFuzzyTranspositions               = objs.WithFuzzyTranspositions
-	WithFuzzyMinLength                    = objs.WithFuzzyMinLength
-	WithFuzzyPrefixLength                 = objs.WithFuzzyPrefixLength
-	WithFuzzyUnicodeAware                 = objs.WithFuzzyUnicodeAware
-)
+// By default, you cannot use from and size to page through more than 10,000 hits. This limit is a safeguard set by the index.max_result_window index setting. If you need to page through more than 10,000 hits, use the search_after parameter instead.
+// You can use the search_after parameter to retrieve the next page of hits using a set of sort values from the previous page.
+// [Search after]: https://www.elastic.co/guide/en/elasticsearch/reference/current/paginate-search-results.html#search-after
+func WithSearchAfter(sortValues ...any) BodyOption {
+	SearchAfterResult := SearchAfter(sortValues...)
+	searchAfter := SearchAfterResult.Ok
+	err := SearchAfterResult.Err
+	return func(sb *SearchBody) error {
+		sb.SearchAfter = searchAfter
+		return err
+	}
+}
 
-//--------------------------------------------------------------------------------------//
-//                                      constants                                       //
-//--------------------------------------------------------------------------------------//
+type Query interface {
+	QueryInfo() string
+	json.Marshaler
+}
 
-const (
-	SORT_DEFAULT objs.SortOrder = objs.SORT_DEFAULT
-	SORT_ASC     objs.SortOrder = objs.SORT_ASC
-	SORT_DESC    objs.SortOrder = objs.SORT_DESC
+type QueryResult struct {
+	Ok  Query
+	Err error
+}
 
-	MatchOperatorOR  objs.MatchOperator = objs.MatchOperatorOR
-	MatchOperatorAND objs.MatchOperator = objs.MatchOperatorAND
+func WithQuery(queryResult QueryResult) BodyOption {
+	query := queryResult.Ok
+	err := queryResult.Err
+	// Type assertion
+	return func(b *SearchBody) error {
+		b.Query = query
+		return err
+	}
+}
 
-	FuzzinessAUTO objs.Fuzziness = objs.FuzzinessAUTO
+type MockedQuery M
 
-	RewriteParameterConstantScoreBlended  objs.RewriteParameter = objs.RewriteParameterConstantScoreBlended
-	RewriteParameterConstantScore         objs.RewriteParameter = objs.RewriteParameterConstantScore
-	RewriteParameterConstantScoreBoolean  objs.RewriteParameter = objs.RewriteParameterConstantScoreBoolean
-	RewriteParameterScoringBoolean        objs.RewriteParameter = objs.RewriteParameterScoringBoolean
-	RewriteParameterTopTermsBlendedFreqsN objs.RewriteParameter = objs.RewriteParameterTopTermsBlendedFreqsN
-	RewriteParameterTopTermsBoostN        objs.RewriteParameter = objs.RewriteParameterTopTermsBoostN
-	RewriteParameterTopTermsN             objs.RewriteParameter = objs.RewriteParameterTopTermsN
-)
+func (q MockedQuery) QueryInfo() string {
+	return "Mock query"
+}
+
+func (q MockedQuery) MarshalJSON() ([]byte, error) {
+	type MBase M
+	return json.Marshal((MBase)(q))
+}
+
+func MockQuery(m M) QueryResult {
+	return QueryResult{
+		Ok:  MockedQuery(m),
+		Err: nil,
+	}
+}
+
+type SortClauseType interface {
+	SortClauseInfo() string
+	json.Marshaler
+}
+
+type SortClauseResult struct {
+	Ok  SortClauseType
+	Err error
+}
+
+// Allows you to add one or more sorts on specific fields. Each sort can be reversed as well. The sort is defined on a per field level, with special field name for _score to sort by score, and _doc to sort by index order.
+// [Sort search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#sort-search-results
+func WithSort(sortClauseResults ...SortClauseResult) BodyOption {
+	sortClauses := make([]SortClauseType, 0)
+	for _, scr := range sortClauseResults {
+		if scr.Err != nil {
+			return func(sb *SearchBody) error {
+				return scr.Err
+			}
+		}
+		sortClauses = append(sortClauses, scr.Ok)
+	}
+	return func(sb *SearchBody) error {
+		if sb.Sort == nil {
+			sb.Sort = sortClauses
+		} else {
+			sb.Sort = append(sb.Sort, sortClauses...)
+		}
+		return nil
+	}
+}
+
+// Deprecated: use WithCollapse
+func WithCollpse(field string) BodyOption {
+	return WithCollapse(field)
+}
+
+// You can use the collapse parameter to collapse search results based on field values. The collapsing is done by selecting only the top sorted document per collapse key.
+// [Collapse search results]: https://www.elastic.co/guide/en/elasticsearch/reference/current/collapse-search-results.html
+func WithCollapse(field string) BodyOption {
+	searchCollapse := Collapse(field)
+	return func(sb *SearchBody) error {
+		sb.Collapse = searchCollapse
+		return nil
+	}
+}
+
+// You can use the _source parameter to select what fields of the source are returned. This is called source filtering.
+// The following search API request sets the _source request body parameter to false. The document source is not included in the response.
+// [Source filtering]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html#source-filtering
+func WithSourceFilter(opts ...SourceFitlerOption) BodyOption {
+	sourceFilter := SourceFilter(opts...)
+	return func(sb *SearchBody) error {
+		sb.Source = sourceFilter
+		return nil
+	}
+}
+
+func Define(opts ...BodyOption) (body *SearchBody, err error) {
+	body = new(SearchBody)
+	for _, opt := range opts {
+		err = opt(body)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return body, nil
+}
+
+type SuggestType interface {
+	SuggestInfo() string
+	json.Marshaler
+}
+
+type SuggestResult struct {
+	Ok  SuggestType
+	Err error
+}
+
+// WithSuggest - allows you to use suggest
+func WithSuggest(suggestResult SuggestResult) BodyOption {
+	suggest := suggestResult.Ok
+	err := suggestResult.Err
+	// Type assertion
+	return func(b *SearchBody) error {
+		b.Suggest = suggest
+		return err
+	}
+}

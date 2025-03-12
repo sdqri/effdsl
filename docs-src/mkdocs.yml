@@ -1,0 +1,76 @@
+site_name: effdsl
+site_url: https://sdqri.org/effdsl
+theme:
+  name: material
+  palette:
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/lightbulb-auto
+      name: Switch to light mode
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: cyan
+    accent: deep purple
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: cyan
+    accent: deep purple
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to system preference
+  features:
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+repo_name: sdqri/effdsl
+repo_url: https://github.com/sdqri/effdsl
+nav:
+  - effdsl: 
+    - index.md
+    - Compound Queries:
+      - bool_query.md
+      - boosting_query.md
+      - constant_score.md
+      - dis_max_query.md
+    - Full Text Queries:
+      - match_query.md
+      - match_bool_prefix.md
+      - match_phrase_query.md
+      - match_phrase_prefix.md
+      - query_string.md
+      - simple_query_string.md
+    - Term-Level Queries:
+      - exists_query.md
+      - fuzzy_query.md
+      - ids_query.md
+      - prefix_query.md
+      - range_query.md
+      - regexp_query.md
+      - term_query.md
+      - terms_query.md
+      - terms_set_query.md
+      - wildcard_query.md 
+  - API Coverage: api_coverage.md
+  - Release Notes: release_notes.md
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

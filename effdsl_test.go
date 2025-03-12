@@ -7,8 +7,79 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/sdqri/effdsl"
+	"github.com/sdqri/effdsl/v2"
+	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
+	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
+	qs "github.com/sdqri/effdsl/v2/queries/querystring"
+	rq "github.com/sdqri/effdsl/v2/queries/rangequery"
+	tq "github.com/sdqri/effdsl/v2/queries/termquery"
 )
+
+func TestWithQuery(t *testing.T) {
+	expectedBody := `{"query":{"query_string":{"query":"query","fields":["field1","field2"]}}}`
+	f := effdsl.WithQuery(
+		qs.QueryString("query", qs.WithFields("field1", "field2")),
+	)
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithSort(t *testing.T) {
+	expectedBody := `{"sort":["sort_field"]}`
+	f := effdsl.WithSort(effdsl.SortClause("sort_field", effdsl.SORT_DEFAULT))
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithCollapse(t *testing.T) {
+	expectedBody := `{"collapse":{"field":"collapsed_field"}}`
+	f := effdsl.WithCollpse("collapsed_field")
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithSearchAfter(t *testing.T) {
+	expectedBody := `{"search_after":["2021-05-20T05:30:04.832Z",4294967298]}`
+	f := effdsl.WithSearchAfter("2021-05-20T05:30:04.832Z", 4294967298)
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithPIT(t *testing.T) {
+	expectedBody := `{"pit":{"id":"test_id","keep_alive":"1m"}}`
+	f := effdsl.WithPIT("test_id", "1m")
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithSuggest(t *testing.T) {
+	expectedBody := `{"suggest":{"text":"test","my-suggestion-1":{"text":"tring out Elasticsearch","term":{"field":"message"}}}}`
+	f := effdsl.WithSuggest(
+		effdsl.Suggest("test",
+			effdsl.TermSuggester("my-suggestion-1", "tring out Elasticsearch", "message"),
+		),
+	)
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedBody, string(jsonBody))
+}
 
 func TestDefindeQ1(t *testing.T) {
 	expectedBody := `
@@ -19,20 +90,30 @@ func TestDefindeQ1(t *testing.T) {
 			  "field2"
 		   ],
 		   "excludes":[
-			  "field3",
+			  "field2",
 			  "field4"
 		   ]
 		},
-		"from":1,
-		"size":100,
+		"size":10,
 		"query":{
 		   "bool":{
 			  "must":[
 				 {
 					"query_string":{
-					   "query":"value1",
+					   "query":"fake_value1",
 					   "fields":[
 						  "title",
+						  "description",
+						  "content"
+					   ]
+					}
+				 },
+				 {
+					"query_string":{
+					   "query":"fake_value2",
+					   "fields":[
+						  "title",
+						  "description",
 						  "content"
 					   ]
 					}
@@ -48,34 +129,56 @@ func TestDefindeQ1(t *testing.T) {
 				 },
 				 {
 					"term":{
-					   "field5.keyword":{
-						  "value":"value2"
+					   "field1.keyword":{
+						  "value":"fake_value"
 					   }
 					}
 				 },
 				 {
 					"exists":{
-					   "field":"field6"
-					}
-				 }
-			  ],
-			  "must_not":[
-				 {
-					"query_string":{
-					   "query":"value3",
-					   "fields":[
-						  "title",
-						  "content"
-					   ]
+					   "field":"fake_field"
 					}
 				 }
 			  ],
 			  "should":[
 				 {
 					"query_string":{
-					   "query":"value4",
+					   "query":"fake_value5",
 					   "fields":[
 						  "title",
+						  "description",
+						  "content"
+					   ]
+					}
+				 },
+				 {
+					"query_string":{
+					   "query":"fake_value6",
+					   "fields":[
+						  "title",
+						  "description",
+						  "content"
+					   ]
+					}
+				 }
+			  ],
+			  "must_not":[
+				 {
+					"query_string":{
+					   "query":"fake_value3",
+					   "fields":[
+						  "title",
+						  "description",
+						  "content"
+					   ]
+					}
+				 },
+				 {
+					"query_string":{
+					   "query":"fake_value4",
+					   "fields":[
+						  "title",
+						  "description",
 						  "content"
 					   ]
 					}
@@ -85,12 +188,12 @@ func TestDefindeQ1(t *testing.T) {
 		},
 		"sort":[
 		   {
-			  "field1":"desc"
+			  "sort_field1":"desc"
 		   },
 		   "_score"
 		],
 		"collapse":{
-		   "field":"field7"
+		   "field":"field_to_collapse_by"
 		}
 	 }
 	`
@@ -100,32 +203,35 @@ func TestDefindeQ1(t *testing.T) {
 	body, err := effdsl.Define(
 		effdsl.WithSourceFilter(
 			effdsl.WithIncludes("field1", "field2"),
-			effdsl.WithExcludes("field3", "field4"),
+			effdsl.WithExcludes("field2", "field4"),
 		),
-		effdsl.WithPaginate(1, 100),
+		effdsl.WithPaginate(0, 10),
 		effdsl.WithQuery(
-			effdsl.BoolQuery(
-				effdsl.Must(
-					effdsl.QueryString("value1", effdsl.WithFields("title", "content")),
+			bq.BoolQuery(
+				bq.Must(
+					qs.QueryString("fake_value1", qs.WithFields("title", "description", "content")),
+					qs.QueryString("fake_value2", qs.WithFields("title", "description", "content")),
 				),
-				effdsl.Filter(
-					effdsl.RangeQuery("published_at", effdsl.WithGT("now-24h")),
-					effdsl.TermQuery("field5.keyword", "value2"),
-					effdsl.ExistsQuery("field6"),
+				bq.Filter(
+					rq.RangeQuery("published_at", rq.WithGT("now-24h")),
+					tq.TermQuery("field1.keyword", "fake_value"),
+					eq.ExistsQuery("fake_field"),
 				),
-				effdsl.MustNot(
-					effdsl.QueryString("value3", effdsl.WithFields("title", "content")),
+				bq.MustNot(
+					qs.QueryString("fake_value3", qs.WithFields("title", "description", "content")),
+					qs.QueryString("fake_value4", qs.WithFields("title", "description", "content")),
 				),
-				effdsl.Should(
-					effdsl.QueryString("value4", effdsl.WithFields("title", "content")),
+				bq.Should(
+					qs.QueryString("fake_value5", qs.WithFields("title", "description", "content")),
+					qs.QueryString("fake_value6", qs.WithFields("title", "description", "content")),
 				),
 			),
 		),
 		effdsl.WithSort(
-			effdsl.SortClause("field1", effdsl.SORT_DESC),
+			effdsl.SortClause("sort_field1", effdsl.SORT_DESC),
 			effdsl.SortClause("_score", effdsl.SORT_DEFAULT),
 		),
-		effdsl.WithCollpse("field7"),
+		effdsl.WithCollpse("field_to_collapse_by"),
 	)
 	assert.Nil(t, err)
 	jsonBody, err := json.Marshal(body)
