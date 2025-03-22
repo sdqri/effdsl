@@ -53,6 +53,7 @@ nav:
       - match_phrase_prefix.md
       - query_string.md
       - simple_query_string.md
+    - match_all_query.md
     - Term-Level Queries:
       - exists_query.md
       - fuzzy_query.md
