@@ -11,18 +11,15 @@ type MatchAllQueryS struct {
 	Boost *float64 `json:"boost,omitempty"` // (Optional, float) Floating point number used to decrease or increase the relevance scores of the query.
 }
 
-type matchAllQueryJsonS struct {
-	MatchAllQuery matchAllQueryFieldParameters `json:"match_all"`
-}
-
 func (mq MatchAllQueryS) QueryInfo() string {
 	return "Match all query"
 }
 
 func (mq MatchAllQueryS) MarshalJSON() ([]byte, error) {
+	type MatchQueryBase MatchAllQueryS
 	return json.Marshal(
-		matchAllQueryJsonS{
-			MatchAllQuery: matchAllQueryFieldParameters{Boost: mq.Boost},
+		effdsl.M{
+			"match_all": MatchQueryBase(mq),
 		},
 	)
 }
