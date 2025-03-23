@@ -17,6 +17,7 @@ type SearchBody struct {
 	Size        *uint64          `json:"size,omitempty"`
 	Query       Query            `json:"query,omitempty"`
 	Sort        []SortClauseType `json:"sort,omitempty"`
+	TrackScore  bool             `json:"track_scores,omitempty"`
 	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
 	Collapse    json.Marshaler   `json:"collapse,omitempty"`
 	PIT         json.Marshaler   `json:"pit,omitempty"`
@@ -136,6 +137,15 @@ func WithSort(sortClauseResults ...SortClauseResult) BodyOption {
 		} else {
 			sb.Sort = append(sb.Sort, sortClauses...)
 		}
+		return nil
+	}
+}
+
+// If scores are not computed. By setting track_scores to true, scores will still be computed and tracked.
+// [Track scores]: https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#script-based-sortingfunc WithTrackScores() BodyOption {
+func WithTrackScores() BodyOption {
+	return func(sb *SearchBody) error {
+		sb.TrackScore = true
 		return nil
 	}
 }
