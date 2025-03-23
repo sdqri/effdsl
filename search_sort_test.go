@@ -2,7 +2,6 @@ package effdsl_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"strings"
 	"testing"
 
