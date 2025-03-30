@@ -12,16 +12,17 @@ func (m M) MarshalJSON() ([]byte, error) {
 }
 
 type SearchBody struct {
-	Source      json.Marshaler   `json:"_source,omitempty"`
-	From        *uint64          `json:"from,omitempty"`
-	Size        *uint64          `json:"size,omitempty"`
-	Query       Query            `json:"query,omitempty"`
-	Sort        []SortClauseType `json:"sort,omitempty"`
-	TrackScore  bool             `json:"track_scores,omitempty"`
-	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
-	Collapse    json.Marshaler   `json:"collapse,omitempty"`
-	PIT         json.Marshaler   `json:"pit,omitempty"`
-	Suggest     Suggest          `json:"suggest,omitempty"`
+	Source       json.Marshaler         `json:"_source,omitempty"`
+	From         *uint64                `json:"from,omitempty"`
+	Size         *uint64                `json:"size,omitempty"`
+	Query        Query                  `json:"query,omitempty"`
+	Sort         []SortClauseType       `json:"sort,omitempty"`
+	TrackScore   bool                   `json:"track_scores,omitempty"`
+	SearchAfter  SearchAfterType        `json:"search_after,omitempty"`
+	Collapse     json.Marshaler         `json:"collapse,omitempty"`
+	PIT          json.Marshaler         `json:"pit,omitempty"`
+	Suggest      Suggest                `json:"suggest,omitempty"`
+	Aggregations map[string]Aggregation `json:"aggs,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -205,5 +206,23 @@ func WithSuggest(suggestResult SuggestResult) BodyOption {
 	return func(b *SearchBody) error {
 		b.Suggest = suggest
 		return err
+	}
+}
+
+type Aggregation interface {
+	GetAggregationField() string
+}
+
+// An aggregation summarizes your data as metrics, statistics, or other analytics.
+// [Aggregations]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations.html
+func WithAggregations(aggregations ...Aggregation) BodyOption {
+	return func(b *SearchBody) error {
+		if b.Aggregations == nil {
+			b.Aggregations = map[string]Aggregation{}
+		}
+		for _, agg := range aggregations {
+			b.Aggregations[agg.GetAggregationField()] = agg
+		}
+		return nil
 	}
 }

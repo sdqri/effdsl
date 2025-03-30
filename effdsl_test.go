@@ -67,6 +67,29 @@ func TestWithPIT(t *testing.T) {
 	assert.Equal(t, expectedBody, string(jsonBody))
 }
 
+func TestWithAggregations(t *testing.T) {
+	expectedBody := `
+		{
+			"aggs":{
+				"terms_aggregation_field":{
+					"terms":{"field":"terms_aggregation_field","size":10}
+				},
+				"stats_aggregation_field":{
+					"stats":{"field":"stats_aggregation_field"}
+				}
+			}
+		}`
+	f := effdsl.WithAggregations(
+		effdsl.TermAggregation("terms_aggregation_field", 10),
+		effdsl.StatsAggregation("stats_aggregation_field"),
+	)
+	body := effdsl.SearchBody{}
+	f(&body)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}
+
 func TestDefindeQ1(t *testing.T) {
 	expectedBody := `
 	{
@@ -180,6 +203,11 @@ func TestDefindeQ1(t *testing.T) {
 		],
 		"collapse":{
 		   "field":"field_to_collapse_by"
+		},
+		"aggs":{
+			"terms_aggregation_field":{
+				"terms":{"field":"terms_aggregation_field","size":10}
+			}
 		}
 	 }
 	`
@@ -218,6 +246,9 @@ func TestDefindeQ1(t *testing.T) {
 			effdsl.SortClause("_score", effdsl.SORT_DEFAULT),
 		),
 		effdsl.WithCollpse("field_to_collapse_by"),
+		effdsl.WithAggregations(
+			effdsl.TermAggregation("terms_aggregation_field", 10),
+		),
 	)
 	assert.Nil(t, err)
 	jsonBody, err := json.Marshal(body)
