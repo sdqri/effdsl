@@ -2,6 +2,7 @@ package effdsl
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 type M map[string]any
@@ -12,15 +13,15 @@ func (m M) MarshalJSON() ([]byte, error) {
 }
 
 type SearchBody struct {
-	Source      json.Marshaler   `json:"_source,omitempty"`
-	From        *uint64          `json:"from,omitempty"`
-	Size        *uint64          `json:"size,omitempty"`
-	Query       Query            `json:"query,omitempty"`
-	Sort        []SortClauseType `json:"sort,omitempty"`
-	SearchAfter SearchAfterType  `json:"search_after,omitempty"`
-	Collapse    json.Marshaler   `json:"collapse,omitempty"`
-	PIT         json.Marshaler   `json:"pit,omitempty"`
-	Suggest     SuggestType      `json:"suggest,omitempty"`
+	Source      json.Marshaler         `json:"_source,omitempty"`
+	From        *uint64                `json:"from,omitempty"`
+	Size        *uint64                `json:"size,omitempty"`
+	Query       Query                  `json:"query,omitempty"`
+	Sort        []SortClauseType       `json:"sort,omitempty"`
+	SearchAfter SearchAfterType        `json:"search_after,omitempty"`
+	Collapse    json.Marshaler         `json:"collapse,omitempty"`
+	PIT         json.Marshaler         `json:"pit,omitempty"`
+	Suggest     map[string]SuggestType `json:"suggest,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -178,7 +179,7 @@ func Define(opts ...BodyOption) (body *SearchBody, err error) {
 }
 
 type SuggestType interface {
-	SuggestInfo() string
+	SuggestName() string
 	json.Marshaler
 }
 
@@ -188,12 +189,24 @@ type SuggestResult struct {
 }
 
 // WithSuggest - allows you to use suggest
-func WithSuggest(suggestResult SuggestResult) BodyOption {
-	suggest := suggestResult.Ok
-	err := suggestResult.Err
-	// Type assertion
+func WithSuggest(suggestResults ...SuggestResult) BodyOption {
 	return func(b *SearchBody) error {
-		b.Suggest = suggest
-		return err
+		if len(suggestResults) == 0 {
+			return fmt.Errorf("WithSuggest: no suggest results provided")
+		}
+
+		if b.Suggest == nil {
+			b.Suggest = make(map[string]SuggestType)
+		}
+
+		for _, sr := range suggestResults {
+			if sr.Err != nil {
+				return sr.Err
+			}
+			if sr.Ok != nil {
+				b.Suggest[sr.Ok.SuggestName()] = sr.Ok
+			}
+		}
+		return nil
 	}
 }
