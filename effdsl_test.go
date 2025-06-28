@@ -13,6 +13,7 @@ import (
 	qs "github.com/sdqri/effdsl/v2/queries/querystring"
 	rq "github.com/sdqri/effdsl/v2/queries/rangequery"
 	tq "github.com/sdqri/effdsl/v2/queries/termquery"
+	ts "github.com/sdqri/effdsl/v2/suggesters/termsuggester"
 )
 
 func TestWithQuery(t *testing.T) {
@@ -68,11 +69,9 @@ func TestWithPIT(t *testing.T) {
 }
 
 func TestWithSuggest(t *testing.T) {
-	expectedBody := `{"suggest":{"text":"test","my-suggestion-1":{"text":"tring out Elasticsearch","term":{"field":"message"}}}}`
+	expectedBody := `{"suggest":{"my-suggestion-1":{"term":{"field":"message"},"text":"tring out Elasticsearch"}}}`
 	f := effdsl.WithSuggest(
-		effdsl.Suggest("test",
-			effdsl.TermSuggester("my-suggestion-1", "tring out Elasticsearch", "message"),
-		),
+		ts.TermSuggester("my-suggestion-1", "tring out Elasticsearch", "message"),
 	)
 	body := effdsl.SearchBody{}
 	f(&body)
