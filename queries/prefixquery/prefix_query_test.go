@@ -44,4 +44,3 @@ func TestPrefixQuery_AllOptions(t *testing.T) {
 	assert.Nil(t, err)
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
-

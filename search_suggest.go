@@ -18,20 +18,22 @@ func (s SuggestS) MarshalJSON() ([]byte, error) {
 	)
 }
 
-func (s SuggestS) SuggestInfo() string {
+func (s SuggestS) SuggestName() string {
 	return "Suggest"
 }
 
+// Deprecated: Use NewSuggest() or BuildSuggest() instead.
+//
 // Suggests similar looking terms based on a provided text by using a suggester.
 // [Suggesters]: https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#search-suggesters
 func Suggesters(globalText string, s Suggester) SuggestResult {
-	sugest := SuggestS{
+	suggest := SuggestS{
 		GlobalText: globalText,
 		Suggester:  s,
 	}
 
 	return SuggestResult{
-		Ok:  sugest,
+		Ok:  suggest,
 		Err: nil,
 	}
 }
