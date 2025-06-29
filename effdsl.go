@@ -18,6 +18,7 @@ type SearchBody struct {
 	Size        *uint64                `json:"size,omitempty"`
 	Query       Query                  `json:"query,omitempty"`
 	Sort        []SortClauseType       `json:"sort,omitempty"`
+	TrackScore  bool                   `json:"track_scores,omitempty"`
 	SearchAfter SearchAfterType        `json:"search_after,omitempty"`
 	Collapse    json.Marshaler         `json:"collapse,omitempty"`
 	PIT         json.Marshaler         `json:"pit,omitempty"`
