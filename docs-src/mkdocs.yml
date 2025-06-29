@@ -64,7 +64,13 @@ nav:
       - term_query.md
       - terms_query.md
       - terms_set_query.md
-      - wildcard_query.md 
+      - wildcard_query.md
+    - Joining Queries:
+      - nested_query.md
+    - Suggesters:
+      - completion_suggester.md
+      - phrase_suggester.md
+      - term_suggester.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
