@@ -20,7 +20,7 @@ hide:
 - [x] match_bool_prefix query
 - [x] match_phrase query
 - [x] match_phrase_prefix query
-- [ ] multi_match query
+- [x] multi_match query
 - [ ] combined_fields query
 - [x] query_string query 
 - [x] simple_query_string query

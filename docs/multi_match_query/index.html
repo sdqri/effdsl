@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://sdqri.org/effdsl/completion_suggester/">
+        <link rel="canonical" href="https://sdqri.org/effdsl/multi_match_query/">
       
       
-        <link rel="prev" href="../nested_query/">
+        <link rel="prev" href="../match_phrase_prefix/">
       
       
-        <link rel="next" href="../phrase_suggester/">
+        <link rel="next" href="../query_string/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Completion Suggester - effdsl</title>
+        <title>Multi Match Query - effdsl</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#completion-suggester" class="md-skip">
+        <a href="#multi-match-query" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Completion Suggester
+              Multi Match Query
             
           </span>
         </div>
@@ -567,8 +567,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -593,11 +595,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
         
           
           <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
@@ -613,7 +615,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_3">
             <span class="md-nav__icon md-icon"></span>
             Full Text Queries
@@ -716,10 +718,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../multi_match_query/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Multi Match Query
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -730,6 +754,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Information
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1193,10 +1264,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1213,11 +1282,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" >
         
           
           <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
@@ -1233,7 +1302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_7">
             <span class="md-nav__icon md-icon"></span>
             Suggesters
@@ -1244,32 +1313,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Completion Suggester
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../completion_suggester/" class="md-nav__link">
         
   
   
@@ -1280,53 +1327,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Additional Information
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1509,58 +1509,106 @@
   
 
 
-<h1 id="completion-suggester">Completion Suggester</h1>
-<p>The completion suggester provides auto-complete or search-as-you-type functionality. It can return suggestions based on a prefix or a regular expression and supports filtering or boosting with contexts.</p>
+<h1 id="multi-match-query">Multi Match Query</h1>
+<p>A multi match query searches multiple fields for the provided query text. It is useful when the same text should be matched against a set of fields with different weights or options.</p>
 <h3 id="example">Example</h3>
 <div class="language-go highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nx">es</span><span class="w"> </span><span class="s">&quot;github.com/elastic/go-elasticsearch/v8&quot;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="s">&quot;github.com/sdqri/effdsl/v2&quot;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">cs</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/suggesters/completionsuggester&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">mmq</span><span class="w"> </span><span class="s">&quot;github.com/sdqri/effdsl/queries/multimatchquery&quot;</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">Define</span><span class="p">(</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">WithSuggest</span><span class="p">(</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">cs</span><span class="p">.</span><span class="nx">CompletionSuggester</span><span class="p">(</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="s">&quot;song-suggest&quot;</span><span class="p">,</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="s">&quot;nir&quot;</span><span class="p">,</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="s">&quot;suggest&quot;</span><span class="p">,</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="nx">cs</span><span class="p">.</span><span class="nx">WithSize</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="nx">cs</span><span class="p">.</span><span class="nx">WithCompletionSuggesterSkipDuplicates</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="p">),</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">)</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nx">effdsl</span><span class="p">.</span><span class="nx">WithQuery</span><span class="p">(</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nx">mmq</span><span class="p">.</span><span class="nx">MultiMatchQuery</span><span class="p">(</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="s">&quot;quick brown fox&quot;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="nx">mmq</span><span class="p">.</span><span class="nx">WithFields</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">),</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="nx">mmq</span><span class="p">.</span><span class="nx">WithType</span><span class="p">(</span><span class="nx">mmq</span><span class="p">.</span><span class="nx">BestFields</span><span class="p">),</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">),</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">),</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">(</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nx">es</span><span class="p">.</span><span class="nx">Search</span><span class="p">.</span><span class="nx">WithBody</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">query</span><span class="p">)),</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="parameters">Parameters</h3>
 <ul>
-<li><strong>SuggestName (string)</strong>
-  <em>(Required, positional)</em> Name used to identify the suggestion in the response.</li>
-<li><strong>Prefix (string)</strong>
-  <em>(Required, positional)</em> Prefix text used to generate suggestions. Use <code>CompletionSuggesterRegex</code> for regex input.</li>
-<li><strong>Field (string)</strong>
-  <em>(Required, positional)</em> Completion field from which to fetch suggestions.</li>
-<li><strong>WithSize(uint64)</strong>
-  <em>(Optional, Functional option)</em> Number of suggestions to return. Defaults to 5.</li>
-<li><strong>WithCompletionSuggesterSkipDuplicates(bool)</strong>
-  <em>(Optional, Functional option)</em> Whether duplicate suggestions should be filtered out.</li>
-<li><strong>WithCompletionSuggesterFuzzy(opt ...FuzzyOption)</strong>
-  <em>(Optional, Functional option)</em> Enables fuzzy prefix matching. <code>FuzzyOption</code> functions allow setting fuzziness, prefix length and other parameters.</li>
-<li><strong>WithRegexFlags(RegexFlag)</strong>
-  <em>(Optional, Functional option)</em> Regex flags used with <code>CompletionSuggesterRegex</code>.</li>
-<li><strong>WithMaxDeterminizedStates(int64)</strong>
-  <em>(Optional, Functional option)</em> Maximum allowed states for regex completion.</li>
-<li><strong>WithMultipleCategoryContext(name, contexts ...string)</strong>
-  <em>(Optional, Functional option)</em> Adds category contexts used for filtering or boosting suggestions.</li>
-<li><strong>WithCategoryContext(name, context string, opts ...CategoryContextClauseOption)</strong>
-  <em>(Optional, Functional option)</em> Adds a single category context with optional boost or prefix.</li>
-<li><strong>WithGeoContext(name string, lat, lon float64, opts ...GeoContextClauseOption)</strong>
-  <em>(Optional, Functional option)</em> Adds a geo context for location based suggestions.</li>
+<li>
+<p><strong>Query (string)</strong>
+    <em>(Required, positional)</em> The text to search for. This is a required parameter.</p>
+</li>
+<li>
+<p><strong>WithFields (...string)</strong>
+    <em>(Optional, Functional option)</em> Fields to search. Each field can include a boost using the <code>field^boost</code> syntax.</p>
+</li>
+<li>
+<p><strong>WithType (MultiMatchType)</strong>
+    <em>(Optional, Functional option)</em> Type of multi match query. Valid values are:</p>
+<ul>
+<li><code>best_fields</code></li>
+<li><code>most_fields</code></li>
+<li><code>cross_fields</code></li>
+<li><code>phrase</code></li>
+<li><code>phrase_prefix</code></li>
+<li><code>bool_prefix</code></li>
+</ul>
+</li>
+<li>
+<p><strong>WithOperator (Operator)</strong>
+    <em>(Optional, Functional option)</em> Boolean logic used to interpret text in the query. Valid values are:</p>
+<ul>
+<li><code>or</code> (Default)</li>
+<li><code>and</code></li>
+</ul>
+</li>
+<li>
+<p><strong>WithAnalyzer (string)</strong>
+    <em>(Optional, Functional option)</em> Analyzer used to convert the text in the query value into tokens.</p>
+</li>
+<li>
+<p><strong>WithSlop (int)</strong>
+    <em>(Optional, Functional option)</em> Maximum number of positions allowed between matching tokens for phrases.</p>
+</li>
+<li>
+<p><strong>WithFuzziness (string)</strong>
+    <em>(Optional, Functional option)</em> Fuzziness used for fuzzy matching.</p>
+</li>
+<li>
+<p><strong>WithPrefixLength (int)</strong>
+    <em>(Optional, Functional option)</em> Number of beginning characters left unchanged for fuzzy matching.</p>
+</li>
+<li>
+<p><strong>WithMaxExpansions (int)</strong>
+    <em>(Optional, Functional option)</em> Maximum number of terms the query will expand to for fuzzy matching.</p>
+</li>
+<li>
+<p><strong>WithMinimumShouldMatch (string)</strong>
+    <em>(Optional, Functional option)</em> Minimum number of clauses that must match for a document to be returned.</p>
+</li>
+<li>
+<p><strong>WithTieBreaker (float64)</strong>
+    <em>(Optional, Functional option)</em> Tie breaker used when <code>best_fields</code> type is specified.</p>
+</li>
+<li>
+<p><strong>WithLenient (bool)</strong>
+    <em>(Optional, Functional option)</em> If true, format-based errors, such as providing text for a numeric field, are ignored.</p>
+</li>
+<li>
+<p><strong>WithZeroTermsQuery (ZeroTerms)</strong>
+    <em>(Optional, Functional option)</em> Indicates what to do when the query string contains no terms. Valid values are:</p>
+<ul>
+<li><code>none</code> (Default)</li>
+<li><code>all</code></li>
+</ul>
+</li>
+<li>
+<p><strong>WithAutoGenerateSynonymsPhraseQuery (bool)</strong>
+    <em>(Optional, Functional option)</em> If true, match phrase queries are automatically created for multi-term synonyms.</p>
+</li>
 </ul>
 <h3 id="additional-information">Additional Information</h3>
-<p>For more details on the completion suggester and its parameters, refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html#completion-suggester">official Elasticsearch documentation on completion suggesters</a>.</p>
+<p>For more details on the multi match query and its parameters, refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html">official Elasticsearch documentation on multi match queries</a>.</p>
 
 
 
@@ -1596,7 +1644,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../nested_query/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Nested Query">
+          <a href="../match_phrase_prefix/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Match Phrase Prefix Query">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1606,20 +1654,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Nested Query
+                Match Phrase Prefix Query
               </div>
             </div>
           </a>
         
         
           
-          <a href="../phrase_suggester/" class="md-footer__link md-footer__link--next" aria-label="Next: Phrase Suggester">
+          <a href="../query_string/" class="md-footer__link md-footer__link--next" aria-label="Next: Query String Query">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Phrase Suggester
+                Query String Query
               </div>
             </div>
             <div class="md-footer__button md-icon">
