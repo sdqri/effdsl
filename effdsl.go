@@ -15,17 +15,17 @@ func (m M) MarshalJSON() ([]byte, error) {
 }
 
 type SearchBody struct {
-	Source       json.Marshaler             `json:"_source,omitempty"`
-	From         *uint64                    `json:"from,omitempty"`
-	Size         *uint64                    `json:"size,omitempty"`
-	Query        Query                      `json:"query,omitempty"`
-	Sort         []SortClauseType           `json:"sort,omitempty"`
-	TrackScore   bool                       `json:"track_scores,omitempty"`
-	SearchAfter  SearchAfterType            `json:"search_after,omitempty"`
-	Collapse     json.Marshaler             `json:"collapse,omitempty"`
-	PIT          json.Marshaler             `json:"pit,omitempty"`
-	Suggest      map[string]SuggestType     `json:"suggest,omitempty"`
-	Aggregations map[string]agg.Aggregation `json:"aggs,omitempty"`
+	Source       json.Marshaler                 `json:"_source,omitempty"`
+	From         *uint64                        `json:"from,omitempty"`
+	Size         *uint64                        `json:"size,omitempty"`
+	Query        Query                          `json:"query,omitempty"`
+	Sort         []SortClauseType               `json:"sort,omitempty"`
+	TrackScore   bool                           `json:"track_scores,omitempty"`
+	SearchAfter  SearchAfterType                `json:"search_after,omitempty"`
+	Collapse     json.Marshaler                 `json:"collapse,omitempty"`
+	PIT          json.Marshaler                 `json:"pit,omitempty"`
+	Suggest      map[string]SuggestType         `json:"suggest,omitempty"`
+	Aggregations map[string]agg.AggregationType `json:"aggs,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -240,7 +240,7 @@ func WithAggregation(aggregationResults ...agg.AggregationResult) BodyOption {
 				return aggResult.Err
 			}
 			if aggResult.Ok != nil {
-				b.Aggregations[aggResult.Ok.AggregationName()] = aggResult
+				b.Aggregations[aggResult.Ok.AggregationName()] = aggResult.Ok
 			}
 		}
 
