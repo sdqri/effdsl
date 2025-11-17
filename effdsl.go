@@ -224,35 +224,26 @@ func WithSuggest(suggestResults ...SuggestResult) BodyOption {
 	}
 }
 
-// WithAggregations - allows you to use aggregations
-func WithAggregations(aggregationResults ...agg.AggregationResult) BodyOption {
+// WithAggregation - allows you to use aggregation
+func WithAggregation(aggregationResults ...agg.AggregationResult) BodyOption {
 	return func(b *SearchBody) error {
 		if len(aggregationResults) == 0 {
 			return fmt.Errorf("WithAggregations: no aggregation results provided")
 		}
 
 		if b.Aggregations == nil {
-			b.Aggregations = make(map[string]agg.Aggregation)
+			b.Aggregations = make(map[string]agg.AggregationType)
 		}
 
-		for _, ar := range aggregationResults {
-			if ar == nil {
-				return fmt.Errorf("WithAggregations: nil aggregation result provided")
+		for _, aggResult := range aggregationResults {
+			if aggResult.Err != nil {
+				return aggResult.Err
 			}
-			if err := ar.Err(); err != nil {
-				return err
-			}
-			aggregation := ar.Aggregation()
-			if aggregation != nil {
-				b.Aggregations[aggregation.AggregationName()] = aggregation
+			if aggResult.Ok != nil {
+				b.Aggregations[aggResult.Ok.AggregationName()] = aggResult
 			}
 		}
 
 		return nil
 	}
-}
-
-// WithAggregation - allows to add a single aggregation
-func WithAggregation(aggregationResult agg.AggregationResult) BodyOption {
-	return WithAggregations(aggregationResult)
 }
