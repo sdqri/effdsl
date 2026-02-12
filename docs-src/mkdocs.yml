@@ -144,6 +144,7 @@ nav:
       - normalize_aggregation.md
       - moving_fn_aggregation.md
       - moving_percentiles_aggregation.md
+      - bucket_count_ks_test_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

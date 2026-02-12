@@ -119,6 +119,7 @@ hide:
 - [x] normalize aggregation
 - [x] moving function aggregation
 - [x] moving percentiles aggregation
+- [x] bucket count K-S test aggregation
 
 ## Customize Search results (options)
 
