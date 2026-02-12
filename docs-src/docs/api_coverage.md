@@ -106,6 +106,7 @@ hide:
 - [x] bucket script aggregation
 - [x] bucket selector aggregation
 - [x] cumulative sum aggregation
+- [x] derivative aggregation
 
 ## Customize Search results (options)
 

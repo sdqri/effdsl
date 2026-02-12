@@ -131,6 +131,7 @@ nav:
       - bucket_script_aggregation.md
       - bucket_selector_aggregation.md
       - cumulative_sum_aggregation.md
+      - derivative_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
