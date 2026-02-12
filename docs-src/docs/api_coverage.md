@@ -60,6 +60,7 @@ hide:
 - [x] rate aggregation
 - [x] scripted metric aggregation
 - [x] stats aggregation
+- [x] string stats aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
