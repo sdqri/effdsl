@@ -76,6 +76,7 @@ nav:
       - avg_aggregation.md
       - boxplot_aggregation.md
       - cartesian_bounds_aggregation.md
+      - cartesian_centroid_aggregation.md
       - cardinality_aggregation.md
       - extended_stats_aggregation.md
       - geo_bounds_aggregation.md
