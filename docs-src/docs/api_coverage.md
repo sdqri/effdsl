@@ -86,6 +86,7 @@ hide:
 - [x] geohex grid aggregation
 - [x] terms aggregation
 - [x] rare terms aggregation
+- [x] multi terms aggregation
 
 ## Customize Search results (options)
 
