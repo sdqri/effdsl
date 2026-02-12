@@ -77,6 +77,7 @@ hide:
 - [x] filter aggregation
 - [x] filters aggregation
 - [x] missing aggregation
+- [x] range aggregation
 
 ## Customize Search results (options)
 
