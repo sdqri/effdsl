@@ -53,6 +53,7 @@ hide:
 - [x] geo-line aggregation
 - [x] matrix stats aggregation
 - [x] max aggregation
+- [x] median absolute deviation aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
