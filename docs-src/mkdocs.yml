@@ -143,6 +143,7 @@ nav:
       - serial_diff_aggregation.md
       - normalize_aggregation.md
       - moving_fn_aggregation.md
+      - moving_percentiles_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

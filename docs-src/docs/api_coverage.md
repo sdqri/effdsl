@@ -118,6 +118,7 @@ hide:
 - [x] serial differencing aggregation
 - [x] normalize aggregation
 - [x] moving function aggregation
+- [x] moving percentiles aggregation
 
 ## Customize Search results (options)
 
