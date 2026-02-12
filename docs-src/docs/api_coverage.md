@@ -65,6 +65,7 @@ hide:
 - [x] top hits aggregation
 - [x] top metrics aggregation
 - [x] value count aggregation
+- [x] weighted avg aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
