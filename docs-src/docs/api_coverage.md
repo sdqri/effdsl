@@ -116,6 +116,7 @@ hide:
 - [x] sum bucket aggregation
 - [x] percentiles bucket aggregation
 - [x] serial differencing aggregation
+- [x] normalize aggregation
 
 ## Customize Search results (options)
 

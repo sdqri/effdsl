@@ -141,6 +141,7 @@ nav:
       - sum_bucket_aggregation.md
       - percentiles_bucket_aggregation.md
       - serial_diff_aggregation.md
+      - normalize_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
