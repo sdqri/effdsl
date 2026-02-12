@@ -90,6 +90,8 @@ hide:
 - [x] composite aggregation
 - [x] nested aggregation
 - [x] reverse nested aggregation
+- [x] sampler aggregation
+- [x] diversified sampler aggregation
 
 ## Customize Search results (options)
 
