@@ -100,6 +100,10 @@ hide:
 - [x] significant terms aggregation
 - [x] significant text aggregation
 
+### Pipeline
+
+- [x] avg bucket aggregation
+
 ## Customize Search results (options)
 
 - [x] Collapse search results
