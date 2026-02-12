@@ -113,6 +113,7 @@ hide:
 - [x] max bucket aggregation
 - [x] min bucket aggregation
 - [x] stats bucket aggregation
+- [x] sum bucket aggregation
 
 ## Customize Search results (options)
 
