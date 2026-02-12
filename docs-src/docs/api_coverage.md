@@ -92,6 +92,9 @@ hide:
 - [x] reverse nested aggregation
 - [x] sampler aggregation
 - [x] diversified sampler aggregation
+- [x] global aggregation
+- [x] children aggregation
+- [x] parent aggregation
 
 ## Customize Search results (options)
 
