@@ -72,6 +72,8 @@ nav:
       - completion_suggester.md
       - phrase_suggester.md
       - term_suggester.md
+    - Aggregations:
+      - avg_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

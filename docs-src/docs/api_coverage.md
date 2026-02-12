@@ -38,6 +38,13 @@ hide:
 - [x] terms_set query
 - [x] wildcard query
 
+## Aggregations
+
+### Metrics
+
+- [x] avg aggregation
+- [ ] sum aggregation
+
 ## Customize Search results (options)
 
 - [x] Collapse search results

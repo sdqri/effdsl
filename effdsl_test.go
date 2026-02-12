@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/sdqri/effdsl/v2"
-	metric "github.com/sdqri/effdsl/v2/aggregations/metric"
+	avg "github.com/sdqri/effdsl/v2/aggregations/metrics/avg"
 	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
 	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
 	qs "github.com/sdqri/effdsl/v2/queries/querystring"
@@ -84,7 +84,7 @@ func TestWithSuggest(t *testing.T) {
 func TestWithAggregation(t *testing.T) {
 	expectedBody := `{"aggs":{"avg_price":{"avg":{"field":"price"}}}}`
 	f := effdsl.WithAggregation(
-		metric.Avg("avg_price", "price"),
+		avg.Avg("avg_price", "price"),
 	)
 	body := effdsl.SearchBody{}
 	err := f(&body)
