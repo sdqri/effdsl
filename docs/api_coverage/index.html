@@ -3463,6 +3463,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Queries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#compound-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Compound queries
@@ -3470,8 +3480,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#full-text-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Full text queries
@@ -3479,13 +3489,36 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#term-level-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Term-level queries
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggesters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggesters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3532,11 +3565,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#customize-search-results-options" class="md-nav__link">
+  <a href="#search" class="md-nav__link">
     <span class="md-ellipsis">
-      Customize Search results (options)
+      Search
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customize-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customize search results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3608,6 +3656,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Queries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#compound-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Compound queries
@@ -3615,8 +3673,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#full-text-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Full text queries
@@ -3624,13 +3682,36 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#term-level-queries" class="md-nav__link">
     <span class="md-ellipsis">
       Term-level queries
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Joining queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggesters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggesters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3677,11 +3758,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#customize-search-results-options" class="md-nav__link">
+  <a href="#search" class="md-nav__link">
     <span class="md-ellipsis">
-      Customize Search results (options)
+      Search
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customize-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customize search results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3716,145 +3812,720 @@
 
 
 <h1 id="api-coverage">API Coverage</h1>
-<h2 id="compound-queries">Compound queries</h2>
-<ul>
-<li>[x] bool query</li>
-<li>[x] boosting query</li>
-<li>[x] constant score query </li>
-<li>[x] disjunction max query</li>
-<li>[ ] function_score query</li>
-</ul>
-<h2 id="full-text-queries">Full text queries</h2>
-<ul>
-<li>[ ] intervals query</li>
-<li>[x] match query</li>
-<li>[x] match_bool_prefix query</li>
-<li>[x] match_phrase query</li>
-<li>[x] match_phrase_prefix query</li>
-<li>[x] multi_match query</li>
-<li>[ ] combined_fields query</li>
-<li>[x] query_string query </li>
-<li>[x] simple_query_string query</li>
-</ul>
-<h2 id="term-level-queries">Term-level queries</h2>
-<ul>
-<li>[x] exists query</li>
-<li>[x] fuzzy query</li>
-<li>[x] ids query</li>
-<li>[x] prefix query</li>
-<li>[x] range query</li>
-<li>[x] regexp query</li>
-<li>[x] term query</li>
-<li>[x] terms query</li>
-<li>[x] terms_set query</li>
-<li>[x] wildcard query</li>
-</ul>
+<p>This page tracks the current coverage of effdsl APIs. Status indicates whether a feature is implemented in this repository.</p>
+<h2 id="queries">Queries</h2>
+<h3 id="compound-queries">Compound queries</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bool query</td>
+<td>Supported</td>
+<td><a href="../bool_query/">bool_query.md</a></td>
+</tr>
+<tr>
+<td>Boosting query</td>
+<td>Supported</td>
+<td><a href="../boosting_query/">boosting_query.md</a></td>
+</tr>
+<tr>
+<td>Constant score query</td>
+<td>Supported</td>
+<td><a href="../constant_score/">constant_score.md</a></td>
+</tr>
+<tr>
+<td>Disjunction max query</td>
+<td>Supported</td>
+<td><a href="../dis_max_query/">dis_max_query.md</a></td>
+</tr>
+<tr>
+<td>Function score query</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="full-text-queries">Full text queries</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intervals query</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Match query</td>
+<td>Supported</td>
+<td><a href="../match_query/">match_query.md</a></td>
+</tr>
+<tr>
+<td>Match bool prefix query</td>
+<td>Supported</td>
+<td><a href="../match_bool_prefix/">match_bool_prefix.md</a></td>
+</tr>
+<tr>
+<td>Match phrase query</td>
+<td>Supported</td>
+<td><a href="../match_phrase_query/">match_phrase_query.md</a></td>
+</tr>
+<tr>
+<td>Match phrase prefix query</td>
+<td>Supported</td>
+<td><a href="../match_phrase_prefix/">match_phrase_prefix.md</a></td>
+</tr>
+<tr>
+<td>Multi match query</td>
+<td>Supported</td>
+<td><a href="../multi_match_query/">multi_match_query.md</a></td>
+</tr>
+<tr>
+<td>Combined fields query</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Query string query</td>
+<td>Supported</td>
+<td><a href="../query_string/">query_string.md</a></td>
+</tr>
+<tr>
+<td>Simple query string query</td>
+<td>Supported</td>
+<td><a href="../simple_query_string/">simple_query_string.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="term-level-queries">Term-level queries</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exists query</td>
+<td>Supported</td>
+<td><a href="../exists_query/">exists_query.md</a></td>
+</tr>
+<tr>
+<td>Fuzzy query</td>
+<td>Supported</td>
+<td><a href="../fuzzy_query/">fuzzy_query.md</a></td>
+</tr>
+<tr>
+<td>IDs query</td>
+<td>Supported</td>
+<td><a href="../ids_query/">ids_query.md</a></td>
+</tr>
+<tr>
+<td>Prefix query</td>
+<td>Supported</td>
+<td><a href="../prefix_query/">prefix_query.md</a></td>
+</tr>
+<tr>
+<td>Range query</td>
+<td>Supported</td>
+<td><a href="../range_query/">range_query.md</a></td>
+</tr>
+<tr>
+<td>Regexp query</td>
+<td>Supported</td>
+<td><a href="../regexp_query/">regexp_query.md</a></td>
+</tr>
+<tr>
+<td>Term query</td>
+<td>Supported</td>
+<td><a href="../term_query/">term_query.md</a></td>
+</tr>
+<tr>
+<td>Terms query</td>
+<td>Supported</td>
+<td><a href="../terms_query/">terms_query.md</a></td>
+</tr>
+<tr>
+<td>Terms set query</td>
+<td>Supported</td>
+<td><a href="../terms_set_query/">terms_set_query.md</a></td>
+</tr>
+<tr>
+<td>Wildcard query</td>
+<td>Supported</td>
+<td><a href="../wildcard_query/">wildcard_query.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="joining-queries">Joining queries</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nested query</td>
+<td>Supported</td>
+<td><a href="../nested_query/">nested_query.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="suggesters">Suggesters</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completion suggester</td>
+<td>Supported</td>
+<td><a href="../completion_suggester/">completion_suggester.md</a></td>
+</tr>
+<tr>
+<td>Phrase suggester</td>
+<td>Supported</td>
+<td><a href="../phrase_suggester/">phrase_suggester.md</a></td>
+</tr>
+<tr>
+<td>Term suggester</td>
+<td>Supported</td>
+<td><a href="../term_suggester/">term_suggester.md</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="aggregations">Aggregations</h2>
 <h3 id="metrics">Metrics</h3>
-<ul>
-<li>[x] avg aggregation</li>
-<li>[x] boxplot aggregation</li>
-<li>[x] cartesian-bounds aggregation</li>
-<li>[x] cartesian-centroid aggregation</li>
-<li>[x] cardinality aggregation</li>
-<li>[x] extended stats aggregation</li>
-<li>[x] geo-bounds aggregation</li>
-<li>[x] geo-centroid aggregation</li>
-<li>[x] geo-line aggregation</li>
-<li>[x] matrix stats aggregation</li>
-<li>[x] max aggregation</li>
-<li>[x] median absolute deviation aggregation</li>
-<li>[x] min aggregation</li>
-<li>[x] percentile ranks aggregation</li>
-<li>[x] percentiles aggregation</li>
-<li>[x] rate aggregation</li>
-<li>[x] scripted metric aggregation</li>
-<li>[x] stats aggregation</li>
-<li>[x] string stats aggregation</li>
-<li>[x] t-test aggregation</li>
-<li>[x] top hits aggregation</li>
-<li>[x] top metrics aggregation</li>
-<li>[x] value count aggregation</li>
-<li>[x] weighted avg aggregation</li>
-<li>[x] sum aggregation</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avg aggregation</td>
+<td>Supported</td>
+<td><a href="../avg_aggregation/">avg_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Boxplot aggregation</td>
+<td>Supported</td>
+<td><a href="../boxplot_aggregation/">boxplot_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Cartesian bounds aggregation</td>
+<td>Supported</td>
+<td><a href="../cartesian_bounds_aggregation/">cartesian_bounds_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Cartesian centroid aggregation</td>
+<td>Supported</td>
+<td><a href="../cartesian_centroid_aggregation/">cartesian_centroid_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Cardinality aggregation</td>
+<td>Supported</td>
+<td><a href="../cardinality_aggregation/">cardinality_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Extended stats aggregation</td>
+<td>Supported</td>
+<td><a href="../extended_stats_aggregation/">extended_stats_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geo bounds aggregation</td>
+<td>Supported</td>
+<td><a href="../geo_bounds_aggregation/">geo_bounds_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geo centroid aggregation</td>
+<td>Supported</td>
+<td><a href="../geo_centroid_aggregation/">geo_centroid_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geo line aggregation</td>
+<td>Supported</td>
+<td><a href="../geo_line_aggregation/">geo_line_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Matrix stats aggregation</td>
+<td>Supported</td>
+<td><a href="../matrix_stats_aggregation/">matrix_stats_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Max aggregation</td>
+<td>Supported</td>
+<td><a href="../max_aggregation/">max_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Median absolute deviation aggregation</td>
+<td>Supported</td>
+<td><a href="../median_absolute_deviation_aggregation/">median_absolute_deviation_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Min aggregation</td>
+<td>Supported</td>
+<td><a href="../min_aggregation/">min_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Percentile ranks aggregation</td>
+<td>Supported</td>
+<td><a href="../percentile_ranks_aggregation/">percentile_ranks_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Percentiles aggregation</td>
+<td>Supported</td>
+<td><a href="../percentiles_aggregation/">percentiles_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Rate aggregation</td>
+<td>Supported</td>
+<td><a href="../rate_aggregation/">rate_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Scripted metric aggregation</td>
+<td>Supported</td>
+<td><a href="../scripted_metric_aggregation/">scripted_metric_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Stats aggregation</td>
+<td>Supported</td>
+<td><a href="../stats_aggregation/">stats_aggregation.md</a></td>
+</tr>
+<tr>
+<td>String stats aggregation</td>
+<td>Supported</td>
+<td><a href="../string_stats_aggregation/">string_stats_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Sum aggregation</td>
+<td>Supported</td>
+<td><a href="../sum_aggregation/">sum_aggregation.md</a></td>
+</tr>
+<tr>
+<td>T-test aggregation</td>
+<td>Supported</td>
+<td><a href="../t_test_aggregation/">t_test_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Top hits aggregation</td>
+<td>Supported</td>
+<td><a href="../top_hits_aggregation/">top_hits_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Top metrics aggregation</td>
+<td>Supported</td>
+<td><a href="../top_metrics_aggregation/">top_metrics_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Value count aggregation</td>
+<td>Supported</td>
+<td><a href="../value_count_aggregation/">value_count_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Weighted avg aggregation</td>
+<td>Supported</td>
+<td><a href="../weighted_avg_aggregation/">weighted_avg_aggregation.md</a></td>
+</tr>
+</tbody>
+</table>
 <h3 id="bucket">Bucket</h3>
-<ul>
-<li>[x] adjacency matrix aggregation</li>
-<li>[x] auto date histogram aggregation</li>
-<li>[x] date histogram aggregation</li>
-<li>[x] date range aggregation</li>
-<li>[x] filter aggregation</li>
-<li>[x] filters aggregation</li>
-<li>[x] missing aggregation</li>
-<li>[x] range aggregation</li>
-<li>[x] histogram aggregation</li>
-<li>[x] ip range aggregation</li>
-<li>[x] geo distance aggregation</li>
-<li>[x] geohash grid aggregation</li>
-<li>[x] geo-tile grid aggregation</li>
-<li>[x] geohex grid aggregation</li>
-<li>[x] terms aggregation</li>
-<li>[x] rare terms aggregation</li>
-<li>[x] multi terms aggregation</li>
-<li>[x] composite aggregation</li>
-<li>[x] nested aggregation</li>
-<li>[x] reverse nested aggregation</li>
-<li>[x] sampler aggregation</li>
-<li>[x] diversified sampler aggregation</li>
-<li>[x] global aggregation</li>
-<li>[x] children aggregation</li>
-<li>[x] parent aggregation</li>
-<li>[x] random sampler aggregation</li>
-<li>[x] variable width histogram aggregation</li>
-<li>[x] significant terms aggregation</li>
-<li>[x] significant text aggregation</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adjacency matrix aggregation</td>
+<td>Supported</td>
+<td><a href="../adjacency_matrix_aggregation/">adjacency_matrix_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Auto date histogram aggregation</td>
+<td>Supported</td>
+<td><a href="../auto_date_histogram_aggregation/">auto_date_histogram_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Composite aggregation</td>
+<td>Supported</td>
+<td><a href="../composite_aggregation/">composite_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Date histogram aggregation</td>
+<td>Supported</td>
+<td><a href="../date_histogram_aggregation/">date_histogram_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Date range aggregation</td>
+<td>Supported</td>
+<td><a href="../date_range_aggregation/">date_range_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Filter aggregation</td>
+<td>Supported</td>
+<td><a href="../filter_aggregation/">filter_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Filters aggregation</td>
+<td>Supported</td>
+<td><a href="../filters_aggregation/">filters_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geo distance aggregation</td>
+<td>Supported</td>
+<td><a href="../geo_distance_aggregation/">geo_distance_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geohash grid aggregation</td>
+<td>Supported</td>
+<td><a href="../geohash_grid_aggregation/">geohash_grid_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geo-tile grid aggregation</td>
+<td>Supported</td>
+<td><a href="../geo_tile_grid_aggregation/">geo_tile_grid_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Geohex grid aggregation</td>
+<td>Supported</td>
+<td><a href="../geohex_grid_aggregation/">geohex_grid_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Global aggregation</td>
+<td>Supported</td>
+<td><a href="../global_aggregation/">global_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Histogram aggregation</td>
+<td>Supported</td>
+<td><a href="../histogram_aggregation/">histogram_aggregation.md</a></td>
+</tr>
+<tr>
+<td>IP range aggregation</td>
+<td>Supported</td>
+<td><a href="../ip_range_aggregation/">ip_range_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Missing aggregation</td>
+<td>Supported</td>
+<td><a href="../missing_aggregation/">missing_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Multi terms aggregation</td>
+<td>Supported</td>
+<td><a href="../multi_terms_aggregation/">multi_terms_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Nested aggregation</td>
+<td>Supported</td>
+<td><a href="../nested_aggregation/">nested_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Parent aggregation</td>
+<td>Supported</td>
+<td><a href="../parent_aggregation/">parent_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Range aggregation</td>
+<td>Supported</td>
+<td><a href="../range_aggregation/">range_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Rare terms aggregation</td>
+<td>Supported</td>
+<td><a href="../rare_terms_aggregation/">rare_terms_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Reverse nested aggregation</td>
+<td>Supported</td>
+<td><a href="../reverse_nested_aggregation/">reverse_nested_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Sampler aggregation</td>
+<td>Supported</td>
+<td><a href="../sampler_aggregation/">sampler_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Diversified sampler aggregation</td>
+<td>Supported</td>
+<td><a href="../diversified_sampler_aggregation/">diversified_sampler_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Random sampler aggregation</td>
+<td>Supported</td>
+<td><a href="../random_sampler_aggregation/">random_sampler_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Significant terms aggregation</td>
+<td>Supported</td>
+<td><a href="../significant_terms_aggregation/">significant_terms_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Significant text aggregation</td>
+<td>Supported</td>
+<td><a href="../significant_text_aggregation/">significant_text_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Terms aggregation</td>
+<td>Supported</td>
+<td><a href="../terms_aggregation/">terms_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Children aggregation</td>
+<td>Supported</td>
+<td><a href="../children_aggregation/">children_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Variable width histogram aggregation</td>
+<td>Supported</td>
+<td><a href="../variable_width_histogram_aggregation/">variable_width_histogram_aggregation.md</a></td>
+</tr>
+</tbody>
+</table>
 <h3 id="pipeline">Pipeline</h3>
-<ul>
-<li>[x] avg bucket aggregation</li>
-<li>[x] bucket script aggregation</li>
-<li>[x] bucket selector aggregation</li>
-<li>[x] bucket sort aggregation</li>
-<li>[x] cumulative cardinality aggregation</li>
-<li>[x] cumulative sum aggregation</li>
-<li>[x] derivative aggregation</li>
-<li>[x] extended stats bucket aggregation</li>
-<li>[x] max bucket aggregation</li>
-<li>[x] min bucket aggregation</li>
-<li>[x] stats bucket aggregation</li>
-<li>[x] sum bucket aggregation</li>
-<li>[x] percentiles bucket aggregation</li>
-<li>[x] serial differencing aggregation</li>
-<li>[x] normalize aggregation</li>
-<li>[x] moving function aggregation</li>
-<li>[x] moving percentiles aggregation</li>
-<li>[x] bucket count K-S test aggregation</li>
-<li>[x] bucket correlation aggregation</li>
-<li>[x] change point aggregation</li>
-<li>[x] inference bucket aggregation</li>
-</ul>
-<h2 id="customize-search-results-options">Customize Search results (options)</h2>
-<ul>
-<li>[x] Collapse search results</li>
-<li>[ ] Filter search results</li>
-<li>[ ] Highlighting</li>
-<li>[ ] Long-running searches</li>
-<li>[ ] Near real-time search</li>
-<li>[x] Paginate search results (Supported methods: Simple paginating, Search after)</li>
-<li>[ ] Retrieve inner hits</li>
-<li>[x] Retrieve selected fields (Supported methods: Source filtering)</li>
-<li>[ ] Search across clusters</li>
-<li>[ ] Search multiple data streams and indices</li>
-<li>[ ] Search shard routing</li>
-<li>[ ] Search templates</li>
-<li>[x] Sort search results (Suppoerted Parameters : value, order)</li>
-<li>[ ] kNN search</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avg bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../avg_bucket_aggregation/">avg_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Bucket script aggregation</td>
+<td>Supported</td>
+<td><a href="../bucket_script_aggregation/">bucket_script_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Bucket selector aggregation</td>
+<td>Supported</td>
+<td><a href="../bucket_selector_aggregation/">bucket_selector_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Bucket sort aggregation</td>
+<td>Supported</td>
+<td><a href="../bucket_sort_aggregation/">bucket_sort_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Cumulative cardinality aggregation</td>
+<td>Supported</td>
+<td><a href="../cumulative_cardinality_aggregation/">cumulative_cardinality_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Cumulative sum aggregation</td>
+<td>Supported</td>
+<td><a href="../cumulative_sum_aggregation/">cumulative_sum_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Derivative aggregation</td>
+<td>Supported</td>
+<td><a href="../derivative_aggregation/">derivative_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Extended stats bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../extended_stats_bucket_aggregation/">extended_stats_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Max bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../max_bucket_aggregation/">max_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Min bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../min_bucket_aggregation/">min_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Stats bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../stats_bucket_aggregation/">stats_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Sum bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../sum_bucket_aggregation/">sum_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Percentiles bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../percentiles_bucket_aggregation/">percentiles_bucket_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Serial diff aggregation</td>
+<td>Supported</td>
+<td><a href="../serial_diff_aggregation/">serial_diff_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Normalize aggregation</td>
+<td>Supported</td>
+<td><a href="../normalize_aggregation/">normalize_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Moving function aggregation</td>
+<td>Supported</td>
+<td><a href="../moving_fn_aggregation/">moving_fn_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Moving percentiles aggregation</td>
+<td>Supported</td>
+<td><a href="../moving_percentiles_aggregation/">moving_percentiles_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Bucket count K-S test aggregation</td>
+<td>Supported</td>
+<td><a href="../bucket_count_ks_test_aggregation/">bucket_count_ks_test_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Bucket correlation aggregation</td>
+<td>Supported</td>
+<td><a href="../bucket_correlation_aggregation/">bucket_correlation_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Change point aggregation</td>
+<td>Supported</td>
+<td><a href="../change_point_aggregation/">change_point_aggregation.md</a></td>
+</tr>
+<tr>
+<td>Inference bucket aggregation</td>
+<td>Supported</td>
+<td><a href="../inference_bucket_aggregation/">inference_bucket_aggregation.md</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="search">Search</h2>
+<h3 id="customize-search-results">Customize search results</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collapse search results</td>
+<td>Supported</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Filter search results</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Highlighting</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Long-running searches</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Near real-time search</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Paginate search results</td>
+<td>Supported</td>
+<td><a href="../paginate_search/">paginate_search.md</a></td>
+</tr>
+<tr>
+<td>Retrieve inner hits</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Retrieve selected fields (source filtering)</td>
+<td>Supported</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Search across clusters</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Search multiple data streams and indices</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Search shard routing</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Search templates</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Sort search results</td>
+<td>Supported</td>
+<td><a href="../sort_search/">sort_search.md</a></td>
+</tr>
+<tr>
+<td>kNN search</td>
+<td>Not yet</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 <h2 id="search-apis">Search APIs</h2>
-<ul>
-<li>[x] Point in time</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Status</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Point in time</td>
+<td>Supported</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
 
 
 
