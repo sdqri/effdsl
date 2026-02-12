@@ -129,6 +129,7 @@ nav:
       - significant_text_aggregation.md
       - avg_bucket_aggregation.md
       - bucket_script_aggregation.md
+      - bucket_selector_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

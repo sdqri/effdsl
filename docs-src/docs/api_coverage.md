@@ -104,6 +104,7 @@ hide:
 
 - [x] avg bucket aggregation
 - [x] bucket script aggregation
+- [x] bucket selector aggregation
 
 ## Customize Search results (options)
 
