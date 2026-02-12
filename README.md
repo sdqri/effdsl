@@ -7,43 +7,41 @@
 <a href="https://github.com/sdqri/effdsl/pulls" style="text-decoration: none;"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions welcome"></a>
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)  
 
-This module provides a simple and functional way to build Elasticsearch queries in Go.
+effdsl is a composable Go DSL for building Elasticsearch queries and aggregations with type-safe options and predictable JSON output.
 
-### 🚀 Key Features
+## Key Features
 
-- **Type-safe query construction:** 🛡️ Avoids error-prone maps and raw string literals by using intuitive function calls, enhancing type safety, auto-completion, and compile-time validation.
-- **Procedural query creation:** ✨ Designed for straightforward and refined query building, particularly useful when queries need to be generated programmatically.
-- **Comprehensive query support:** 📚 Covers most compound, full-text, and term-level queries, with easy extension for additional types.
+- Type-safe query construction without raw JSON maps
+- Functional options API for readable, composable queries
+- Broad aggregation coverage (metrics, bucket, pipeline)
 
-For more information, detailed guides, and examples, please read the [documentation](https://sdqri.github.io/effdsl).
+For details and examples, see the [documentation](https://sdqri.github.io/effdsl).
 
 ## Getting started
 
-### Getting effdsl
+### Install
 
-With [Go module](https://github.com/golang/go/wiki/Modules) support, simply add the following import
+With [Go module](https://github.com/golang/go/wiki/Modules) support, add the import and Go will fetch dependencies automatically:
 
-```
+```go
 import "github.com/sdqri/effdsl/v2"
 ```
 
-to your code, and then `go [build|run|test]` will automatically fetch the necessary dependencies.
-
-Otherwise, run the following Go command to install the `effdsl` package:
+Or install directly:
 
 ```sh
-$ go get -u github.com/sdqri/effdsl/v2
+go get -u github.com/sdqri/effdsl/v2
 ```
 
 ### How to use
 
-Start with `effdsl.Define()`, and use types and documentations to find suitable options.
+Start with `effdsl.Define()` and compose queries with options.
 
-### 🔍 Examples:
+### Examples
 
-**Traditional Way:**
+**Raw JSON example**
 
-Here’s a simple match query in the traditional way using raw strings in Go:
+Example match query using a raw JSON string:
 
 ```go
 import (
@@ -65,9 +63,9 @@ res, err := es.Search(
 )
 ```
 
-**Using effdsl:**
+**Using effdsl**
 
-And here’s the same query using effdsl:
+The same query using effdsl:
 
 ```go
 import (
@@ -90,8 +88,8 @@ res, err := es.Search(
 
 For more examples and details on query parameters, visit the [documentation](https://sdqri.github.io/effdsl).
 
-## 🤝 Contribution
-Contributions are welcome! Whether it's fixing a bug 🐛, adding a new feature 🌟, or improving the documentation 📚, your help is appreciated. Please check out the CONTRIBUTING.md guide to get started.
+## Contributing
+Contributions are welcome. Thanks for helping improve effdsl. 🤝 Please see [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
 
-## 📜 License
-This project is licensed under the **MIT License**. For more details, see the [License](LICENSE.md) file. 📄 ( **In short:** You can use, modify, and distribute this software freely as long as you include the original copyright notice and license. The software is provided "as-is" without warranties or guarantees.)
+## License
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md).
