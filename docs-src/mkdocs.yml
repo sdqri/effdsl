@@ -112,6 +112,7 @@ nav:
       - top_metrics_aggregation.md
       - value_count_aggregation.md
       - weighted_avg_aggregation.md
+      - rare_terms_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
