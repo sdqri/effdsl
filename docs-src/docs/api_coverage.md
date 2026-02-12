@@ -80,6 +80,7 @@ hide:
 - [x] range aggregation
 - [x] histogram aggregation
 - [x] ip range aggregation
+- [x] geo distance aggregation
 
 ## Customize Search results (options)
 
