@@ -73,6 +73,7 @@ hide:
 - [x] adjacency matrix aggregation
 - [x] auto date histogram aggregation
 - [x] date histogram aggregation
+- [x] date range aggregation
 
 ## Customize Search results (options)
 

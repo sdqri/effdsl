@@ -80,6 +80,7 @@ nav:
       - cartesian_bounds_aggregation.md
       - date_histogram_aggregation.md
       - cartesian_centroid_aggregation.md
+      - date_range_aggregation.md
       - cardinality_aggregation.md
       - extended_stats_aggregation.md
       - geo_bounds_aggregation.md
