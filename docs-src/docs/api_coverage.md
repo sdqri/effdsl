@@ -122,6 +122,7 @@ hide:
 - [x] bucket count K-S test aggregation
 - [x] bucket correlation aggregation
 - [x] change point aggregation
+- [x] inference bucket aggregation
 
 ## Customize Search results (options)
 

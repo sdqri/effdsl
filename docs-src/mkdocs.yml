@@ -147,6 +147,7 @@ nav:
       - bucket_count_ks_test_aggregation.md
       - bucket_correlation_aggregation.md
       - change_point_aggregation.md
+      - inference_bucket_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
