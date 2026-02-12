@@ -46,6 +46,7 @@ hide:
 - [x] boxplot aggregation
 - [x] cardinality aggregation
 - [x] extended stats aggregation
+- [x] geo-bounds aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
