@@ -74,6 +74,7 @@ hide:
 - [x] auto date histogram aggregation
 - [x] date histogram aggregation
 - [x] date range aggregation
+- [x] filter aggregation
 - [x] filters aggregation
 
 ## Customize Search results (options)
