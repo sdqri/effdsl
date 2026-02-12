@@ -110,6 +110,7 @@ hide:
 - [x] cumulative sum aggregation
 - [x] derivative aggregation
 - [x] extended stats bucket aggregation
+- [x] max bucket aggregation
 
 ## Customize Search results (options)
 
