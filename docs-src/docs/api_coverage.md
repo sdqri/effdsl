@@ -112,6 +112,7 @@ hide:
 - [x] extended stats bucket aggregation
 - [x] max bucket aggregation
 - [x] min bucket aggregation
+- [x] stats bucket aggregation
 
 ## Customize Search results (options)
 

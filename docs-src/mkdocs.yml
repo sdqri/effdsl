@@ -137,6 +137,7 @@ nav:
       - extended_stats_bucket_aggregation.md
       - max_bucket_aggregation.md
       - min_bucket_aggregation.md
+      - stats_bucket_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
