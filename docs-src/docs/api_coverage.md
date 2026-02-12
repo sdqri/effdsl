@@ -68,6 +68,10 @@ hide:
 - [x] weighted avg aggregation
 - [x] sum aggregation
 
+### Bucket
+
+- [x] adjacency matrix aggregation
+
 ## Customize Search results (options)
 
 - [x] Collapse search results

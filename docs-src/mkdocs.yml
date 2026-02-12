@@ -73,6 +73,7 @@ nav:
       - phrase_suggester.md
       - term_suggester.md
     - Aggregations:
+      - adjacency_matrix_aggregation.md
       - avg_aggregation.md
       - boxplot_aggregation.md
       - cartesian_bounds_aggregation.md
