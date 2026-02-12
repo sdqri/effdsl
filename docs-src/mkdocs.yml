@@ -106,6 +106,8 @@ nav:
       - scripted_metric_aggregation.md
       - geohex_grid_aggregation.md
       - stats_aggregation.md
+      - nested_aggregation.md
+      - reverse_nested_aggregation.md
       - string_stats_aggregation.md
       - t_test_aggregation.md
       - terms_aggregation.md

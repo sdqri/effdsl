@@ -88,6 +88,8 @@ hide:
 - [x] rare terms aggregation
 - [x] multi terms aggregation
 - [x] composite aggregation
+- [x] nested aggregation
+- [x] reverse nested aggregation
 
 ## Customize Search results (options)
 
