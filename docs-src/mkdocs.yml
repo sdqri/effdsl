@@ -87,6 +87,7 @@ nav:
       - median_absolute_deviation_aggregation.md
       - min_aggregation.md
       - percentile_ranks_aggregation.md
+      - percentiles_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
