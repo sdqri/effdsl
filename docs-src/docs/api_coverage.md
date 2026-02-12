@@ -120,6 +120,7 @@ hide:
 - [x] moving function aggregation
 - [x] moving percentiles aggregation
 - [x] bucket count K-S test aggregation
+- [x] bucket correlation aggregation
 
 ## Customize Search results (options)
 
