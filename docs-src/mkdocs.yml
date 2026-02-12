@@ -125,6 +125,8 @@ nav:
       - parent_aggregation.md
       - random_sampler_aggregation.md
       - variable_width_histogram_aggregation.md
+      - significant_terms_aggregation.md
+      - significant_text_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

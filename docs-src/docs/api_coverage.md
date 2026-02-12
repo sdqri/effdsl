@@ -97,6 +97,8 @@ hide:
 - [x] parent aggregation
 - [x] random sampler aggregation
 - [x] variable width histogram aggregation
+- [x] significant terms aggregation
+- [x] significant text aggregation
 
 ## Customize Search results (options)
 
