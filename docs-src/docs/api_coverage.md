@@ -114,6 +114,7 @@ hide:
 - [x] min bucket aggregation
 - [x] stats bucket aggregation
 - [x] sum bucket aggregation
+- [x] percentiles bucket aggregation
 
 ## Customize Search results (options)
 
