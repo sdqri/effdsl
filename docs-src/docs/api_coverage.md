@@ -59,6 +59,7 @@ hide:
 - [x] percentiles aggregation
 - [x] rate aggregation
 - [x] scripted metric aggregation
+- [x] stats aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
