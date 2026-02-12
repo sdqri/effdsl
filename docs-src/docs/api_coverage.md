@@ -62,6 +62,7 @@ hide:
 - [x] stats aggregation
 - [x] string stats aggregation
 - [x] t-test aggregation
+- [x] top hits aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
