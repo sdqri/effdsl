@@ -84,6 +84,7 @@ hide:
 - [x] geohash grid aggregation
 - [x] geo-tile grid aggregation
 - [x] geohex grid aggregation
+- [x] terms aggregation
 
 ## Customize Search results (options)
 
