@@ -90,6 +90,7 @@ nav:
       - geo_line_aggregation.md
       - matrix_stats_aggregation.md
       - missing_aggregation.md
+      - histogram_aggregation.md
       - max_aggregation.md
       - median_absolute_deviation_aggregation.md
       - min_aggregation.md

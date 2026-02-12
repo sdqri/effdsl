@@ -78,6 +78,7 @@ hide:
 - [x] filters aggregation
 - [x] missing aggregation
 - [x] range aggregation
+- [x] histogram aggregation
 
 ## Customize Search results (options)
 
