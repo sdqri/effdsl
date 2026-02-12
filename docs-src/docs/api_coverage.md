@@ -55,6 +55,7 @@ hide:
 - [x] max aggregation
 - [x] median absolute deviation aggregation
 - [x] min aggregation
+- [x] percentile ranks aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
