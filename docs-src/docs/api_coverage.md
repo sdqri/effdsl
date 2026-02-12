@@ -51,6 +51,7 @@ hide:
 - [x] geo-bounds aggregation
 - [x] geo-centroid aggregation
 - [x] geo-line aggregation
+- [x] matrix stats aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)

@@ -82,6 +82,7 @@ nav:
       - geo_bounds_aggregation.md
       - geo_centroid_aggregation.md
       - geo_line_aggregation.md
+      - matrix_stats_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
