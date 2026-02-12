@@ -58,6 +58,7 @@ hide:
 - [x] percentile ranks aggregation
 - [x] percentiles aggregation
 - [x] rate aggregation
+- [x] scripted metric aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
