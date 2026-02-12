@@ -95,6 +95,8 @@ hide:
 - [x] global aggregation
 - [x] children aggregation
 - [x] parent aggregation
+- [x] random sampler aggregation
+- [x] variable width histogram aggregation
 
 ## Customize Search results (options)
 

@@ -123,6 +123,8 @@ nav:
       - global_aggregation.md
       - children_aggregation.md
       - parent_aggregation.md
+      - random_sampler_aggregation.md
+      - variable_width_histogram_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:
