@@ -102,6 +102,7 @@ nav:
       - rate_aggregation.md
       - geohash_grid_aggregation.md
       - geo_tile_grid_aggregation.md
+      - composite_aggregation.md
       - scripted_metric_aggregation.md
       - geohex_grid_aggregation.md
       - stats_aggregation.md

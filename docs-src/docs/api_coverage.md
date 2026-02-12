@@ -87,6 +87,7 @@ hide:
 - [x] terms aggregation
 - [x] rare terms aggregation
 - [x] multi terms aggregation
+- [x] composite aggregation
 
 ## Customize Search results (options)
 
