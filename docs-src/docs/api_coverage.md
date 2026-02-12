@@ -54,6 +54,7 @@ hide:
 - [x] matrix stats aggregation
 - [x] max aggregation
 - [x] median absolute deviation aggregation
+- [x] min aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
