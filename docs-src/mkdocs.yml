@@ -134,6 +134,7 @@ nav:
       - cumulative_cardinality_aggregation.md
       - cumulative_sum_aggregation.md
       - derivative_aggregation.md
+      - extended_stats_bucket_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
 markdown_extensions:

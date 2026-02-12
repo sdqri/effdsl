@@ -109,6 +109,7 @@ hide:
 - [x] cumulative cardinality aggregation
 - [x] cumulative sum aggregation
 - [x] derivative aggregation
+- [x] extended stats bucket aggregation
 
 ## Customize Search results (options)
 
