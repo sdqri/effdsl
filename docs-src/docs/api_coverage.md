@@ -103,6 +103,7 @@ hide:
 ### Pipeline
 
 - [x] avg bucket aggregation
+- [x] bucket script aggregation
 
 ## Customize Search results (options)
 
