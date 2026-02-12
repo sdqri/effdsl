@@ -83,6 +83,7 @@ hide:
 - [x] geo distance aggregation
 - [x] geohash grid aggregation
 - [x] geo-tile grid aggregation
+- [x] geohex grid aggregation
 
 ## Customize Search results (options)
 
