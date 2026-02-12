@@ -81,6 +81,7 @@ hide:
 - [x] histogram aggregation
 - [x] ip range aggregation
 - [x] geo distance aggregation
+- [x] geohash grid aggregation
 
 ## Customize Search results (options)
 
