@@ -76,6 +76,7 @@ hide:
 - [x] date range aggregation
 - [x] filter aggregation
 - [x] filters aggregation
+- [x] missing aggregation
 
 ## Customize Search results (options)
 
