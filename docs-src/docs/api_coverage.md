@@ -79,6 +79,7 @@ hide:
 - [x] missing aggregation
 - [x] range aggregation
 - [x] histogram aggregation
+- [x] ip range aggregation
 
 ## Customize Search results (options)
 

@@ -94,6 +94,7 @@ nav:
       - max_aggregation.md
       - median_absolute_deviation_aggregation.md
       - min_aggregation.md
+      - ip_range_aggregation.md
       - range_aggregation.md
       - percentile_ranks_aggregation.md
       - percentiles_aggregation.md
