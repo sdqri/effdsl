@@ -25,3 +25,21 @@ func TestStatsAggregation_NoOptions(t *testing.T) {
 	assert.Nil(t, err)
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
+
+func TestStatsAggregation_WithMissing(t *testing.T) {
+	expectedBody := `{
+        "stats": {
+            "field": "grade",
+            "missing": 0
+        }
+    }`
+
+	res := stats.Stats("grades_stats", "grade", stats.WithMissing(0))
+
+	assert.Nil(t, res.Err)
+	assert.NotNil(t, res.Ok)
+
+	jsonBody, err := json.Marshal(res.Ok)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}

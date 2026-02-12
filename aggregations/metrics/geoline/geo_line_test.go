@@ -27,3 +27,35 @@ func TestGeoLineAggregation_NoOptions(t *testing.T) {
 	assert.Nil(t, err)
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
+
+func TestGeoLineAggregation_WithSortAndOptions(t *testing.T) {
+	expectedBody := `{
+        "geo_line": {
+            "point": {
+                "field": "my_location"
+            },
+            "sort": {
+                "field": "timestamp"
+            },
+            "include_sort": true,
+            "sort_order": "asc",
+            "size": 10
+        }
+    }`
+
+	res := geoline.GeoLine(
+		"line",
+		"my_location",
+		geoline.WithSortField("timestamp"),
+		geoline.WithIncludeSort(true),
+		geoline.WithSortOrder("asc"),
+		geoline.WithSize(10),
+	)
+
+	assert.Nil(t, res.Err)
+	assert.NotNil(t, res.Ok)
+
+	jsonBody, err := json.Marshal(res.Ok)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}

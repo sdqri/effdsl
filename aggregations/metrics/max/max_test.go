@@ -25,3 +25,21 @@ func TestMaxAggregation_NoOptions(t *testing.T) {
 	assert.Nil(t, err)
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
+
+func TestMaxAggregation_WithMissing(t *testing.T) {
+	expectedBody := `{
+        "max": {
+            "field": "grade",
+            "missing": 10
+        }
+    }`
+
+	res := max.Max("grade_max", "grade", max.WithMissing(10))
+
+	assert.Nil(t, res.Err)
+	assert.NotNil(t, res.Ok)
+
+	jsonBody, err := json.Marshal(res.Ok)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}

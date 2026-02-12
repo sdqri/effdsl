@@ -26,6 +26,24 @@ func TestAvgAggregation_NoOptions(t *testing.T) {
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
 
+func TestAvgAggregation_WithMissing(t *testing.T) {
+	expectedBody := `{
+		"avg": {
+			"field": "grade",
+			"missing": 10
+		}
+	}`
+
+	avgResult := aa.Avg("grade_avg", "grade", aa.WithMissing(10))
+
+	assert.Nil(t, avgResult.Err)
+	assert.NotNil(t, avgResult.Ok)
+
+	jsonBody, err := json.Marshal(avgResult.Ok)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}
+
 // func TestAvgAggregation_AllOptions(t *testing.T) {
 // 	script := aggregations.Script{
 // 		Lang:   "painless",

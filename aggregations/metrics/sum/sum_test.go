@@ -25,3 +25,21 @@ func TestSumAggregation_NoOptions(t *testing.T) {
 	assert.Nil(t, err)
 	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
+
+func TestSumAggregation_WithMissing(t *testing.T) {
+	expectedBody := `{
+		"sum": {
+			"field": "price",
+			"missing": 100
+		}
+	}`
+
+	res := sum.Sum("hat_prices", "price", sum.WithMissing(100))
+
+	assert.Nil(t, res.Err)
+	assert.NotNil(t, res.Ok)
+
+	jsonBody, err := json.Marshal(res.Ok)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
+}
