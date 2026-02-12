@@ -8,6 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/sdqri/effdsl/v2"
+	avg "github.com/sdqri/effdsl/v2/aggregations/metrics/avg"
 	bq "github.com/sdqri/effdsl/v2/queries/boolquery"
 	eq "github.com/sdqri/effdsl/v2/queries/existsquery"
 	qs "github.com/sdqri/effdsl/v2/queries/querystring"
@@ -78,6 +79,19 @@ func TestWithSuggest(t *testing.T) {
 	jsonBody, err := json.Marshal(body)
 	assert.Nil(t, err)
 	assert.Equal(t, expectedBody, string(jsonBody))
+}
+
+func TestWithAggregation(t *testing.T) {
+	expectedBody := `{"aggs":{"avg_price":{"avg":{"field":"price"}}}}`
+	f := effdsl.WithAggregation(
+		avg.Avg("avg_price", "price"),
+	)
+	body := effdsl.SearchBody{}
+	err := f(&body)
+	assert.Nil(t, err)
+	jsonBody, err := json.Marshal(body)
+	assert.Nil(t, err)
+	assert.JSONEq(t, expectedBody, string(jsonBody))
 }
 
 func TestDefindeQ1(t *testing.T) {

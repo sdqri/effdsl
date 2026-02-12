@@ -38,6 +38,92 @@ hide:
 - [x] terms_set query
 - [x] wildcard query
 
+## Aggregations
+
+### Metrics
+
+- [x] avg aggregation
+- [x] boxplot aggregation
+- [x] cartesian-bounds aggregation
+- [x] cartesian-centroid aggregation
+- [x] cardinality aggregation
+- [x] extended stats aggregation
+- [x] geo-bounds aggregation
+- [x] geo-centroid aggregation
+- [x] geo-line aggregation
+- [x] matrix stats aggregation
+- [x] max aggregation
+- [x] median absolute deviation aggregation
+- [x] min aggregation
+- [x] percentile ranks aggregation
+- [x] percentiles aggregation
+- [x] rate aggregation
+- [x] scripted metric aggregation
+- [x] stats aggregation
+- [x] string stats aggregation
+- [x] t-test aggregation
+- [x] top hits aggregation
+- [x] top metrics aggregation
+- [x] value count aggregation
+- [x] weighted avg aggregation
+- [x] sum aggregation
+
+### Bucket
+
+- [x] adjacency matrix aggregation
+- [x] auto date histogram aggregation
+- [x] date histogram aggregation
+- [x] date range aggregation
+- [x] filter aggregation
+- [x] filters aggregation
+- [x] missing aggregation
+- [x] range aggregation
+- [x] histogram aggregation
+- [x] ip range aggregation
+- [x] geo distance aggregation
+- [x] geohash grid aggregation
+- [x] geo-tile grid aggregation
+- [x] geohex grid aggregation
+- [x] terms aggregation
+- [x] rare terms aggregation
+- [x] multi terms aggregation
+- [x] composite aggregation
+- [x] nested aggregation
+- [x] reverse nested aggregation
+- [x] sampler aggregation
+- [x] diversified sampler aggregation
+- [x] global aggregation
+- [x] children aggregation
+- [x] parent aggregation
+- [x] random sampler aggregation
+- [x] variable width histogram aggregation
+- [x] significant terms aggregation
+- [x] significant text aggregation
+
+### Pipeline
+
+- [x] avg bucket aggregation
+- [x] bucket script aggregation
+- [x] bucket selector aggregation
+- [x] bucket sort aggregation
+- [x] cumulative cardinality aggregation
+- [x] cumulative sum aggregation
+- [x] derivative aggregation
+- [x] extended stats bucket aggregation
+- [x] max bucket aggregation
+- [x] min bucket aggregation
+- [x] stats bucket aggregation
+- [x] sum bucket aggregation
+- [x] percentiles bucket aggregation
+- [x] serial differencing aggregation
+- [x] normalize aggregation
+- [x] moving function aggregation
+- [x] moving percentiles aggregation
+- [x] bucket count K-S test aggregation
+- [x] bucket correlation aggregation
+- [x] change point aggregation
+- [x] inference bucket aggregation
+
 ## Customize Search results (options)
 
 - [x] Collapse search results

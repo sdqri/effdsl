@@ -2,126 +2,426 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sdqri.org/effdsl/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/adjacency_matrix_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/api_coverage/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/auto_date_histogram_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/avg_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/avg_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/bool_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/boosting_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/boxplot_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/bucket_correlation_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/bucket_count_ks_test_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/bucket_script_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/bucket_selector_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/bucket_sort_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/cardinality_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/cartesian_bounds_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/cartesian_centroid_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/change_point_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/children_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/completion_suggester/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/composite_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/constant_score/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/cumulative_cardinality_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/cumulative_sum_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/date_histogram_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/date_range_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/derivative_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/dis_max_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/diversified_sampler_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/exists_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/extended_stats_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/extended_stats_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/filter_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/filters_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/fuzzy_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geo_bounds_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geo_centroid_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geo_distance_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geo_line_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geo_tile_grid_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geohash_grid_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/geohex_grid_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/global_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/histogram_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/ids_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/inference_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/ip_range_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_all_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_bool_prefix/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_phrase_prefix/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_phrase_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/match_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/matrix_stats_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/max_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/max_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/median_absolute_deviation_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/min_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/min_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/missing_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/moving_fn_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/moving_percentiles_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/multi_match_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/multi_terms_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/nested_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/nested_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/normalize_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/paginate_search/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/parent_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/percentile_ranks_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/percentiles_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/percentiles_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/phrase_suggester/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/prefix_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/query_string/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/random_sampler_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/range_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/range_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/rare_terms_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/rate_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/regexp_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/release_notes/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/reverse_nested_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/sampler_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/scripted_metric_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/serial_diff_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/significant_terms_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/significant_text_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/simple_query_string/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/sort_search/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/stats_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/stats_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/string_stats_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/sum_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/sum_bucket_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/t_test_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/term_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/term_suggester/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/terms_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/terms_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/terms_set_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/top_hits_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/top_metrics_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/value_count_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/variable_width_histogram_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
+    </url>
+    <url>
+         <loc>https://sdqri.org/effdsl/weighted_avg_aggregation/</loc>
+         <lastmod>2026-02-12</lastmod>
     </url>
     <url>
          <loc>https://sdqri.org/effdsl/wildcard_query/</loc>
-         <lastmod>2025-07-16</lastmod>
+         <lastmod>2026-02-12</lastmod>
     </url>
 </urlset>

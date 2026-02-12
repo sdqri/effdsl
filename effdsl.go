@@ -3,6 +3,8 @@ package effdsl
 import (
 	"encoding/json"
 	"fmt"
+
+	agg "github.com/sdqri/effdsl/v2/aggregations"
 )
 
 type M map[string]any
@@ -13,16 +15,17 @@ func (m M) MarshalJSON() ([]byte, error) {
 }
 
 type SearchBody struct {
-	Source      json.Marshaler         `json:"_source,omitempty"`
-	From        *uint64                `json:"from,omitempty"`
-	Size        *uint64                `json:"size,omitempty"`
-	Query       Query                  `json:"query,omitempty"`
-	Sort        []SortClauseType       `json:"sort,omitempty"`
-	TrackScore  bool                   `json:"track_scores,omitempty"`
-	SearchAfter SearchAfterType        `json:"search_after,omitempty"`
-	Collapse    json.Marshaler         `json:"collapse,omitempty"`
-	PIT         json.Marshaler         `json:"pit,omitempty"`
-	Suggest     map[string]SuggestType `json:"suggest,omitempty"`
+	Source       json.Marshaler                 `json:"_source,omitempty"`
+	From         *uint64                        `json:"from,omitempty"`
+	Size         *uint64                        `json:"size,omitempty"`
+	Query        Query                          `json:"query,omitempty"`
+	Sort         []SortClauseType               `json:"sort,omitempty"`
+	TrackScore   bool                           `json:"track_scores,omitempty"`
+	SearchAfter  SearchAfterType                `json:"search_after,omitempty"`
+	Collapse     json.Marshaler                 `json:"collapse,omitempty"`
+	PIT          json.Marshaler                 `json:"pit,omitempty"`
+	Suggest      map[string]SuggestType         `json:"suggest,omitempty"`
+	Aggregations map[string]agg.AggregationType `json:"aggs,omitempty"`
 }
 
 type BodyOption func(*SearchBody) error
@@ -217,6 +220,30 @@ func WithSuggest(suggestResults ...SuggestResult) BodyOption {
 				b.Suggest[sr.Ok.SuggestName()] = sr.Ok
 			}
 		}
+		return nil
+	}
+}
+
+// WithAggregation - allows you to use aggregation
+func WithAggregation(aggregationResults ...agg.AggregationResult) BodyOption {
+	return func(b *SearchBody) error {
+		if len(aggregationResults) == 0 {
+			return fmt.Errorf("WithAggregations: no aggregation results provided")
+		}
+
+		if b.Aggregations == nil {
+			b.Aggregations = make(map[string]agg.AggregationType)
+		}
+
+		for _, aggResult := range aggregationResults {
+			if aggResult.Err != nil {
+				return aggResult.Err
+			}
+			if aggResult.Ok != nil {
+				b.Aggregations[aggResult.Ok.AggregationName()] = aggResult.Ok
+			}
+		}
+
 		return nil
 	}
 }
