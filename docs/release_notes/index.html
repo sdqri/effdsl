@@ -3483,13 +3483,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#v212-latest" class="md-nav__link">
+  <a href="#v270-latest" class="md-nav__link">
     <span class="md-ellipsis">
-      v2.1.2 Latest
+      v2.7.0 Latest
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v2.1.2 Latest">
+    <nav class="md-nav" aria-label="v2.7.0 Latest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3502,7 +3502,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#whats-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v212" class="md-nav__link">
+    <span class="md-ellipsis">
+      v2.1.2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.1.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-changed_1" class="md-nav__link">
     <span class="md-ellipsis">
       What's Changed
     </span>
@@ -3561,13 +3603,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#v212-latest" class="md-nav__link">
+  <a href="#v270-latest" class="md-nav__link">
     <span class="md-ellipsis">
-      v2.1.2 Latest
+      v2.7.0 Latest
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="v2.1.2 Latest">
+    <nav class="md-nav" aria-label="v2.7.0 Latest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3580,7 +3622,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#whats-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's Changed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v212" class="md-nav__link">
+    <span class="md-ellipsis">
+      v2.1.2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.1.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-changed_1" class="md-nav__link">
     <span class="md-ellipsis">
       What's Changed
     </span>
@@ -3624,15 +3708,32 @@
 
 
 <h1 id="release-notes">Release Notes</h1>
-<h2 id="v212-latest">v2.1.2 Latest</h2>
+<h2 id="v270-latest">v2.7.0 Latest</h2>
 <h3 id="whats-new">What's New</h3>
+<ul>
+<li>Add comprehensive aggregation support across metrics, bucket, and pipeline aggregations.</li>
+<li>Introduce aggregation APIs and helpers for composing aggregations in queries.</li>
+</ul>
+<h3 id="highlights">Highlights</h3>
+<ul>
+<li>Metrics aggregations: avg, sum, min/max, stats/extended stats, percentiles/percentile ranks, rate, scripted metric, t-test, string stats, top hits, top metrics, value count, weighted avg, boxplot, median absolute deviation, cardinality, matrix stats, cartesian/geo variants.</li>
+<li>Bucket aggregations: terms, filters/filter, date histogram/date range/auto date histogram, range/histogram, geo grids, missing, nested/reverse nested, composite, rare/multi terms, sampler/diversified/random sampler, significant terms/text, parent/children/global, adjacency matrix, variable width histogram.</li>
+<li>Pipeline aggregations: avg/sum/min/max/stats/extended stats/percentiles bucket, bucket script/selector/sort, cumulative sum/cardinality, derivative, serial diff, normalize, moving fn/percentiles, bucket correlation, bucket count K-S test, change point, inference bucket.</li>
+</ul>
+<h3 id="whats-changed">What's Changed</h3>
+<ul>
+<li>Expand aggregation example test coverage and add doc-style option cases.</li>
+<li>Update aggregation docs navigation and fix geo distance doc entry.</li>
+</ul>
+<h2 id="v212">v2.1.2</h2>
+<h3 id="whats-new_1">What's New</h3>
 <ul>
 <li>✨ Add support for boosting query, constant score query, disjunction max query in compound queries.</li>
 <li>✨ Add support for match query, match_bool_prefix query, match_phrase query, match_phrase_prefix query, simple_query_string query in full text queries.</li>
 <li>✨ Add support for ids query, prefix query, wildcard query in term-level queries.</li>
 <li>📝 Add documentation for all supported queries.</li>
 </ul>
-<h3 id="whats-changed">What's Changed</h3>
+<h3 id="whats-changed_1">What's Changed</h3>
 <ul>
 <li>🔄 Separate queries into packages to remove prefixed parameters.</li>
 <li>✅ Complete functional options in queries.</li>
