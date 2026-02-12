@@ -43,7 +43,8 @@ hide:
 ### Metrics
 
 - [x] avg aggregation
-- [ ] sum aggregation
+- [x] boxplot aggregation
+- [x] sum aggregation
 
 ## Customize Search results (options)
 
