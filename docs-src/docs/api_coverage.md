@@ -47,6 +47,7 @@ hide:
 - [x] cardinality aggregation
 - [x] extended stats aggregation
 - [x] geo-bounds aggregation
+- [x] geo-centroid aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)

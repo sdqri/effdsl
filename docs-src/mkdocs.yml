@@ -78,6 +78,7 @@ nav:
       - cardinality_aggregation.md
       - extended_stats_aggregation.md
       - geo_bounds_aggregation.md
+      - geo_centroid_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
