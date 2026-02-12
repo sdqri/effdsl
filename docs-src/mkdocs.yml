@@ -75,6 +75,7 @@ nav:
     - Aggregations:
       - avg_aggregation.md
       - boxplot_aggregation.md
+      - cardinality_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
