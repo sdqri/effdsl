@@ -71,6 +71,7 @@ hide:
 ### Bucket
 
 - [x] adjacency matrix aggregation
+- [x] auto date histogram aggregation
 
 ## Customize Search results (options)
 
