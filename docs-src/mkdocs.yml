@@ -95,6 +95,7 @@ nav:
       - t_test_aggregation.md
       - top_hits_aggregation.md
       - top_metrics_aggregation.md
+      - value_count_aggregation.md
       - sum_aggregation.md
   - API Coverage: api_coverage.md
   - Release Notes: release_notes.md
