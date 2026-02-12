@@ -105,6 +105,7 @@ hide:
 - [x] avg bucket aggregation
 - [x] bucket script aggregation
 - [x] bucket selector aggregation
+- [x] cumulative sum aggregation
 
 ## Customize Search results (options)
 
