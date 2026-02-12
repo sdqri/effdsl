@@ -44,6 +44,7 @@ hide:
 
 - [x] avg aggregation
 - [x] boxplot aggregation
+- [x] cartesian-bounds aggregation
 - [x] cardinality aggregation
 - [x] extended stats aggregation
 - [x] geo-bounds aggregation
