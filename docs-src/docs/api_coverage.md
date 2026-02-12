@@ -48,6 +48,7 @@ hide:
 - [x] extended stats aggregation
 - [x] geo-bounds aggregation
 - [x] geo-centroid aggregation
+- [x] geo-line aggregation
 - [x] sum aggregation
 
 ## Customize Search results (options)
